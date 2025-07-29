@@ -1,0 +1,152 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "bench_top_geom",
+      "type": "BoxGeometry",
+      "width": 1.0,
+      "height": 0.05,
+      "depth": 0.7,
+      "name": "BenchTopGeometry"
+    },
+    {
+      "uuid": "leg_geom",
+      "type": "BoxGeometry",
+      "width": 0.05,
+      "height": 0.75,
+      "depth": 0.05,
+      "name": "LegGeometry"
+    },
+    {
+      "uuid": "motor_housing_geom",
+      "type": "BoxGeometry",
+      "width": 0.4,
+      "height": 0.3,
+      "depth": 0.3,
+      "name": "MotorHousingGeometry"
+    },
+    {
+      "uuid": "cutting_wheel_geom",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.15,
+      "radiusBottom": 0.15,
+      "height": 0.01,
+      "radialSegments": 24,
+      "heightSegments": 1,
+      "openEnded": false,
+      "name": "CuttingWheelGeometry"
+    },
+    {
+      "uuid": "blade_guard_geom",
+      "type": "TorusGeometry",
+      "radius": 0.16,
+      "tube": 0.02,
+      "radialSegments": 16,
+      "tubularSegments": 12,
+      "arc": 3.141592653589793,
+      "name": "BladeGuardGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "bench_wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 9200426,
+      "roughness": 0.85,
+      "metalness": 0.05,
+      "name": "BenchWoodMaterial"
+    },
+    {
+      "uuid": "bench_metal_material",
+      "type": "MeshStandardMaterial",
+      "color": 7368816,
+      "metalness": 0.9,
+      "roughness": 0.4,
+      "name": "BenchMetalMaterial"
+    },
+    {
+      "uuid": "blade_material",
+      "type": "MeshStandardMaterial",
+      "color": 10066329,
+      "metalness": 0.95,
+      "roughness": 0.2,
+      "name": "BladeMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "saw_bench_assembly_group",
+    "type": "Group",
+    "name": "SawBenchAssembly",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1],
+    "children": [
+      {
+        "uuid": "bench_top_mesh",
+        "type": "Mesh",
+        "name": "BenchTop",
+        "geometry": "bench_top_geom",
+        "material": "bench_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.775,0,1]
+      },
+      {
+        "uuid": "leg_front_left",
+        "type": "Mesh",
+        "name": "LegFL",
+        "geometry": "leg_geom",
+        "material": "bench_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.475,0.375,0.325,1]
+      },
+      {
+        "uuid": "leg_front_right",
+        "type": "Mesh",
+        "name": "LegFR",
+        "geometry": "leg_geom",
+        "material": "bench_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.475,0.375,0.325,1]
+      },
+      {
+        "uuid": "leg_back_left",
+        "type": "Mesh",
+        "name": "LegBL",
+        "geometry": "leg_geom",
+        "material": "bench_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.475,0.375,-0.325,1]
+      },
+      {
+        "uuid": "leg_back_right",
+        "type": "Mesh",
+        "name": "LegBR",
+        "geometry": "leg_geom",
+        "material": "bench_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.475,0.375,-0.325,1]
+      },
+      {
+        "uuid": "motor_housing_mesh",
+        "type": "Mesh",
+        "name": "MotorHousing",
+        "geometry": "motor_housing_geom",
+        "material": "bench_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.55,0,1]
+      },
+      {
+        "uuid": "cutting_wheel_mesh",
+        "type": "Mesh",
+        "name": "CuttingWheel",
+        "geometry": "cutting_wheel_geom",
+        "material": "blade_material",
+        "matrix": [1,0,0,0, 0,0,1,0, 0,-1,0,0, 0,0.775,0,1]
+      },
+      {
+        "uuid": "blade_guard_mesh",
+        "type": "Mesh",
+        "name": "BladeGuard",
+        "geometry": "blade_guard_geom",
+        "material": "bench_metal_material",
+        "matrix": [0,0,-1,0, 1,0,0,0, 0,-1,0,0, 0,0.925,0,1]
+      }
+    ]
+  }
+}

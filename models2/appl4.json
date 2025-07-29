@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "trunk-geometry",
+      "type": "CylinderGeometry",
+      "data": {
+        "radiusTop": 0.2,
+        "radiusBottom": 0.25,
+        "height": 2.5,
+        "radialSegments": 8,
+        "heightSegments": 1
+      }
+    },
+    {
+      "uuid": "branch-geometry", 
+      "type": "CylinderGeometry",
+      "data": {
+        "radiusTop": 0.1,
+        "radiusBottom": 0.12,
+        "height": 1.5,
+        "radialSegments": 6,
+        "heightSegments": 1
+      }
+    },
+    {
+      "uuid": "foliage-geometry",
+      "type": "SphereGeometry", 
+      "data": {
+        "radius": 0.8,
+        "widthSegments": 8,
+        "heightSegments": 6
+      }
+    },
+    {
+      "uuid": "apple-geometry",
+      "type": "SphereGeometry",
+      "data": {
+        "radius": 0.15,
+        "widthSegments": 6,
+        "heightSegments": 4
+      }
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "trunk-material",
+      "type": "MeshStandardMaterial",
+      "color": 6042390,
+      "roughness": 0.8,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "foliage-material", 
+      "type": "MeshStandardMaterial",
+      "color": 2399156,
+      "roughness": 0.7,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "apple-material",
+      "type": "MeshStandardMaterial", 
+      "color": 13369344,
+      "roughness": 0.5,
+      "metalness": 0.0
+    }
+  ],
+  "object": {
+    "uuid": "apple-tree",
+    "type": "Group",
+    "name": "AppleTree",
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "main-trunk",
+        "type": "Mesh", 
+        "name": "MainTrunk",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,1.25,0,1],
+        "geometry": "trunk-geometry",
+        "material": "trunk-material"
+      },
+      {
+        "uuid": "branch-1",
+        "type": "Mesh",
+        "name": "Branch1", 
+        "matrix": [0.866,0,-0.5,0,0.25,0.866,0.433,0,0.433,-0.5,0.75,0,0.3,2.0,0.3,1],
+        "geometry": "branch-geometry",
+        "material": "trunk-material"
+      },
+      {
+        "uuid": "branch-2",
+        "type": "Mesh",
+        "name": "Branch2",
+        "matrix": [0.866,0,0.5,0,-0.25,0.866,-0.433,0,-0.433,-0.5,0.75,0,-0.4,2.2,0.2,1],
+        "geometry": "branch-geometry", 
+        "material": "trunk-material"
+      },
+      {
+        "uuid": "foliage-clump-1",
+        "type": "Mesh",
+        "name": "FoliageClump1",
+        "matrix": [1.2,0,0,0,0,1.2,0,0,0,0,1.2,0,0,3.0,0,1],
+        "geometry": "foliage-geometry",
+        "material": "foliage-material"
+      },
+      {
+        "uuid": "foliage-clump-2", 
+        "type": "Mesh",
+        "name": "FoliageClump2",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.8,2.8,0.5,1],
+        "geometry": "foliage-geometry",
+        "material": "foliage-material"
+      },
+      {
+        "uuid": "foliage-clump-3",
+        "type": "Mesh", 
+        "name": "FoliageClump3",
+        "matrix": [0.9,0,0,0,0,0.9,0,0,0,0,0.9,0,-0.7,2.9,-0.6,1],
+        "geometry": "foliage-geometry",
+        "material": "foliage-material"
+      },
+      {
+        "uuid": "apple-1",
+        "type": "Mesh",
+        "name": "Apple1",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.2,2.8,0.7,1],
+        "geometry": "apple-geometry",
+        "material": "apple-material"
+      },
+      {
+        "uuid": "apple-2",
+        "type": "Mesh",
+        "name": "Apple2", 
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.5,3.1,0.1,1],
+        "geometry": "apple-geometry",
+        "material": "apple-material"
+      },
+      {
+        "uuid": "apple-3",
+        "type": "Mesh",
+        "name": "Apple3",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.9,2.5,-0.3,1],
+        "geometry": "apple-geometry",
+        "material": "apple-material"
+      },
+      {
+        "uuid": "apple-4",
+        "type": "Mesh",
+        "name": "Apple4",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.2,2.6,-0.9,1],
+        "geometry": "apple-geometry", 
+        "material": "apple-material"
+      },
+      {
+        "uuid": "apple-5",
+        "type": "Mesh",
+        "name": "Apple5",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,3.3,0.5,1],
+        "geometry": "apple-geometry",
+        "material": "apple-material"
+      }
+    ]
+  }
+}

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .controls h3 {
+            margin: 0 0 15px 0;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        select {
+            width: 200px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            display: none;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid white;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h3>🎯 Select Model</h3>
+        <select id="modelSelect">
+            <option value="">Choose a model...</option>
+        </select>
+    </div>
+
+    <div class="loading" id="loading">Loading model</div>
+    
+    <div class="info">
+        🖱️ Left click + drag to rotate • 🔄 Scroll to zoom • 🖱️ Right click + drag to pan
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // ==========================================
+        // CONFIGURATION - Edit these variables
+        // ==========================================
+        
+        // Set your models directory path here
+        const MODELS_PATH = 'models2/';
+        
+        // List your model filenames here (with .json extension)
+        const MODEL_FILES = [
+            'character.json',
+            'building.json', 
+            'vehicle.json',
+            'landscape.json',
+            'weapon.json'
+        ];
+        
+        // ==========================================
+        // MODEL VIEWER CLASS
+        // ==========================================
+        
+        class ModelViewer {
+            constructor() {
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.controls = null;
+                this.currentModel = null;
+                this.modelPaths = [];
+                
+                this.init();
+                this.setupModelList();
+                this.animate();
+            }
+
+            setupModelList() {
+                // Use the configured model files
+                if (MODEL_FILES.length > 0) {
+                    this.modelPaths = MODEL_FILES.map(filename => MODELS_PATH + filename);
+                    this.setupModelOptions();
+                } else {
+                    // If no models are configured, show input dialog
+                    this.promptForModelList();
+                }
+            }
+
+            promptForModelList() {
+                const defaultModels = 'character.json, building.json, vehicle.json';
+                const input = prompt(
+                    '🔍 No models configured in MODEL_FILES array.\n\n' +
+                    'Please enter your model filenames (with .json extension), separated by commas:\n\n' +
+                    'Example: character.json, building.json, vehicle.json',
+                    defaultModels
+                );
+                
+                if (input) {
+                    const filenames = input.split(',').map(name => name.trim());
+                    this.modelPaths = filenames.map(name => MODELS_PATH + name);
+                    this.setupModelOptions();
+                } else {
+                    // Create demo models if user cancels
+                    this.createDemoModels();
+                }
+            }
+
+            createDemoModels() {
+                this.modelPaths = [
+                    'demo_cube',
+                    'demo_sphere', 
+                    'demo_torus'
+                ];
+                this.setupModelOptions();
+            }
+
+            init() {
+                const container = document.getElementById('canvas-container');
+                
+                // Scene
+                this.scene = new THREE.Scene();
+                this.scene.background = new THREE.Color(0x000510);
+                
+                // Camera
+                this.camera = new THREE.PerspectiveCamera(
+                    75, 
+                    window.innerWidth / window.innerHeight, 
+                    0.1, 
+                    1000
+                );
+                this.camera.position.set(5, 5, 5);
+                
+                // Renderer
+                this.renderer = new THREE.WebGLRenderer({ 
+                    antialias: true,
+                    alpha: true 
+                });
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                this.renderer.shadowMap.enabled = true;
+                this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                this.renderer.outputEncoding = THREE.sRGBEncoding;
+                container.appendChild(this.renderer.domElement);
+                
+                // Lighting
+                this.setupLighting();
+                
+                // Controls (Basic orbital controls implementation)
+                this.setupControls();
+                
+                // Event listeners
+                window.addEventListener('resize', () => this.onWindowResize());
+                document.getElementById('modelSelect').addEventListener('change', (e) => {
+                    if (e.target.value === 'refresh') {
+                        e.target.selectedIndex = 0; // Reset to default
+                        this.setupModelList();
+                    } else if (e.target.value === 'add_models') {
+                        e.target.selectedIndex = 0; // Reset to default
+                        this.promptForModelList();
+                    } else if (e.target.value && !e.target.value.startsWith('demo_')) {
+                        this.loadModel(e.target.value);
+                    } else if (e.target.value.startsWith('demo_')) {
+                        this.createDemoModel(e.target.value);
+                    }
+                });
+            }
+
+            setupLighting() {
+                // Ambient light
+                const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+                this.scene.add(ambientLight);
+                
+                // Directional light
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+                directionalLight.position.set(10, 10, 5);
+                directionalLight.castShadow = true;
+                directionalLight.shadow.mapSize.width = 2048;
+                directionalLight.shadow.mapSize.height = 2048;
+                this.scene.add(directionalLight);
+                
+                // Point lights for better illumination
+                const pointLight1 = new THREE.PointLight(0x4080ff, 0.5, 50);
+                pointLight1.position.set(-10, 10, 10);
+                this.scene.add(pointLight1);
+                
+                const pointLight2 = new THREE.PointLight(0xff8040, 0.3, 50);
+                pointLight2.position.set(10, -10, -10);
+                this.scene.add(pointLight2);
+            }
+
+            setupControls() {
+                // Basic mouse controls
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+                let isRightClick = false;
+                
+                this.renderer.domElement.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    isRightClick = e.button === 2;
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+                
+                this.renderer.domElement.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    
+                    const deltaMove = {
+                        x: e.clientX - previousMousePosition.x,
+                        y: e.clientY - previousMousePosition.y
+                    };
+                    
+                    if (isRightClick) {
+                        // Pan camera
+                        const panSpeed = 0.01;
+                        this.camera.position.x -= deltaMove.x * panSpeed;
+                        this.camera.position.y += deltaMove.y * panSpeed;
+                    } else {
+                        // Rotate camera around origin
+                        const rotateSpeed = 0.01;
+                        const spherical = new THREE.Spherical();
+                        spherical.setFromVector3(this.camera.position);
+                        spherical.theta -= deltaMove.x * rotateSpeed;
+                        spherical.phi += deltaMove.y * rotateSpeed;
+                        spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi));
+                        this.camera.position.setFromSpherical(spherical);
+                    }
+                    
+                    this.camera.lookAt(0, 0, 0);
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+                
+                this.renderer.domElement.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                this.renderer.domElement.addEventListener('wheel', (e) => {
+                    const zoomSpeed = 0.1;
+                    const direction = this.camera.position.clone().normalize();
+                    if (e.deltaY > 0) {
+                        this.camera.position.addScaledVector(direction, zoomSpeed);
+                    } else {
+                        this.camera.position.addScaledVector(direction, -zoomSpeed);
+                    }
+                });
+                
+                // Prevent context menu on right click
+                this.renderer.domElement.addEventListener('contextmenu', (e) => e.preventDefault());
+            }
+
+            setupModelOptions() {
+                const select = document.getElementById('modelSelect');
+                
+                // Clear existing options except the first one
+                while (select.children.length > 1) {
+                    select.removeChild(select.lastChild);
+                }
+                
+                if (this.modelPaths.length === 0) {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = '❌ No models configured';
+                    option.disabled = true;
+                    select.appendChild(option);
+                    return;
+                }
+                
+                // Add model options
+                this.modelPaths.forEach((path, index) => {
+                    const option = document.createElement('option');
+                    option.value = path;
+                    
+                    // Handle demo models
+                    if (path.startsWith('demo_')) {
+                        option.textContent = `🎲 ${path.replace('demo_', '').charAt(0).toUpperCase() + path.replace('demo_', '').slice(1)} (Demo)`;
+                    } else {
+                        const modelName = path.split('/').pop().replace('.json', '');
+                        option.textContent = modelName.charAt(0).toUpperCase() + modelName.slice(1);
+                    }
+                    select.appendChild(option);
+                });
+                
+                // Add utility options
+                const divider = document.createElement('option');
+                divider.disabled = true;
+                divider.textContent = '──────────────';
+                select.appendChild(divider);
+                
+                const addOption = document.createElement('option');
+                addOption.value = 'add_models';
+                addOption.textContent = '➕ Add more models';
+                select.appendChild(addOption);
+                
+                const refreshOption = document.createElement('option');
+                refreshOption.value = 'refresh';
+                refreshOption.textContent = '🔄 Refresh list';
+                select.appendChild(refreshOption);
+            }
+
+            createDemoModel(demoType) {
+                const loading = document.getElementById('loading');
+                loading.style.display = 'block';
+                
+                // Remove current model
+                if (this.currentModel) {
+                    this.scene.remove(this.currentModel);
+                }
+                
+                let geometry, material;
+                
+                switch(demoType) {
+                    case 'demo_cube':
+                        geometry = new THREE.BoxGeometry(2, 2, 2);
+                        material = new THREE.MeshLambertMaterial({ 
+                            color: 0x44aa88,
+                            transparent: true,
+                            opacity: 0.8
+                        });
+                        break;
+                    case 'demo_sphere':
+                        geometry = new THREE.SphereGeometry(1.5, 32, 32);
+                        material = new THREE.MeshLambertMaterial({ 
+                            color: 0xaa4488,
+                            wireframe: false
+                        });
+                        break;
+                    case 'demo_torus':
+                        geometry = new THREE.TorusGeometry(1.5, 0.5, 16, 100);
+                        material = new THREE.MeshLambertMaterial({ 
+                            color: 0x8844aa,
+                            wireframe: false
+                        });
+                        break;
+                    default:
+                        this.createFallbackModel();
+                        loading.style.display = 'none';
+                        return;
+                }
+                
+                this.currentModel = new THREE.Mesh(geometry, material);
+                this.currentModel.castShadow = true;
+                this.currentModel.receiveShadow = true;
+                
+                // Add wireframe overlay
+                const edges = new THREE.EdgesGeometry(geometry);
+                const edgeMaterial = new THREE.LineBasicMaterial({ 
+                    color: 0xffffff, 
+                    opacity: 0.3, 
+                    transparent: true 
+                });
+                const wireframe = new THREE.LineSegments(edges, edgeMaterial);
+                this.currentModel.add(wireframe);
+                
+                this.scene.add(this.currentModel);
+                this.adjustCameraToModel(this.currentModel);
+                
+                loading.style.display = 'none';
+            }
+
+            async loadModel(modelPath) {
+                const loading = document.getElementById('loading');
+                loading.style.display = 'block';
+                
+                try {
+                    // Remove current model
+                    if (this.currentModel) {
+                        this.scene.remove(this.currentModel);
+                    }
+                    
+                    // Load JSON model
+                    const response = await fetch(modelPath);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load model: ${response.statusText}`);
+                    }
+                    
+                    const modelData = await response.json();
+                    
+                    // Parse the JSON model data
+                    const loader = new THREE.ObjectLoader();
+                    this.currentModel = loader.parse(modelData);
+                    
+                    // Center and scale the model
+                    this.centerAndScaleModel(this.currentModel);
+                    
+                    // Add to scene
+                    this.scene.add(this.currentModel);
+                    
+                    // Adjust camera position based on model size
+                    this.adjustCameraToModel(this.currentModel);
+                    
+                } catch (error) {
+                    console.error('Error loading model:', error);
+                    alert(`Error loading model: ${error.message}\n\nMake sure the model path is correct and the file exists.`);
+                    
+                    // Create a fallback cube if model fails to load
+                    this.createFallbackModel();
+                } finally {
+                    loading.style.display = 'none';
+                }
+            }
+
+            centerAndScaleModel(model) {
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                
+                // Center the model
+                model.position.sub(center);
+                
+                // Scale to fit in a reasonable size (max dimension = 4)
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                if (maxDimension > 4) {
+                    const scale = 4 / maxDimension;
+                    model.scale.setScalar(scale);
+                }
+            }
+
+            adjustCameraToModel(model) {
+                const box = new THREE.Box3().setFromObject(model);
+                const size = box.getSize(new THREE.Vector3());
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                
+                // Position camera at a good distance
+                const distance = maxDimension * 2;
+                this.camera.position.set(distance, distance * 0.7, distance);
+                this.camera.lookAt(0, 0, 0);
+            }
+
+            createFallbackModel() {
+                // Create a simple animated cube as fallback
+                const geometry = new THREE.BoxGeometry(2, 2, 2);
+                const material = new THREE.MeshLambertMaterial({ 
+                    color: 0x44aa88,
+                    wireframe: false
+                });
+                
+                this.currentModel = new THREE.Mesh(geometry, material);
+                this.currentModel.castShadow = true;
+                this.currentModel.receiveShadow = true;
+                
+                // Add some visual interest with edges
+                const edges = new THREE.EdgesGeometry(geometry);
+                const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x88ccaa });
+                const wireframe = new THREE.LineSegments(edges, edgeMaterial);
+                this.currentModel.add(wireframe);
+                
+                this.scene.add(this.currentModel);
+            }
+
+            onWindowResize() {
+                this.camera.aspect = window.innerWidth / window.innerHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            animate() {
+                requestAnimationFrame(() => this.animate());
+                
+                // Rotate the current model slowly
+                if (this.currentModel) {
+                    this.currentModel.rotation.y += 0.005;
+                }
+                
+                this.renderer.render(this.scene, this.camera);
+            }
+        }
+
+        // Initialize the viewer when the page loads
+        window.addEventListener('load', () => {
+            new ModelViewer();
+        });
+    </script>
+</body>
+</html>

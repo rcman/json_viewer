@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "lintel_sill_geom",
+      "type": "BoxGeometry",
+      "width": 2.0,
+      "height": 0.5,
+      "depth": 0.2,
+      "name": "LintelSillGeometry"
+    },
+    {
+      "uuid": "jamb_geom",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 1.0,
+      "depth": 0.2,
+      "name": "JambGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood_material_wall_window",
+      "type": "MeshStandardMaterial",
+      "color": 10053120,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "name": "WoodMaterialWallWindow"
+    }
+  ],
+  "object": {
+    "uuid": "wall_with_window_group",
+    "type": "Group",
+    "name": "WallWithWindow",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.0,0,1],
+    "children": [
+      {
+        "uuid": "lintel_section",
+        "type": "Mesh",
+        "name": "Lintel",
+        "geometry": "lintel_sill_geom",
+        "material": "wood_material_wall_window",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.75,0,1]
+      },
+      {
+        "uuid": "sill_section",
+        "type": "Mesh",
+        "name": "Sill",
+        "geometry": "lintel_sill_geom",
+        "material": "wood_material_wall_window",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,-0.75,0,1]
+      },
+      {
+        "uuid": "left_jamb_section",
+        "type": "Mesh",
+        "name": "LeftJamb",
+        "geometry": "jamb_geom",
+        "material": "wood_material_wall_window",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.7,0,0,1]
+      },
+      {
+        "uuid": "right_jamb_section",
+        "type": "Mesh",
+        "name": "RightJamb",
+        "geometry": "jamb_geom",
+        "material": "wood_material_wall_window",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.7,0,0,1]
+      }
+    ]
+  }
+}

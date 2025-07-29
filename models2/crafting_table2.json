@@ -1,0 +1,111 @@
+{
+    "metadata": {
+        "version": 4.5,
+        "type": "Geometry",
+        "generator": "Hand-coded"
+    },
+    "name": "CraftingTableGeometry",
+    "scale": 1.0,
+
+    "vertices": [
+        // Front face (Z+)
+        -0.5, -0.5,  0.5,  // 0: Front Bottom Left
+         0.5, -0.5,  0.5,  // 1: Front Bottom Right
+         0.5,  0.5,  0.5,  // 2: Front Top Right
+        -0.5,  0.5,  0.5,  // 3: Front Top Left
+
+        // Back face (Z-)
+        -0.5, -0.5, -0.5,  // 4: Back Bottom Left
+         0.5, -0.5, -0.5,  // 5: Back Bottom Right
+         0.5,  0.5, -0.5,  // 6: Back Top Right
+        -0.5,  0.5, -0.5   // 7: Back Top Left
+    ],
+
+    "normals": [
+        // Normals for each face (6 unique normals)
+        // Each vertex of a face will point to the same normal index for flat shading
+        0,  0,  1,  // 0: Front face normal
+        0,  0, -1,  // 1: Back face normal
+        0,  1,  0,  // 2: Top face normal
+        0, -1,  0,  // 3: Bottom face normal
+        1,  0,  0,  // 4: Right face normal
+       -1,  0,  0   // 5: Left face normal
+    ],
+
+    "uvs": [
+        [
+            // UVs for Top Face (Material 0) - Mapped to (0, 0.5) to (0.5, 1) on texture
+            0.0, 0.5, // Bottom-Left of top face texture area
+            0.5, 0.5, // Bottom-Right
+            0.5, 1.0, // Top-Right
+            0.0, 1.0, // Top-Left
+
+            // UVs for Side Faces (Material 1) - Mapped to (0.5, 0.5) to (1, 1) on texture
+            0.5, 0.5, // Bottom-Left of side face texture area
+            1.0, 0.5, // Bottom-Right
+            1.0, 1.0, // Top-Right
+            0.5, 1.0, // Top-Left
+
+            // UVs for Bottom Face (Material 2) - Mapped to (0, 0) to (0.5, 0.5) on texture
+            0.0, 0.0, // Bottom-Left of bottom face texture area
+            0.5, 0.0, // Bottom-Right
+            0.5, 0.5, // Top-Right
+            0.0, 0.5  // Top-Left
+        ]
+    ],
+
+    "faces": [
+        // Format:
+        // bitmask, v1,v2,v3,v4, materialIndex, uv1,uv2,uv3,uv4, normal1,normal2,normal3,normal4
+        // Bitmask:
+        // 0 = triangle
+        // 1 = quad
+        // +2 = material index present
+        // +4 = UVs present (per vertex)
+        // +8 = vertex normals present (per vertex, using indices from "normals" array)
+        // So, for a quad with material, UVs, and vertex normals: 1 + 2 + 4 + 8 = 15
+
+        // Top face (Y+) - Material 0
+        // Vertices: 3,2,6,7 (FTL, FTR, BTR, BTL)
+        // UV indices from uvs[0]: 3,2,1,0 (map to TL, TR, BR, BL of the texture area)
+        // Normal index: 2 (Top face normal)
+        15,  3,2,6,7,  0,  3,2,1,0,  2,2,2,2,
+
+        // Front face (Z+) - Material 1
+        // Vertices: 0,1,2,3 (FBL, FBR, FTR, FTL)
+        // UV indices from uvs[0]: 7,6,5,4 (map to TL, TR, BR, BL of the texture area)
+        // Normal index: 0 (Front face normal)
+        15,  0,1,2,3,  1,  7,6,5,4,  0,0,0,0,
+
+        // Back face (Z-) - Material 1
+        // Vertices: 5,4,7,6 (BBR, BBL, BTL, BTR) - note winding for correct normal
+        // UV indices from uvs[0]: 7,6,5,4
+        // Normal index: 1 (Back face normal)
+        15,  5,4,7,6,  1,  7,6,5,4,  1,1,1,1,
+
+        // Right face (X+) - Material 1
+        // Vertices: 1,5,6,2 (FBR, BBR, BTR, FTR)
+        // UV indices from uvs[0]: 7,6,5,4
+        // Normal index: 4 (Right face normal)
+        15,  1,5,6,2,  1,  7,6,5,4,  4,4,4,4,
+
+        // Left face (X-) - Material 1
+        // Vertices: 4,0,3,7 (BBL, FBL, FTL, BTL)
+        // UV indices from uvs[0]: 7,6,5,4
+        // Normal index: 5 (Left face normal)
+        15,  4,0,3,7,  1,  7,6,5,4,  5,5,5,5,
+
+        // Bottom face (Y-) - Material 2
+        // Vertices: 4,5,1,0 (BBL, BBR, FBR, FBL)
+        // UV indices from uvs[0]: 11,10,9,8 (map to TL, TR, BR, BL of the texture area)
+        // Normal index: 3 (Bottom face normal)
+        15,  4,5,1,0,  2,  11,10,9,8,  3,3,3,3
+    ],
+
+    "materials": [
+      // Optional: You can define basic material properties here,
+      // but it's usually better to assign materials in Three.js code.
+      // If you include this, the materialIndex in "faces" will refer to these.
+      // For simplicity, we'll leave this empty and handle materials in the JS.
+    ]
+}

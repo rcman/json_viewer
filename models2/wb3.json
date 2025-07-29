@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "frame-leg-geometry",
+      "type": "BoxGeometry",
+      "width": 0.05,
+      "height": 0.9,
+      "depth": 0.05
+    },
+    {
+      "uuid": "frame-horizontal-geometry",
+      "type": "BoxGeometry",
+      "width": 1.2,
+      "height": 0.05,
+      "depth": 0.05
+    },
+    {
+      "uuid": "frame-depth-geometry",
+      "type": "BoxGeometry",
+      "width": 0.05,
+      "height": 0.05,
+      "depth": 0.6
+    },
+    {
+      "uuid": "tabletop-geometry",
+      "type": "BoxGeometry",
+      "width": 1.2,
+      "height": 0.02,
+      "depth": 0.6
+    },
+    {
+      "uuid": "drawer-geometry",
+      "type": "BoxGeometry",
+      "width": 1.1,
+      "height": 0.1,
+      "depth": 0.55
+    },
+    {
+      "uuid": "drawer-handle-geometry",
+      "type": "BoxGeometry",
+      "width": 0.3,
+      "height": 0.03,
+      "depth": 0.02
+    },
+    {
+      "uuid": "lower-shelf-geometry",
+      "type": "BoxGeometry",
+      "width": 1.2,
+      "height": 0.02,
+      "depth": 0.6
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "frame-material",
+      "type": "MeshPhongMaterial",
+      "color": 3355443,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 10,
+      "roughness": 0.8
+    },
+    {
+      "uuid": "wood-material",
+      "type": "MeshPhongMaterial",
+      "color": 15779853,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 5,
+      "roughness": 0.9
+    },
+    {
+      "uuid": "drawer-material",
+      "type": "MeshPhongMaterial",
+      "color": 3355443,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 10,
+      "roughness": 0.8
+    },
+    {
+      "uuid": "logo-material",
+      "type": "MeshPhongMaterial",
+      "color": 16777215,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 30
+    }
+  ],
+  "object": {
+    "uuid": "workbench-scene",
+    "type": "Group",
+    "name": "Workbench",
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "frame",
+        "type": "Group",
+        "name": "Frame",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        "children": [
+          {
+            "uuid": "leg-front-left",
+            "type": "Mesh",
+            "name": "LegFrontLeft",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.575, -0.425, 0.275, 1],
+            "geometry": "frame-leg-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "leg-front-right",
+            "type": "Mesh",
+            "name": "LegFrontRight",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.575, -0.425, 0.275, 1],
+            "geometry": "frame-leg-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "leg-back-left",
+            "type": "Mesh",
+            "name": "LegBackLeft",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.575, -0.425, -0.275, 1],
+            "geometry": "frame-leg-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "leg-back-right",
+            "type": "Mesh",
+            "name": "LegBackRight",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.575, -0.425, -0.275, 1],
+            "geometry": "frame-leg-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-front-top",
+            "type": "Mesh",
+            "name": "FrameFrontTop",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.025, 0.275, 1],
+            "geometry": "frame-horizontal-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-back-top",
+            "type": "Mesh",
+            "name": "FrameBackTop",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.025, -0.275, 1],
+            "geometry": "frame-horizontal-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-left-top",
+            "type": "Mesh",
+            "name": "FrameLeftTop",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.575, 0.025, 0, 1],
+            "geometry": "frame-depth-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-right-top",
+            "type": "Mesh",
+            "name": "FrameRightTop",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.575, 0.025, 0, 1],
+            "geometry": "frame-depth-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-front-bottom",
+            "type": "Mesh",
+            "name": "FrameFrontBottom",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.85, 0.275, 1],
+            "geometry": "frame-horizontal-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-back-bottom",
+            "type": "Mesh",
+            "name": "FrameBackBottom",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.85, -0.275, 1],
+            "geometry": "frame-horizontal-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-left-bottom",
+            "type": "Mesh",
+            "name": "FrameLeftBottom",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.575, -0.85, 0, 1],
+            "geometry": "frame-depth-geometry",
+            "material": "frame-material"
+          },
+          {
+            "uuid": "frame-right-bottom",
+            "type": "Mesh",
+            "name": "FrameRightBottom",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.575, -0.85, 0, 1],
+            "geometry": "frame-depth-geometry",
+            "material": "frame-material"
+          }
+        ]
+      },
+      {
+        "uuid": "tabletop",
+        "type": "Mesh",
+        "name": "TableTop",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.06, 0, 1],
+        "geometry": "tabletop-geometry",
+        "material": "wood-material"
+      },
+      {
+        "uuid": "drawer",
+        "type": "Mesh",
+        "name": "Drawer",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.05, 0, 1],
+        "geometry": "drawer-geometry",
+        "material": "drawer-material"
+      },
+      {
+        "uuid": "drawer-handle",
+        "type": "Mesh",
+        "name": "DrawerHandle",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.05, 0.285, 1],
+        "geometry": "drawer-handle-geometry",
+        "material": "frame-material"
+      },
+      {
+        "uuid": "lower-shelf",
+        "type": "Mesh",
+        "name": "LowerShelf",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.42, 0, 1],
+        "geometry": "lower-shelf-geometry",
+        "material": "wood-material"
+      },
+      {
+        "uuid": "logo",
+        "type": "Group",
+        "name": "Logo",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.3, -0.05, 0.275, 1]
+      }
+    ]
+  }
+}

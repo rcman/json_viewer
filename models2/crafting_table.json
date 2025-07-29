@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "cube-geometry",
+      "type": "BoxGeometry",
+      "width": 1,
+      "height": 1,
+      "depth": 1,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "top-material",
+      "type": "MeshStandardMaterial",
+      "color": 10855845,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "map": "top-texture"
+    },
+    {
+      "uuid": "side-material",
+      "type": "MeshStandardMaterial",
+      "color": 8607736,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "map": "side-texture"
+    },
+    {
+      "uuid": "bottom-material",
+      "type": "MeshStandardMaterial",
+      "color": 7294530,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "map": "bottom-texture"
+    },
+    {
+      "uuid": "grid-material",
+      "type": "MeshBasicMaterial",
+      "color": 2236962,
+      "transparent": true,
+      "opacity": 0.6,
+      "side": 2
+    }
+  ],
+  "textures": [
+    {
+      "uuid": "top-texture",
+      "image": "top-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "side-texture",
+      "image": "side-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "bottom-texture",
+      "image": "bottom-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    }
+  ],
+  "images": [
+    {
+      "uuid": "top-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVQ4T2NkIBIwEqmOAa6BEZsLyDHHTv9/dPOINudjdQGuUMdnMUwMq0txGY7PL2QZQJLz8QUUNv3YwhtvVBAKZZwGEAplggaQG80kG0BMjBCsg1g1APkdVBEwDpENAAAAAElFTkSuQmCC"
+    },
+    {
+      "uuid": "side-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVQ4T2NkIBIwEqmOAasBjNgcTI55dvr/o5tHtDkfqwtwhjoxFuNyJVkGkOR8fAGFTT+2aMcbFYRCGacBhEKZoAHkRjPJBhATPQBNnFQR5KM51QAAAABJRU5ErkJggg=="
+    },
+    {
+      "uuid": "bottom-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVQ4T2NkIBIwEqmOYcAMYCQmYOj0/6ObR7Q/cLoAZ6gTYzEuV5JlAEnOxxdQ2PRjC3W8UUEolHEaQCiUAQCNu1QRZcDJjwAAAABJRU5ErkJggg=="
+    }
+  ],
+  "object": {
+    "uuid": "crafting-table",
+    "type": "Group",
+    "name": "CraftingTable",
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "table-body",
+        "type": "Mesh",
+        "name": "TableBody",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "geometry": "cube-geometry",
+        "material": [
+          "side-material",   
+          "side-material",   
+          "top-material",    
+          "bottom-material", 
+          "side-material",   
+          "side-material"    
+        ]
+      },
+      {
+        "uuid": "grid-overlay",
+        "type": "Mesh",
+        "name": "GridOverlay",
+        "matrix": [0.95,0,0,0,0,0.01,0,0,0,0,0.95,0,0,0.505,0,1],
+        "geometry": "cube-geometry",
+        "material": "grid-material"
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "door_stile_geom",
+      "type": "BoxGeometry",
+      "width": 0.1,
+      "height": 1.78,
+      "depth": 0.05,
+      "name": "DoorStileGeometry"
+    },
+    {
+      "uuid": "door_rail_geom",
+      "type": "BoxGeometry",
+      "width": 0.68,
+      "height": 0.1,
+      "depth": 0.05,
+      "name": "DoorRailGeometry"
+    },
+    {
+      "uuid": "door_panel_geom",
+      "type": "BoxGeometry",
+      "width": 0.68,
+      "height": 0.74,
+      "depth": 0.03,
+      "name": "DoorPanelGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "door_wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 8342048,
+      "roughness": 0.75,
+      "metalness": 0.05,
+      "name": "DoorWoodMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "paneled_door_group",
+    "type": "Group",
+    "name": "PaneledDoor",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1],
+    "children": [
+      {
+        "uuid": "left_stile",
+        "type": "Mesh",
+        "name": "LeftStile",
+        "geometry": "door_stile_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.39,0.89,0,1]
+      },
+      {
+        "uuid": "right_stile",
+        "type": "Mesh",
+        "name": "RightStile",
+        "geometry": "door_stile_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.39,0.89,0,1]
+      },
+      {
+        "uuid": "bottom_rail",
+        "type": "Mesh",
+        "name": "BottomRail",
+        "geometry": "door_rail_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.05,0,1]
+      },
+      {
+        "uuid": "middle_rail",
+        "type": "Mesh",
+        "name": "MiddleRail",
+        "geometry": "door_rail_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.89,0,1]
+      },
+      {
+        "uuid": "top_rail",
+        "type": "Mesh",
+        "name": "TopRail",
+        "geometry": "door_rail_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.73,0,1]
+      },
+      {
+        "uuid": "bottom_panel",
+        "type": "Mesh",
+        "name": "BottomPanel",
+        "geometry": "door_panel_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.47,0,1]
+      },
+      {
+        "uuid": "top_panel",
+        "type": "Mesh",
+        "name": "TopPanel",
+        "geometry": "door_panel_geom",
+        "material": "door_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.31,0,1]
+      }
+    ]
+  }
+}

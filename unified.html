@@ -1,0 +1,1391 @@
+clearScene() {
+                // Clear current model reference
+                this.currentModel = null;
+                this.gridMode = false;
+                
+                // Clear Babylon scene
+                const babylonMeshesToRemove = [];
+                this.babylonScene.meshes.forEach(mesh => {
+                    if (mesh.name !== 'ground' && mesh.id !== 'ground') {
+                        babylonMeshesToRemove.push(mesh);
+                    }
+                });
+                babyl<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Unified 3D Model Viewer - Babylon.js & Three.js</title>
+    <!-- Babylon.js -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        #renderCanvas, #threeCanvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 300px;
+        }
+        
+        .controls h3 {
+            margin: 0 0 15px 0;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        select:hover, button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .engine-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .engine-babylon {
+            background: #4B7BEC;
+        }
+        
+        .engine-three {
+            background: #FC5C65;
+        }
+        
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            z-index: 100;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            display: none;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .file-input-wrapper label {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-input-wrapper label:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+        }
+        
+        .model-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 5px;
+        }
+        
+        .model-item {
+            padding: 8px;
+            margin: 2px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .model-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .model-item.active {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: bold;
+        }
+        
+        .format-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+        
+        .format-babylon {
+            background: #3498db;
+            color: white;
+        }
+        
+        .format-three {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <h3>🎯 Unified 3D Model Viewer</h3>
+        
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput" multiple accept=".json" />
+            <label for="fileInput">📁 Load Model Files (.json)</label>
+        </div>
+        
+        <select id="modelSelect">
+            <option value="">Choose a model...</option>
+        </select>
+        
+        <button id="loadAllBtn">📊 Load All (Grid View)</button>
+        <button id="clearBtn">🗑️ Clear Scene</button>
+        
+        <div id="modelList" class="model-list" style="display: none;"></div>
+        
+        <div id="engineIndicator" class="engine-indicator" style="display: none;"></div>
+    </div>
+    
+    <div class="loading" id="loading">Loading model...</div>
+    
+    <div class="info">
+        🖱️ Left click + drag to rotate • 🔄 Scroll to zoom • 🖱️ Right click + drag to pan
+    </div>
+    
+    <canvas id="renderCanvas"></canvas>
+    <canvas id="threeCanvas" style="display: none;"></canvas>
+    
+    <script>
+        class UnifiedModelViewer {
+            constructor() {
+                this.babylonEngine = null;
+                this.babylonScene = null;
+                this.babylonCamera = null;
+                
+                this.threeRenderer = null;
+                this.threeScene = null;
+                this.threeCamera = null;
+                this.threeControls = null;
+                
+                this.currentEngine = null;
+                this.loadedModels = new Map(); // Store loaded models with their metadata
+                this.currentModel = null;
+                this.gridMode = false;
+                
+                this.init();
+                this.setupEventListeners();
+            }
+            
+            init() {
+                // Initialize Babylon.js
+                this.initBabylon();
+                
+                // Initialize Three.js
+                this.initThree();
+                
+                // Start render loops
+                this.startRenderLoops();
+            }
+            
+            initBabylon() {
+                const canvas = document.getElementById('renderCanvas');
+                this.babylonEngine = new BABYLON.Engine(canvas, true);
+                
+                this.babylonScene = new BABYLON.Scene(this.babylonEngine);
+                this.babylonScene.clearColor = new BABYLON.Color3(0.1, 0.1, 0.2);
+                
+                // Camera
+                this.babylonCamera = new BABYLON.ArcRotateCamera(
+                    "camera", 
+                    -Math.PI / 2, 
+                    Math.PI / 2.5, 
+                    20, 
+                    BABYLON.Vector3.Zero(), 
+                    this.babylonScene
+                );
+                this.babylonCamera.attachControl(canvas, true);
+                this.babylonCamera.wheelPrecision = 10;
+                this.babylonCamera.minZ = 0.1;
+                this.babylonCamera.lowerRadiusLimit = 2;
+                
+                // Lights
+                const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0.5, 1, 0.2), this.babylonScene);
+                light.intensity = 0.7;
+                
+                const dirLight = new BABYLON.DirectionalLight("dirLight", new BABYLON.Vector3(-0.5, -1, -0.5), this.babylonScene);
+                dirLight.position = new BABYLON.Vector3(20, 40, 20);
+                dirLight.intensity = 0.7;
+                
+                // Shadow generator
+                const shadowGenerator = new BABYLON.ShadowGenerator(2048, dirLight);
+                shadowGenerator.useBlurExponentialShadowMap = true;
+                shadowGenerator.blurKernel = 32;
+                shadowGenerator.darkness = 0.3;
+                this.babylonScene.metadata = { shadowGenerator };
+                
+                // Ground
+                const ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 200, height: 200}, this.babylonScene);
+                ground.receiveShadows = true;
+                const groundMat = new BABYLON.StandardMaterial("groundMat", this.babylonScene);
+                groundMat.diffuseColor = new BABYLON.Color3(0.3, 0.3, 0.4);
+                groundMat.specularColor = new BABYLON.Color3(0.1, 0.1, 0.1);
+                ground.material = groundMat;
+                ground.position.y = 0;
+            }
+            
+            initThree() {
+                const canvas = document.getElementById('threeCanvas');
+                
+                // Scene
+                this.threeScene = new THREE.Scene();
+                this.threeScene.background = new THREE.Color(0x1a1a2e);
+                
+                // Camera
+                this.threeCamera = new THREE.PerspectiveCamera(
+                    75,
+                    window.innerWidth / window.innerHeight,
+                    0.1,
+                    1000
+                );
+                this.threeCamera.position.set(10, 10, 10);
+                
+                // Renderer
+                this.threeRenderer = new THREE.WebGLRenderer({ 
+                    canvas: canvas,
+                    antialias: true 
+                });
+                this.threeRenderer.setSize(window.innerWidth, window.innerHeight);
+                this.threeRenderer.shadowMap.enabled = true;
+                this.threeRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+                this.threeRenderer.outputEncoding = THREE.sRGBEncoding;
+                
+                // Lights
+                const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+                this.threeScene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+                directionalLight.position.set(10, 10, 5);
+                directionalLight.castShadow = true;
+                directionalLight.shadow.mapSize.width = 2048;
+                directionalLight.shadow.mapSize.height = 2048;
+                this.threeScene.add(directionalLight);
+                
+                // Ground
+                const groundGeometry = new THREE.PlaneGeometry(200, 200);
+                const groundMaterial = new THREE.MeshLambertMaterial({ color: 0x303040 });
+                const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+                ground.rotation.x = -Math.PI / 2;
+                ground.receiveShadow = true;
+                this.threeScene.add(ground);
+                
+                // Controls
+                this.setupThreeControls();
+            }
+            
+            setupThreeControls() {
+                const canvas = document.getElementById('threeCanvas');
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+                let isRightClick = false;
+                
+                canvas.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    isRightClick = e.button === 2;
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+                
+                canvas.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    
+                    const deltaMove = {
+                        x: e.clientX - previousMousePosition.x,
+                        y: e.clientY - previousMousePosition.y
+                    };
+                    
+                    if (isRightClick) {
+                        const panSpeed = 0.01;
+                        this.threeCamera.position.x -= deltaMove.x * panSpeed;
+                        this.threeCamera.position.y += deltaMove.y * panSpeed;
+                    } else {
+                        const rotateSpeed = 0.01;
+                        const spherical = new THREE.Spherical();
+                        spherical.setFromVector3(this.threeCamera.position);
+                        spherical.theta -= deltaMove.x * rotateSpeed;
+                        spherical.phi += deltaMove.y * rotateSpeed;
+                        spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi));
+                        this.threeCamera.position.setFromSpherical(spherical);
+                    }
+                    
+                    this.threeCamera.lookAt(0, 0, 0);
+                    previousMousePosition = { x: e.clientX, y: e.clientY };
+                });
+                
+                canvas.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                canvas.addEventListener('wheel', (e) => {
+                    const zoomSpeed = 0.1;
+                    const direction = this.threeCamera.position.clone().normalize();
+                    if (e.deltaY > 0) {
+                        this.threeCamera.position.addScaledVector(direction, zoomSpeed);
+                    } else {
+                        this.threeCamera.position.addScaledVector(direction, -zoomSpeed);
+                    }
+                });
+                
+                canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+            }
+            
+            setupEventListeners() {
+                // File input
+                document.getElementById('fileInput').addEventListener('change', (e) => {
+                    this.handleFileSelect(e);
+                });
+                
+                // Model select
+                document.getElementById('modelSelect').addEventListener('change', (e) => {
+                    if (e.target.value) {
+                        this.loadModel(e.target.value);
+                    }
+                });
+                
+                // Load all button
+                document.getElementById('loadAllBtn').addEventListener('click', () => {
+                    this.loadAllModels();
+                });
+                
+                // Clear button
+                document.getElementById('clearBtn').addEventListener('click', () => {
+                    this.clearScene();
+                });
+                
+                // Window resize
+                window.addEventListener('resize', () => {
+                    this.onWindowResize();
+                });
+            }
+            
+            detectModelFormat(jsonData) {
+                // Detect if it's Babylon.js or Three.js format
+                if (jsonData.meshes !== undefined || jsonData.babylonScene !== undefined) {
+                    return 'babylon';
+                } else if (jsonData.geometries !== undefined || jsonData.object !== undefined) {
+                    return 'three';
+                }
+                return 'unknown';
+            }
+            
+            async handleFileSelect(event) {
+                const files = event.target.files;
+                const select = document.getElementById('modelSelect');
+                const modelList = document.getElementById('modelList');
+                
+                for (let file of files) {
+                    if (file.name.endsWith('.json')) {
+                        try {
+                            const text = await file.text();
+                            const jsonData = JSON.parse(text);
+                            const format = this.detectModelFormat(jsonData);
+                            
+                            if (format !== 'unknown') {
+                                // Store model data
+                                this.loadedModels.set(file.name, {
+                                    data: jsonData,
+                                    format: format,
+                                    name: file.name
+                                });
+                                
+                                // Add to select
+                                const option = document.createElement('option');
+                                option.value = file.name;
+                                option.textContent = `${file.name} (${format})`;
+                                select.appendChild(option);
+                                
+                                // Add to model list
+                                const modelItem = document.createElement('div');
+                                modelItem.className = 'model-item';
+                                modelItem.innerHTML = `
+                                    ${file.name}
+                                    <span class="format-badge format-${format}">${format.toUpperCase()}</span>
+                                `;
+                                modelItem.onclick = () => this.loadModel(file.name);
+                                modelList.appendChild(modelItem);
+                            } else {
+                                console.warn(`Unknown format for file: ${file.name}`);
+                            }
+                        } catch (error) {
+                            console.error(`Error parsing ${file.name}:`, error);
+                        }
+                    }
+                }
+                
+                if (this.loadedModels.size > 0) {
+                    modelList.style.display = 'block';
+                }
+            }
+            
+            switchEngine(format) {
+                const babylonCanvas = document.getElementById('renderCanvas');
+                const threeCanvas = document.getElementById('threeCanvas');
+                const indicator = document.getElementById('engineIndicator');
+                
+                if (format === 'babylon') {
+                    babylonCanvas.style.display = 'block';
+                    threeCanvas.style.display = 'none';
+                    this.currentEngine = 'babylon';
+                    indicator.textContent = '🔷 Babylon.js Engine';
+                    indicator.className = 'engine-indicator engine-babylon';
+                } else {
+                    babylonCanvas.style.display = 'none';
+                    threeCanvas.style.display = 'block';
+                    this.currentEngine = 'three';
+                    indicator.textContent = '🔶 Three.js Engine';
+                    indicator.className = 'engine-indicator engine-three';
+                }
+                
+                indicator.style.display = 'block';
+            }
+            
+            async loadModel(modelName) {
+                const modelData = this.loadedModels.get(modelName);
+                if (!modelData) return;
+                
+                const loading = document.getElementById('loading');
+                loading.style.display = 'block';
+                
+                this.gridMode = false;
+                this.clearCurrentModel();
+                
+                try {
+                    if (modelData.format === 'babylon') {
+                        this.switchEngine('babylon');
+                        await this.loadBabylonModel(modelData.data, modelName);
+                    } else if (modelData.format === 'three') {
+                        this.switchEngine('three');
+                        await this.loadThreeModel(modelData.data, modelName);
+                    }
+                    
+                    // Update active model in list
+                    document.querySelectorAll('.model-item').forEach(item => {
+                        item.classList.remove('active');
+                        if (item.textContent.includes(modelName)) {
+                            item.classList.add('active');
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error loading model:', error);
+                    alert(`Error loading model: ${error.message}`);
+                } finally {
+                    loading.style.display = 'none';
+                }
+            }
+            
+            async loadBabylonModel(jsonData, modelName) {
+                // Clear previous model
+                if (this.currentModel) {
+                    this.currentModel.dispose();
+                }
+                
+                try {
+                    // Check if it's a Babylon.js scene file
+                    if (jsonData.meshes) {
+                        // Load meshes
+                        const meshes = [];
+                        for (let meshData of jsonData.meshes) {
+                            const mesh = this.parseBabylonMesh(meshData, jsonData);
+                            if (mesh) {
+                                meshes.push(mesh);
+                            }
+                        }
+                        
+                        // Create a parent transform node for all meshes
+                        const rootNode = new BABYLON.TransformNode(modelName + "_root", this.babylonScene);
+                        meshes.forEach(mesh => {
+                            if (!mesh.parent) {
+                                mesh.parent = rootNode;
+                            }
+                        });
+                        
+                        this.currentModel = rootNode;
+                        
+                        // Center and scale the model
+                        this.centerBabylonModel(rootNode);
+                    }
+                } catch (error) {
+                    console.error('Error loading Babylon model:', error);
+                    throw error;
+                }
+            }
+            
+            parseBabylonMesh(meshData, sceneData) {
+                if (!meshData.positions || !meshData.indices) {
+                    console.warn('Mesh data missing positions or indices');
+                    return null;
+                }
+                
+                const mesh = new BABYLON.Mesh(meshData.name || "mesh", this.babylonScene);
+                
+                // Create vertex data
+                const vertexData = new BABYLON.VertexData();
+                vertexData.positions = meshData.positions;
+                vertexData.indices = meshData.indices;
+                
+                if (meshData.normals) {
+                    vertexData.normals = meshData.normals;
+                }
+                if (meshData.uvs) {
+                    vertexData.uvs = meshData.uvs;
+                }
+                
+                // Apply vertex data to mesh
+                vertexData.applyToMesh(mesh);
+                
+                // Apply transformations
+                if (meshData.position) {
+                    mesh.position = new BABYLON.Vector3(
+                        meshData.position[0],
+                        meshData.position[1],
+                        meshData.position[2]
+                    );
+                }
+                if (meshData.rotation) {
+                    mesh.rotation = new BABYLON.Vector3(
+                        meshData.rotation[0],
+                        meshData.rotation[1],
+                        meshData.rotation[2]
+                    );
+                }
+                if (meshData.scaling) {
+                    mesh.scaling = new BABYLON.Vector3(
+                        meshData.scaling[0],
+                        meshData.scaling[1],
+                        meshData.scaling[2]
+                    );
+                }
+                
+                // Apply material
+                if (meshData.materialId !== undefined && sceneData.materials) {
+                    const materialData = sceneData.materials[meshData.materialId];
+                    if (materialData) {
+                        mesh.material = this.parseBabylonMaterial(materialData);
+                    }
+                }
+                
+                // Set visibility
+                if (meshData.isVisible !== undefined) {
+                    mesh.isVisible = meshData.isVisible;
+                }
+                
+                // Enable shadows
+                mesh.receiveShadows = true;
+                if (this.babylonScene.metadata && this.babylonScene.metadata.shadowGenerator) {
+                    this.babylonScene.metadata.shadowGenerator.addShadowCaster(mesh);
+                }
+                
+                return mesh;
+            }
+            
+            parseBabylonMaterial(materialData) {
+                const material = new BABYLON.StandardMaterial(
+                    materialData.name || "material", 
+                    this.babylonScene
+                );
+                
+                if (materialData.diffuse) {
+                    material.diffuseColor = new BABYLON.Color3(
+                        materialData.diffuse[0],
+                        materialData.diffuse[1],
+                        materialData.diffuse[2]
+                    );
+                }
+                if (materialData.specular) {
+                    material.specularColor = new BABYLON.Color3(
+                        materialData.specular[0],
+                        materialData.specular[1],
+                        materialData.specular[2]
+                    );
+                }
+                if (materialData.emissive) {
+                    material.emissiveColor = new BABYLON.Color3(
+                        materialData.emissive[0],
+                        materialData.emissive[1],
+                        materialData.emissive[2]
+                    );
+                }
+                if (materialData.ambient) {
+                    material.ambientColor = new BABYLON.Color3(
+                        materialData.ambient[0],
+                        materialData.ambient[1],
+                        materialData.ambient[2]
+                    );
+                }
+                
+                if (materialData.alpha !== undefined) {
+                    material.alpha = materialData.alpha;
+                }
+                
+                if (materialData.backFaceCulling !== undefined) {
+                    material.backFaceCulling = materialData.backFaceCulling;
+                }
+                
+                return material;
+            }
+            
+            centerBabylonModel(rootNode) {
+                // Get bounding info
+                const childMeshes = rootNode.getChildMeshes();
+                if (childMeshes.length === 0) return;
+                
+                let min = new BABYLON.Vector3(Number.MAX_VALUE, Number.MAX_VALUE, Number.MAX_VALUE);
+                let max = new BABYLON.Vector3(-Number.MAX_VALUE, -Number.MAX_VALUE, -Number.MAX_VALUE);
+                
+                childMeshes.forEach(mesh => {
+                    mesh.computeWorldMatrix(true);
+                    const boundingInfo = mesh.getBoundingInfo();
+                    const boundingBox = boundingInfo.boundingBox;
+                    min = BABYLON.Vector3.Minimize(min, boundingBox.minimumWorld);
+                    max = BABYLON.Vector3.Maximize(max, boundingBox.maximumWorld);
+                });
+                
+                // Calculate center and size
+                const center = BABYLON.Vector3.Center(min, max);
+                const size = max.subtract(min);
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                
+                // Center the model
+                rootNode.position = rootNode.position.subtract(center);
+                
+                // Scale if too large
+                if (maxDimension > 10) {
+                    const scale = 10 / maxDimension;
+                    rootNode.scaling = new BABYLON.Vector3(scale, scale, scale);
+                }
+                
+                // Adjust camera
+                this.babylonCamera.radius = maxDimension * 1.5;
+                this.babylonCamera.setTarget(BABYLON.Vector3.Zero());
+            }
+            
+            async loadThreeModel(jsonData, modelName) {
+                // Use the Three.js loader logic from your existing code
+                if (this.currentModel) {
+                    this.threeScene.remove(this.currentModel);
+                }
+                
+                try {
+                    // Include the full Three.js loading logic from your existing index2.html
+                    const loader = new THREE.ObjectLoader();
+                    this.currentModel = loader.parse(jsonData);
+                    
+                    // Center and scale
+                    const box = new THREE.Box3().setFromObject(this.currentModel);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
+                    
+                    this.currentModel.position.sub(center);
+                    
+                    const maxDimension = Math.max(size.x, size.y, size.z);
+                    if (maxDimension > 4) {
+                        const scale = 4 / maxDimension;
+                        this.currentModel.scale.setScalar(scale);
+                    }
+                    
+                    this.threeScene.add(this.currentModel);
+                    
+                    // Adjust camera
+                    const distance = maxDimension * 2;
+                    this.threeCamera.position.set(distance, distance * 0.7, distance);
+                    this.threeCamera.lookAt(0, 0, 0);
+                } catch (error) {
+                    // If standard loader fails, try the custom Three.js JSON format from index2.html
+                    await this.loadCustomThreeModel(jsonData, modelName);
+                }
+            }
+            
+            async loadCustomThreeModel(jsonData, modelName) {
+                // Full custom Three.js loader from index2.html
+                const parsedImages = this.parseThreeJSImages(jsonData.images);
+                const parsedTextures = this.parseThreeJSTextures(jsonData.textures, parsedImages);
+                const parsedGeometries = this.parseThreeJSGeometries(jsonData.geometries);
+                const parsedMaterials = this.parseThreeJSMaterials(jsonData.materials, parsedTextures, parsedImages);
+                
+                const rootNode = new THREE.Group();
+                rootNode.name = modelName + "_root";
+                
+                if (jsonData.object.matrix) {
+                    const matrix = new THREE.Matrix4();
+                    matrix.fromArray(jsonData.object.matrix);
+                    matrix.decompose(rootNode.position, rootNode.quaternion, rootNode.scale);
+                }
+                
+                if (jsonData.object.children) {
+                    jsonData.object.children.forEach(childData => {
+                        this.processThreeJSObject(childData, rootNode, parsedGeometries, parsedMaterials);
+                    });
+                } else if (jsonData.object.type === "Mesh") {
+                    this.processThreeJSObject(jsonData.object, rootNode, parsedGeometries, parsedMaterials);
+                }
+                
+                this.currentModel = rootNode;
+                this.threeScene.add(rootNode);
+                
+                // Center and adjust camera
+                const box = new THREE.Box3().setFromObject(rootNode);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                
+                rootNode.position.sub(center);
+                
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                const distance = maxDimension * 2;
+                this.threeCamera.position.set(distance, distance * 0.7, distance);
+                this.threeCamera.lookAt(0, 0, 0);
+            }
+            
+            parseThreeJSImages(imageDataArray) {
+                const images = {};
+                if (!imageDataArray) return images;
+                imageDataArray.forEach(imgData => {
+                    images[imgData.uuid] = imgData.url;
+                });
+                return images;
+            }
+            
+            parseThreeJSTextures(textureDataArray, imageCache) {
+                const textures = {};
+                if (!textureDataArray) return textures;
+                
+                textureDataArray.forEach(texData => {
+                    const imgUUID = texData.image;
+                    if (imageCache[imgUUID]) {
+                        const texture = new THREE.TextureLoader().load(imageCache[imgUUID]);
+                        
+                        if (texData.repeat) {
+                            texture.repeat.set(texData.repeat[0], texData.repeat[1]);
+                        }
+                        
+                        if (texData.wrap) {
+                            texture.wrapS = texData.wrap[0] === 1001 ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+                            texture.wrapT = texData.wrap[1] === 1001 ? THREE.ClampToEdgeWrapping : THREE.RepeatWrapping;
+                        }
+                        
+                        textures[texData.uuid] = texture;
+                    }
+                });
+                return textures;
+            }
+            
+            parseThreeJSGeometries(geoDataArray) {
+                const geometries = {};
+                if (!geoDataArray) return geometries;
+                
+                geoDataArray.forEach(geoData => {
+                    let geometry = null;
+                    
+                    switch (geoData.type) {
+                        case "BoxGeometry":
+                            geometry = new THREE.BoxGeometry(
+                                geoData.width || 1,
+                                geoData.height || 1,
+                                geoData.depth || 1
+                            );
+                            break;
+                        case "SphereGeometry":
+                            geometry = new THREE.SphereGeometry(
+                                geoData.radius || 0.5,
+                                geoData.widthSegments || 8,
+                                geoData.heightSegments || 6
+                            );
+                            break;
+                        case "CylinderGeometry":
+                            geometry = new THREE.CylinderGeometry(
+                                geoData.radiusTop || 0.5,
+                                geoData.radiusBottom || 0.5,
+                                geoData.height || 1,
+                                geoData.radialSegments || 8,
+                                geoData.heightSegments || 1
+                            );
+                            break;
+                        case "PlaneGeometry":
+                            geometry = new THREE.PlaneGeometry(
+                                geoData.width || 1,
+                                geoData.height || 1
+                            );
+                            break;
+                        case "BufferGeometry":
+                            if (geoData.data && geoData.data.attributes) {
+                                geometry = new THREE.BufferGeometry();
+                                const attributes = geoData.data.attributes;
+                                
+                                if (attributes.position) {
+                                    geometry.setAttribute('position', 
+                                        new THREE.Float32BufferAttribute(attributes.position.array, 3)
+                                    );
+                                }
+                                if (attributes.normal) {
+                                    geometry.setAttribute('normal',
+                                        new THREE.Float32BufferAttribute(attributes.normal.array, 3)
+                                    );
+                                }
+                                if (attributes.uv) {
+                                    geometry.setAttribute('uv',
+                                        new THREE.Float32BufferAttribute(attributes.uv.array, 2)
+                                    );
+                                }
+                                if (geoData.data.index) {
+                                    geometry.setIndex(geoData.data.index.array);
+                                }
+                            }
+                            break;
+                        default:
+                            console.warn(`Unsupported geometry type: ${geoData.type}. Using box.`);
+                            geometry = new THREE.BoxGeometry(1, 1, 1);
+                    }
+                    
+                    if (geometry) {
+                        geometries[geoData.uuid] = geometry;
+                    }
+                });
+                return geometries;
+            }
+            
+            parseThreeJSMaterials(materialDataArray, textureCache, imageCache) {
+                const materials = {};
+                if (!materialDataArray) return materials;
+                
+                materialDataArray.forEach(matData => {
+                    let material;
+                    
+                    const color = matData.color !== undefined ? 
+                        new THREE.Color().setHex(matData.color) : 
+                        new THREE.Color(0.7, 0.7, 0.7);
+                    
+                    if (matData.type === "MeshStandardMaterial") {
+                        material = new THREE.MeshStandardMaterial({
+                            color: color,
+                            metalness: matData.metalness || 0,
+                            roughness: matData.roughness || 0.5
+                        });
+                        
+                        if (matData.emissive !== undefined) {
+                            material.emissive = new THREE.Color().setHex(matData.emissive);
+                            material.emissiveIntensity = matData.emissiveIntensity || 1;
+                        }
+                    } else if (matData.type === "MeshBasicMaterial") {
+                        material = new THREE.MeshBasicMaterial({
+                            color: color
+                        });
+                    } else {
+                        material = new THREE.MeshLambertMaterial({
+                            color: color
+                        });
+                    }
+                    
+                    if (matData.map && textureCache[matData.map]) {
+                        material.map = textureCache[matData.map];
+                    }
+                    
+                    if (matData.transparent) {
+                        material.transparent = true;
+                        material.opacity = matData.opacity || 1;
+                    }
+                    
+                    if (matData.side === 2) {
+                        material.side = THREE.DoubleSide;
+                    }
+                    
+                    materials[matData.uuid] = material;
+                });
+                return materials;
+            }
+            
+            processThreeJSObject(objData, parentNode, parsedGeometries, parsedMaterials) {
+                let object;
+                
+                if (objData.type === "Group") {
+                    object = new THREE.Group();
+                } else if (objData.type === "Mesh") {
+                    const geometry = parsedGeometries[objData.geometry];
+                    let material;
+                    
+                    if (Array.isArray(objData.material)) {
+                        material = objData.material.map(matUuid => 
+                            parsedMaterials[matUuid] || new THREE.MeshLambertMaterial()
+                        );
+                    } else {
+                        material = parsedMaterials[objData.material] || new THREE.MeshLambertMaterial();
+                    }
+                    
+                    if (geometry) {
+                        object = new THREE.Mesh(geometry, material);
+                        object.castShadow = objData.castShadow || false;
+                        object.receiveShadow = objData.receiveShadow !== false;
+                    } else {
+                        object = new THREE.Group();
+                    }
+                } else {
+                    object = new THREE.Group();
+                }
+                
+                object.name = objData.name || objData.uuid;
+                
+                if (objData.matrix) {
+                    const matrix = new THREE.Matrix4();
+                    matrix.fromArray(objData.matrix);
+                    matrix.decompose(object.position, object.quaternion, object.scale);
+                }
+                
+                if (objData.visible === false) {
+                    object.visible = false;
+                }
+                
+                parentNode.add(object);
+                
+                if (objData.children) {
+                    objData.children.forEach(childData => {
+                        this.processThreeJSObject(childData, object, parsedGeometries, parsedMaterials);
+                    });
+                }
+                
+                return object;
+            }
+            
+            async loadAllModels() {
+                if (this.loadedModels.size === 0) {
+                    alert('No models loaded. Please load some model files first.');
+                    return;
+                }
+                
+                const loading = document.getElementById('loading');
+                loading.textContent = 'Loading all models...';
+                loading.style.display = 'block';
+                
+                this.gridMode = true;
+                this.clearCurrentModel();
+                
+                // Group models by format
+                const babylonModels = [];
+                const threeModels = [];
+                
+                for (let [name, data] of this.loadedModels) {
+                    if (data.format === 'babylon') {
+                        babylonModels.push(data);
+                    } else {
+                        threeModels.push(data);
+                    }
+                }
+                
+                // For simplicity, if we have both types, show Three.js models
+                // In a full implementation, you might want to handle this differently
+                if (threeModels.length > 0) {
+                    this.switchEngine('three');
+                    await this.loadMultipleThreeModels(threeModels);
+                } else if (babylonModels.length > 0) {
+                    this.switchEngine('babylon');
+                    await this.loadMultipleBabylonModels(babylonModels);
+                }
+                
+                loading.style.display = 'none';
+            }
+            
+            async loadMultipleThreeModels(models) {
+                const gridSize = Math.ceil(Math.sqrt(models.length));
+                const spacing = 15;
+                const startX = -((gridSize - 1) * spacing) / 2;
+                const startZ = -((gridSize - 1) * spacing) / 2;
+                
+                const rootGroup = new THREE.Group();
+                rootGroup.name = "grid_root";
+                
+                for (let i = 0; i < models.length; i++) {
+                    const row = Math.floor(i / gridSize);
+                    const col = i % gridSize;
+                    const x = startX + col * spacing;
+                    const z = startZ + row * spacing;
+                    
+                    try {
+                        // Load the model
+                        const modelData = models[i];
+                        let modelGroup;
+                        
+                        // Try standard Three.js loader first
+                        try {
+                            const loader = new THREE.ObjectLoader();
+                            modelGroup = loader.parse(modelData.data);
+                        } catch (e) {
+                            // Fall back to custom loader
+                            modelGroup = await this.loadCustomThreeModelForGrid(modelData.data, modelData.name);
+                        }
+                        
+                        if (modelGroup) {
+                            // Center and scale the model
+                            const box = new THREE.Box3().setFromObject(modelGroup);
+                            const center = box.getCenter(new THREE.Vector3());
+                            const size = box.getSize(new THREE.Vector3());
+                            
+                            modelGroup.position.sub(center);
+                            
+                            // Scale to fit in grid cell
+                            const maxDimension = Math.max(size.x, size.y, size.z);
+                            if (maxDimension > 8) {
+                                const scale = 8 / maxDimension;
+                                modelGroup.scale.setScalar(scale);
+                            }
+                            
+                            // Create a container and position it
+                            const container = new THREE.Group();
+                            container.add(modelGroup);
+                            container.position.set(x, 0, z);
+                            
+                            // Adjust Y position to sit on ground
+                            const updatedBox = new THREE.Box3().setFromObject(container);
+                            const lowestPoint = updatedBox.min.y;
+                            if (lowestPoint < 0) {
+                                container.position.y = -lowestPoint;
+                            }
+                            
+                            rootGroup.add(container);
+                        }
+                    } catch (error) {
+                        console.error(`Error loading model ${models[i].name}:`, error);
+                        // Add placeholder
+                        const geometry = new THREE.BoxGeometry(2, 2, 2);
+                        const material = new THREE.MeshLambertMaterial({ 
+                            color: 0xff0000,
+                            opacity: 0.5,
+                            transparent: true
+                        });
+                        const errorMesh = new THREE.Mesh(geometry, material);
+                        errorMesh.position.set(x, 1, z);
+                        rootGroup.add(errorMesh);
+                    }
+                }
+                
+                this.currentModel = rootGroup;
+                this.threeScene.add(rootGroup);
+                
+                // Adjust camera for grid view
+                const boundingBox = new THREE.Box3().setFromObject(rootGroup);
+                const size = boundingBox.getSize(new THREE.Vector3());
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                const distance = maxDimension * 1.5;
+                
+                this.threeCamera.position.set(distance, distance * 0.7, distance);
+                this.threeCamera.lookAt(0, 0, 0);
+            }
+            
+            async loadCustomThreeModelForGrid(jsonData, modelName) {
+                // Simplified version for grid loading
+                const parsedImages = this.parseThreeJSImages(jsonData.images);
+                const parsedTextures = this.parseThreeJSTextures(jsonData.textures, parsedImages);
+                const parsedGeometries = this.parseThreeJSGeometries(jsonData.geometries);
+                const parsedMaterials = this.parseThreeJSMaterials(jsonData.materials, parsedTextures, parsedImages);
+                
+                const rootNode = new THREE.Group();
+                rootNode.name = modelName;
+                
+                if (jsonData.object.children) {
+                    jsonData.object.children.forEach(childData => {
+                        this.processThreeJSObject(childData, rootNode, parsedGeometries, parsedMaterials);
+                    });
+                } else if (jsonData.object.type === "Mesh") {
+                    this.processThreeJSObject(jsonData.object, rootNode, parsedGeometries, parsedMaterials);
+                }
+                
+                return rootNode;
+            }
+            
+            async loadMultipleBabylonModels(models) {
+                const gridSize = Math.ceil(Math.sqrt(models.length));
+                const spacing = 15;
+                const startX = -((gridSize - 1) * spacing) / 2;
+                const startZ = -((gridSize - 1) * spacing) / 2;
+                
+                const rootNode = new BABYLON.TransformNode("grid_root", this.babylonScene);
+                
+                for (let i = 0; i < models.length; i++) {
+                    const row = Math.floor(i / gridSize);
+                    const col = i % gridSize;
+                    const x = startX + col * spacing;
+                    const z = startZ + row * spacing;
+                    
+                    try {
+                        const modelData = models[i];
+                        const container = new BABYLON.TransformNode(`container_${i}`, this.babylonScene);
+                        
+                        // Load meshes for this model
+                        if (modelData.data.meshes) {
+                            const meshes = [];
+                            for (let meshData of modelData.data.meshes) {
+                                const mesh = this.parseBabylonMesh(meshData, modelData.data);
+                                if (mesh) {
+                                    mesh.parent = container;
+                                    meshes.push(mesh);
+                                }
+                            }
+                            
+                            // Center and scale
+                            if (meshes.length > 0) {
+                                const boundingVectors = container.getHierarchyBoundingVectors(true);
+                                const size = boundingVectors.max.subtract(boundingVectors.min);
+                                const center = boundingVectors.min.add(size.scale(0.5));
+                                const maxDimension = Math.max(size.x, size.y, size.z);
+                                
+                                // Center the model
+                                container.position = new BABYLON.Vector3(x, 0, z).subtract(center);
+                                container.position.y = 0;
+                                
+                                // Scale if needed
+                                if (maxDimension > 8) {
+                                    const scale = 8 / maxDimension;
+                                    container.scaling = new BABYLON.Vector3(scale, scale, scale);
+                                }
+                                
+                                // Ensure model sits on ground
+                                const updatedBounds = container.getHierarchyBoundingVectors(true);
+                                if (updatedBounds.min.y < 0) {
+                                    container.position.y = -updatedBounds.min.y;
+                                }
+                            }
+                        }
+                        
+                        container.parent = rootNode;
+                    } catch (error) {
+                        console.error(`Error loading model ${models[i].name}:`, error);
+                        // Add placeholder
+                        const box = BABYLON.MeshBuilder.CreateBox(`error_${i}`, {size: 2}, this.babylonScene);
+                        box.position = new BABYLON.Vector3(x, 1, z);
+                        const material = new BABYLON.StandardMaterial(`errorMat_${i}`, this.babylonScene);
+                        material.diffuseColor = new BABYLON.Color3(1, 0, 0);
+                        material.alpha = 0.5;
+                        box.material = material;
+                        box.parent = rootNode;
+                    }
+                }
+                
+                this.currentModel = rootNode;
+                
+                // Adjust camera for grid view
+                const boundingVectors = rootNode.getHierarchyBoundingVectors(true);
+                const size = boundingVectors.max.subtract(boundingVectors.min);
+                const maxDimension = Math.max(size.x, size.y, size.z);
+                
+                this.babylonCamera.radius = maxDimension * 1.2;
+                this.babylonCamera.setTarget(BABYLON.Vector3.Zero());
+            }
+            
+            clearCurrentModel() {
+                if (this.currentEngine === 'babylon' && this.currentModel) {
+                    this.currentModel.dispose();
+                    this.currentModel = null;
+                } else if (this.currentEngine === 'three' && this.currentModel) {
+                    this.threeScene.remove(this.currentModel);
+                    this.currentModel = null;
+                }
+            }
+            
+            clearScene() {
+                // Clear current model reference
+                this.currentModel = null;
+                this.gridMode = false;
+                
+                // Clear Babylon scene
+                const babylonMeshesToRemove = [];
+                this.babylonScene.meshes.forEach(mesh => {
+                    if (mesh.name !== 'ground' && mesh.id !== 'ground') {
+                        babylonMeshesToRemove.push(mesh);
+                    }
+                });
+                babylonMeshesToRemove.forEach(mesh => {
+                    mesh.dispose();
+                });
+                
+                // Clear Babylon materials (except ground material)
+                const babylonMaterialsToRemove = [];
+                this.babylonScene.materials.forEach(material => {
+                    if (material.name !== 'groundMat') {
+                        babylonMaterialsToRemove.push(material);
+                    }
+                });
+                babylonMaterialsToRemove.forEach(material => {
+                    material.dispose();
+                });
+                
+                // Clear Babylon transform nodes
+                const babylonNodesToRemove = [];
+                this.babylonScene.transformNodes.forEach(node => {
+                    if (node.name.includes('_root') || node.name.includes('container_')) {
+                        babylonNodesToRemove.push(node);
+                    }
+                });
+                babylonNodesToRemove.forEach(node => {
+                    node.dispose();
+                });
+                
+                // Clear Three scene
+                const threeObjectsToRemove = [];
+                this.threeScene.traverse(child => {
+                    if (child.type === 'Mesh' && child.geometry && child.name !== 'ground') {
+                        threeObjectsToRemove.push(child);
+                    } else if (child.type === 'Group' && (child.name.includes('_root') || child.name.includes('grid_root'))) {
+                        threeObjectsToRemove.push(child);
+                    }
+                });
+                
+                threeObjectsToRemove.forEach(object => {
+                    if (object.parent) {
+                        object.parent.remove(object);
+                    }
+                    if (object.geometry) {
+                        object.geometry.dispose();
+                    }
+                    if (object.material) {
+                        if (Array.isArray(object.material)) {
+                            object.material.forEach(mat => {
+                                if (mat.map) mat.map.dispose();
+                                mat.dispose();
+                            });
+                        } else {
+                            if (object.material.map) object.material.map.dispose();
+                            object.material.dispose();
+                        }
+                    }
+                });
+                
+                // Reset camera positions
+                this.babylonCamera.radius = 20;
+                this.babylonCamera.setTarget(BABYLON.Vector3.Zero());
+                this.threeCamera.position.set(10, 10, 10);
+                this.threeCamera.lookAt(0, 0, 0);
+                
+                // Hide engine indicator
+                document.getElementById('engineIndicator').style.display = 'none';
+            }
+            
+            onWindowResize() {
+                // Resize Babylon
+                this.babylonEngine.resize();
+                
+                // Resize Three
+                this.threeCamera.aspect = window.innerWidth / window.innerHeight;
+                this.threeCamera.updateProjectionMatrix();
+                this.threeRenderer.setSize(window.innerWidth, window.innerHeight);
+            }
+            
+            startRenderLoops() {
+                // Babylon render loop
+                this.babylonEngine.runRenderLoop(() => {
+                    if (this.currentEngine === 'babylon') {
+                        this.babylonScene.render();
+                    }
+                });
+                
+                // Three render loop
+                const animateThree = () => {
+                    requestAnimationFrame(animateThree);
+                    if (this.currentEngine === 'three') {
+                        // Rotate models slowly
+                        if (this.currentModel && !this.gridMode) {
+                            this.currentModel.rotation.y += 0.005;
+                        }
+                        this.threeRenderer.render(this.threeScene, this.threeCamera);
+                    }
+                };
+                animateThree();
+            }
+        }
+        
+        // Initialize the viewer when the page loads
+        window.addEventListener('load', () => {
+            new UnifiedModelViewer();
+        });
+    </script>
+</body>
+</html>

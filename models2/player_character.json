@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Custom Model Creator"
+  },
+  "geometries": [
+    {
+      "uuid": "head-geometry",
+      "type": "SphereGeometry",
+      "radius": 0.5,
+      "widthSegments": 32,
+      "heightSegments": 32
+    },
+    {
+      "uuid": "torso-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.5,
+      "radiusBottom": 0.4,
+      "height": 1.2,
+      "radialSegments": 32
+    },
+    {
+      "uuid": "arm-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.15,
+      "radiusBottom": 0.15,
+      "height": 0.8,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "leg-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.2,
+      "radiusBottom": 0.15,
+      "height": 1.2,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "boot-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.18,
+      "radiusBottom": 0.2,
+      "height": 0.3,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "jacket-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.55,
+      "radiusBottom": 0.45,
+      "height": 1.1,
+      "radialSegments": 32
+    },
+    {
+      "uuid": "beanie-geometry",
+      "type": "SphereGeometry",
+      "radius": 0.52,
+      "widthSegments": 32,
+      "heightSegments": 16,
+      "phiStart": 0,
+      "phiLength": 3.14159,
+      "thetaStart": 0,
+      "thetaLength": 1.57
+    },
+    {
+      "uuid": "shoulder-strap-geometry",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 0.08,
+      "depth": 0.1
+    },
+    {
+      "uuid": "holster-geometry",
+      "type": "BoxGeometry",
+      "width": 0.2,
+      "height": 0.3,
+      "depth": 0.1
+    },
+    {
+      "uuid": "pouch-geometry",
+      "type": "BoxGeometry",
+      "width": 0.15,
+      "height": 0.2,
+      "depth": 0.1
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "skin-material",
+      "type": "MeshStandardMaterial",
+      "color": 15714206,
+      "roughness": 0.8,
+      "metalness": 0.1
+    },
+    {
+      "uuid": "jacket-material",
+      "type": "MeshStandardMaterial",
+      "color": 1842204,
+      "roughness": 0.5,
+      "metalness": 0.1
+    },
+    {
+      "uuid": "jeans-material",
+      "type": "MeshStandardMaterial",
+      "color": 3097088,
+      "roughness": 0.7,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "boots-material",
+      "type": "MeshStandardMaterial",
+      "color": 1118481,
+      "roughness": 0.5,
+      "metalness": 0.2
+    },
+    {
+      "uuid": "beanie-material",
+      "type": "MeshStandardMaterial",
+      "color": 2236962,
+      "roughness": 0.8,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "gear-material",
+      "type": "MeshStandardMaterial",
+      "color": 3355443,
+      "roughness": 0.6,
+      "metalness": 0.3
+    },
+    {
+      "uuid": "shirt-material",
+      "type": "MeshStandardMaterial",
+      "color": 5898239,
+      "roughness": 0.8,
+      "metalness": 0.0
+    }
+  ],
+  "object": {
+    "uuid": "tactical-character",
+    "type": "Group",
+    "name": "TacticalCharacter",
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "character-body",
+        "type": "Group",
+        "name": "Body",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "head",
+            "type": "Mesh",
+            "name": "Head",
+            "geometry": "head-geometry",
+            "material": "skin-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,1.7,0,1]
+          },
+          {
+            "uuid": "beanie",
+            "type": "Mesh",
+            "name": "Beanie",
+            "geometry": "beanie-geometry",
+            "material": "beanie-material",
+            "matrix": [1,0,0,0,0,-1,0,0,0,0,1,0,0,1.95,0,1]
+          },
+          {
+            "uuid": "torso",
+            "type": "Mesh",
+            "name": "Torso",
+            "geometry": "torso-geometry",
+            "material": "shirt-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.6,0,1]
+          },
+          {
+            "uuid": "jacket",
+            "type": "Mesh",
+            "name": "Jacket",
+            "geometry": "jacket-geometry",
+            "material": "jacket-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.6,0,1]
+          },
+          {
+            "uuid": "left-arm",
+            "type": "Mesh",
+            "name": "LeftArm",
+            "geometry": "arm-geometry",
+            "material": "jacket-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.7,0.8,0,1]
+          },
+          {
+            "uuid": "right-arm",
+            "type": "Mesh",
+            "name": "RightArm",
+            "geometry": "arm-geometry",
+            "material": "jacket-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.7,0.8,0,1]
+          },
+          {
+            "uuid": "left-leg",
+            "type": "Mesh",
+            "name": "LeftLeg",
+            "geometry": "leg-geometry",
+            "material": "jeans-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.2,-0.6,0,1]
+          },
+          {
+            "uuid": "right-leg",
+            "type": "Mesh",
+            "name": "RightLeg",
+            "geometry": "leg-geometry",
+            "material": "jeans-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.2,-0.6,0,1]
+          },
+          {
+            "uuid": "left-boot",
+            "type": "Mesh",
+            "name": "LeftBoot",
+            "geometry": "boot-geometry",
+            "material": "boots-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.2,-1.35,0,1]
+          },
+          {
+            "uuid": "right-boot",
+            "type": "Mesh",
+            "name": "RightBoot",
+            "geometry": "boot-geometry",
+            "material": "boots-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.2,-1.35,0,1]
+          }
+        ]
+      },
+      {
+        "uuid": "character-gear",
+        "type": "Group",
+        "name": "Gear",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "shoulder-strap",
+            "type": "Mesh",
+            "name": "ShoulderStrap",
+            "geometry": "shoulder-strap-geometry",
+            "material": "gear-material",
+            "matrix": [0.7,0,0.7,0,0,1,0,0,-0.7,0,0.7,0,0,0.8,0,1]
+          },
+          {
+            "uuid": "holster",
+            "type": "Mesh",
+            "name": "Holster",
+            "geometry": "holster-geometry",
+            "material": "gear-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.4,0,0.3,1]
+          },
+          {
+            "uuid": "pouch-1",
+            "type": "Mesh",
+            "name": "Pouch1",
+            "geometry": "pouch-geometry",
+            "material": "gear-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.3,0.4,0.4,1]
+          },
+          {
+            "uuid": "pouch-2",
+            "type": "Mesh",
+            "name": "Pouch2",
+            "geometry": "pouch-geometry",
+            "material": "gear-material",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.5,0.3,0.4,1]
+          },
+          {
+            "uuid": "knee-pad-left",
+            "type": "Mesh",
+            "name": "KneePadLeft",
+            "geometry": "pouch-geometry",
+            "material": "gear-material",
+            "matrix": [1.2,0,0,0,0,0.6,0,0,0,0,0.5,0,0.2,-0.2,0.25,1]
+          },
+          {
+            "uuid": "knee-pad-right",
+            "type": "Mesh",
+            "name": "KneePadRight",
+            "geometry": "pouch-geometry",
+            "material": "gear-material",
+            "matrix": [1.2,0,0,0,0,0.6,0,0,0,0,0.5,0,-0.2,-0.2,0.25,1]
+          }
+        ]
+      }
+    ]
+  }
+}

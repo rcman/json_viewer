@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "building_wall_thickness",
+      "type": "BoxGeometry",
+      "width": 1.0,
+      "height": 1.0,
+      "depth": 0.2
+    },
+    {
+      "uuid": "long_wall_lintel_sill_geom",
+      "type": "BoxGeometry",
+      "width": 6.0,
+      "height": 0.5,
+      "depth": 0.2
+    },
+    {
+      "uuid": "long_wall_edge_jamb_geom",
+      "type": "BoxGeometry",
+      "width": 1.5,
+      "height": 1.0,
+      "depth": 0.2
+    },
+    {
+      "uuid": "long_wall_middle_jamb_geom",
+      "type": "BoxGeometry",
+      "width": 1.4,
+      "height": 1.0,
+      "depth": 0.2
+    },
+    {
+      "uuid": "short_wall_lintel_geom",
+      "type": "BoxGeometry",
+      "width": 4.0,
+      "height": 0.2,
+      "depth": 0.2
+    },
+    {
+      "uuid": "short_wall_jamb_geom",
+      "type": "BoxGeometry",
+      "width": 1.55,
+      "height": 1.8,
+      "depth": 0.2
+    },
+    {
+      "uuid": "door_stile_geom",
+      "type": "BoxGeometry",
+      "width": 0.1,
+      "height": 1.78,
+      "depth": 0.05
+    },
+    {
+      "uuid": "door_rail_geom",
+      "type": "BoxGeometry",
+      "width": 0.68,
+      "height": 0.1,
+      "depth": 0.05
+    },
+    {
+      "uuid": "door_panel_geom",
+      "type": "BoxGeometry",
+      "width": 0.68,
+      "height": 0.74,
+      "depth": 0.03
+    },
+    {
+      "uuid": "large_ceiling_geom",
+      "type": "BoxGeometry",
+      "width": 6.0,
+      "height": 0.1,
+      "depth": 4.0,
+      "name": "LargeCeilingGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "building_wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 10053120,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "name": "BuildingWood"
+    },
+    {
+      "uuid": "door_wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 8342048,
+      "roughness": 0.75,
+      "metalness": 0.05,
+      "name": "DoorWood"
+    },
+    {
+      "uuid": "ceiling_material",
+      "type": "MeshStandardMaterial",
+      "color": 11184810,
+      "roughness": 0.9,
+      "metalness": 0.05,
+      "name": "CeilingMat"
+    }
+  ],
+  "object": {
+    "uuid": "large_wooden_building",
+    "type": "Group",
+    "name": "LargeWoodenBuilding",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1],
+    "children": [
+      {
+        "uuid": "long_wall_front_group",
+        "type": "Group",
+        "name": "LongWallFront",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.0,-3.0,1],
+        "children": [
+          { "uuid": "lwf_lintel", "type": "Mesh", "name": "Lintel", "geometry": "long_wall_lintel_sill_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.75,0,1]},
+          { "uuid": "lwf_sill", "type": "Mesh", "name": "Sill", "geometry": "long_wall_lintel_sill_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,-0.75,0,1]},
+          { "uuid": "lwf_jamb_left", "type": "Mesh", "name": "JambL", "geometry": "long_wall_edge_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, -2.25,0,0,1]},
+          { "uuid": "lwf_jamb_mid1", "type": "Mesh", "name": "JambM1", "geometry": "long_wall_middle_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0,0,1]},
+          { "uuid": "lwf_jamb_right", "type": "Mesh", "name": "JambR", "geometry": "long_wall_edge_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 2.25,0,0,1]}
+        ]
+      },
+      {
+        "uuid": "long_wall_back_group",
+        "type": "Group",
+        "name": "LongWallBack",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.0,3.0,1],
+        "children": [
+          { "uuid": "lwb_lintel", "type": "Mesh", "name": "Lintel", "geometry": "long_wall_lintel_sill_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.75,0,1]},
+          { "uuid": "lwb_sill", "type": "Mesh", "name": "Sill", "geometry": "long_wall_lintel_sill_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,-0.75,0,1]},
+          { "uuid": "lwb_jamb_left", "type": "Mesh", "name": "JambL", "geometry": "long_wall_edge_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, -2.25,0,0,1]},
+          { "uuid": "lwb_jamb_mid1", "type": "Mesh", "name": "JambM1", "geometry": "long_wall_middle_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0,0,1]},
+          { "uuid": "lwb_jamb_right", "type": "Mesh", "name": "JambR", "geometry": "long_wall_edge_jamb_geom", "material": "building_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 2.25,0,0,1]}
+        ]
+      },
+      {
+        "uuid": "short_wall_left_group",
+        "type": "Group",
+        "name": "ShortWallLeft",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -2.0,1.0,0,1],
+        "children": [
+          { "uuid": "swl_lintel", "type": "Mesh", "name": "Lintel", "geometry": "short_wall_lintel_geom", "material": "building_wood_material", "matrix": [0,0,-1,0,0,1,0,0,1,0,0,0, 0,0.9,0,1]},
+          { "uuid": "swl_jamb_left", "type": "Mesh", "name": "JambL", "geometry": "short_wall_jamb_geom", "material": "building_wood_material", "matrix": [0,0,-1,0,0,1,0,0,1,0,0,0, -0.725,-0.1,0,1]},
+          { "uuid": "swl_jamb_right", "type": "Mesh", "name": "JambR", "geometry": "short_wall_jamb_geom", "material": "building_wood_material", "matrix": [0,0,-1,0,0,1,0,0,1,0,0,0, 0.725,-0.1,0,1]}
+        ]
+      },
+      {
+        "uuid": "short_wall_right_group",
+        "type": "Group",
+        "name": "ShortWallRight",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 2.0,1.0,0,1],
+        "children": [
+          { "uuid": "swr_lintel", "type": "Mesh", "name": "Lintel", "geometry": "short_wall_lintel_geom", "material": "building_wood_material", "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0, 0,0.9,0,1]},
+          { "uuid": "swr_jamb_left", "type": "Mesh", "name": "JambL", "geometry": "short_wall_jamb_geom", "material": "building_wood_material", "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0, -0.725,-0.1,0,1]},
+          { "uuid": "swr_jamb_right", "type": "Mesh", "name": "JambR", "geometry": "short_wall_jamb_geom", "material": "building_wood_material", "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0, 0.725,-0.1,0,1]}
+        ]
+      },
+      {
+        "uuid": "door_left_group",
+        "type": "Group",
+        "name": "DoorLeft",
+        "matrix": [0,0,-1,0, 0,1,0,0, 1,0,0,0, -2.0,0,-0.44,1],
+        "children": [
+          { "uuid": "dl_ls", "type": "Mesh", "name": "LStile", "geometry": "door_stile_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, -0.39,0.89,0,1]},
+          { "uuid": "dl_rs", "type": "Mesh", "name": "RStile", "geometry": "door_stile_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0.39,0.89,0,1]},
+          { "uuid": "dl_br", "type": "Mesh", "name": "BRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.05,0,1]},
+          { "uuid": "dl_mr", "type": "Mesh", "name": "MRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.89,0,1]},
+          { "uuid": "dl_tr", "type": "Mesh", "name": "TRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,1.73,0,1]},
+          { "uuid": "dl_bp", "type": "Mesh", "name": "BPanel", "geometry": "door_panel_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.47,0,1]},
+          { "uuid": "dl_tp", "type": "Mesh", "name": "TPanel", "geometry": "door_panel_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,1.31,0,1]}
+        ]
+      },
+      {
+        "uuid": "door_right_group",
+        "type": "Group",
+        "name": "DoorRight",
+        "matrix": [0,0,1,0, 0,1,0,0, -1,0,0,0, 2.0,0,-0.44,1],
+        "children": [
+          { "uuid": "dr_ls", "type": "Mesh", "name": "LStile", "geometry": "door_stile_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, -0.39,0.89,0,1]},
+          { "uuid": "dr_rs", "type": "Mesh", "name": "RStile", "geometry": "door_stile_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0.39,0.89,0,1]},
+          { "uuid": "dr_br", "type": "Mesh", "name": "BRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.05,0,1]},
+          { "uuid": "dr_mr", "type": "Mesh", "name": "MRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.89,0,1]},
+          { "uuid": "dr_tr", "type": "Mesh", "name": "TRail", "geometry": "door_rail_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,1.73,0,1]},
+          { "uuid": "dr_bp", "type": "Mesh", "name": "BPanel", "geometry": "door_panel_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,0.47,0,1]},
+          { "uuid": "dr_tp", "type": "Mesh", "name": "TPanel", "geometry": "door_panel_geom", "material": "door_wood_material", "matrix": [1,0,0,0,0,1,0,0,0,0,1,0, 0,1.31,0,1]}
+        ]
+      },
+      {
+        "uuid": "main_ceiling",
+        "type": "Mesh",
+        "name": "MainCeiling",
+        "geometry": "large_ceiling_geom",
+        "material": "ceiling_material",
+        "matrix": [0,0,-1,0, 0,1,0,0, 1,0,0,0, 0,2.05,0,1]
+      }
+    ]
+  }
+}

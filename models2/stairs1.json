@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "stringer-left",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 18,
+      "depth": 30
+    },
+    {
+      "uuid": "stringer-right",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 18,
+      "depth": 30
+    },
+    {
+      "uuid": "step-1",
+      "type": "BoxGeometry",
+      "width": 24,
+      "height": 1.5,
+      "depth": 7
+    },
+    {
+      "uuid": "step-2",
+      "type": "BoxGeometry",
+      "width": 24,
+      "height": 1.5,
+      "depth": 7
+    },
+    {
+      "uuid": "step-3",
+      "type": "BoxGeometry",
+      "width": 24,
+      "height": 1.5,
+      "depth": 7
+    },
+    {
+      "uuid": "step-4",
+      "type": "BoxGeometry",
+      "width": 24,
+      "height": 1.5,
+      "depth": 7
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood-material",
+      "type": "MeshStandardMaterial",
+      "color": 10564352,
+      "roughness": 0.7,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2
+    },
+    {
+      "uuid": "step-material",
+      "type": "MeshStandardMaterial",
+      "color": 16777215,
+      "roughness": 0.6,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2
+    }
+  ],
+  "object": {
+    "uuid": "wooden-stairs",
+    "type": "Group",
+    "name": "WoodenStairs",
+    "layers": 1,
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "stringer-left-mesh",
+        "type": "Mesh",
+        "name": "LeftStringer",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -11, 9, 0, 1],
+        "geometry": "stringer-left",
+        "material": "wood-material"
+      },
+      {
+        "uuid": "stringer-right-mesh",
+        "type": "Mesh",
+        "name": "RightStringer",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 11, 9, 0, 1],
+        "geometry": "stringer-right",
+        "material": "wood-material"
+      },
+      {
+        "uuid": "step-1-mesh",
+        "type": "Mesh",
+        "name": "Step1",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.5, -10.5, 1],
+        "geometry": "step-1",
+        "material": "step-material"
+      },
+      {
+        "uuid": "step-2-mesh",
+        "type": "Mesh",
+        "name": "Step2",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 8.5, -3.5, 1],
+        "geometry": "step-2",
+        "material": "step-material"
+      },
+      {
+        "uuid": "step-3-mesh",
+        "type": "Mesh",
+        "name": "Step3",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 12.5, 3.5, 1],
+        "geometry": "step-3",
+        "material": "step-material"
+      },
+      {
+        "uuid": "step-4-mesh",
+        "type": "Mesh",
+        "name": "Step4",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 16.5, 10.5, 1],
+        "geometry": "step-4",
+        "material": "step-material"
+      }
+    ]
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "box_main_geom",
+      "type": "BoxGeometry",
+      "width": 1.0,
+      "height": 0.6,
+      "depth": 0.5,
+      "name": "BoxMainGeometry"
+    },
+    {
+      "uuid": "strap_front_back_geom",
+      "type": "BoxGeometry",
+      "width": 1.0,
+      "height": 0.05,
+      "depth": 0.02,
+      "name": "StrapFrontBackGeometry"
+    },
+    {
+      "uuid": "strap_side_geom",
+      "type": "BoxGeometry",
+      "width": 0.02,
+      "height": 0.05,
+      "depth": 0.5,
+      "name": "StrapSideGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "box_wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 8342048,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "name": "BoxWoodMaterial"
+    },
+    {
+      "uuid": "strap_metal_material",
+      "type": "MeshStandardMaterial",
+      "color": 7368816,
+      "metalness": 0.9,
+      "roughness": 0.3,
+      "name": "StrapMetalMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "storage_box_assembly_group",
+    "type": "Group",
+    "name": "StorageBoxAssembly",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1],
+    "children": [
+      {
+        "uuid": "box_main_mesh",
+        "type": "Mesh",
+        "name": "BoxMain",
+        "geometry": "box_main_geom",
+        "material": "box_wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.3,0,1]
+      },
+      {
+        "uuid": "strap_lower_front",
+        "type": "Mesh",
+        "name": "StrapLowerFront",
+        "geometry": "strap_front_back_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.1,0.26,1]
+      },
+      {
+        "uuid": "strap_lower_back",
+        "type": "Mesh",
+        "name": "StrapLowerBack",
+        "geometry": "strap_front_back_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.1,-0.26,1]
+      },
+      {
+        "uuid": "strap_lower_left",
+        "type": "Mesh",
+        "name": "StrapLowerLeft",
+        "geometry": "strap_side_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.51,0.1,0,1]
+      },
+      {
+        "uuid": "strap_lower_right",
+        "type": "Mesh",
+        "name": "StrapLowerRight",
+        "geometry": "strap_side_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.51,0.1,0,1]
+      },
+      {
+        "uuid": "strap_upper_front",
+        "type": "Mesh",
+        "name": "StrapUpperFront",
+        "geometry": "strap_front_back_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.5,0.26,1]
+      },
+      {
+        "uuid": "strap_upper_back",
+        "type": "Mesh",
+        "name": "StrapUpperBack",
+        "geometry": "strap_front_back_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.5,-0.26,1]
+      },
+      {
+        "uuid": "strap_upper_left",
+        "type": "Mesh",
+        "name": "StrapUpperLeft",
+        "geometry": "strap_side_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.51,0.5,0,1]
+      },
+      {
+        "uuid": "strap_upper_right",
+        "type": "Mesh",
+        "name": "StrapUpperRight",
+        "geometry": "strap_side_geom",
+        "material": "strap_metal_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.51,0.5,0,1]
+      }
+    ]
+  }
+}

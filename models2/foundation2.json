@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "plank_geom",
+      "type": "BoxGeometry",
+      "width": 0.2225,
+      "height": 0.1,
+      "depth": 2.0,
+      "name": "PlankGeometry"
+    },
+    {
+      "uuid": "leg_geom",
+      "type": "BoxGeometry",
+      "width": 0.3,
+      "height": 0.4,
+      "depth": 0.3,
+      "name": "LegGeometry"
+    },
+    {
+      "uuid": "support_beam_geom",
+      "type": "BoxGeometry",
+      "width": 2.0,
+      "height": 0.2,
+      "depth": 0.2,
+      "name": "SupportBeamGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood_material",
+      "type": "MeshStandardMaterial",
+      "color": 10053120,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "name": "WoodMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "foundation_group",
+    "type": "Group",
+    "name": "WoodenFoundation",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1],
+    "children": [
+      {
+        "uuid": "plank_0",
+        "type": "Mesh",
+        "name": "Plank0",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.88875,0.05,0,1]
+      },
+      {
+        "uuid": "plank_1",
+        "type": "Mesh",
+        "name": "Plank1",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.64625,0.05,0,1]
+      },
+      {
+        "uuid": "plank_2",
+        "type": "Mesh",
+        "name": "Plank2",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.40375,0.05,0,1]
+      },
+      {
+        "uuid": "plank_3",
+        "type": "Mesh",
+        "name": "Plank3",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.16125,0.05,0,1]
+      },
+      {
+        "uuid": "plank_4",
+        "type": "Mesh",
+        "name": "Plank4",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.08125,0.05,0,1]
+      },
+      {
+        "uuid": "plank_5",
+        "type": "Mesh",
+        "name": "Plank5",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.32375,0.05,0,1]
+      },
+      {
+        "uuid": "plank_6",
+        "type": "Mesh",
+        "name": "Plank6",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.56625,0.05,0,1]
+      },
+      {
+        "uuid": "plank_7",
+        "type": "Mesh",
+        "name": "Plank7",
+        "geometry": "plank_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.80875,0.05,0,1]
+      },
+      {
+        "uuid": "support_beam_front",
+        "type": "Mesh",
+        "name": "SupportBeamFront",
+        "geometry": "support_beam_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,-0.1,0.75,1]
+      },
+      {
+        "uuid": "support_beam_back",
+        "type": "Mesh",
+        "name": "SupportBeamBack",
+        "geometry": "support_beam_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,-0.1,-0.75,1]
+      },
+      {
+        "uuid": "leg_front_left",
+        "type": "Mesh",
+        "name": "LegFrontLeft",
+        "geometry": "leg_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.85,-0.4,0.85,1]
+      },
+      {
+        "uuid": "leg_front_right",
+        "type": "Mesh",
+        "name": "LegFrontRight",
+        "geometry": "leg_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.85,-0.4,0.85,1]
+      },
+      {
+        "uuid": "leg_back_left",
+        "type": "Mesh",
+        "name": "LegBackLeft",
+        "geometry": "leg_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.85,-0.4,-0.85,1]
+      },
+      {
+        "uuid": "leg_back_right",
+        "type": "Mesh",
+        "name": "LegBackRight",
+        "geometry": "leg_geom",
+        "material": "wood_material",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.85,-0.4,-0.85,1]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "cube-base",
+      "type": "BoxGeometry",
+      "width": 1,
+      "height": 1,
+      "depth": 1
+    },
+    {
+      "uuid": "cube-top",
+      "type": "BoxGeometry",
+      "width": 1.1,
+      "height": 0.1,
+      "depth": 1.1
+    },
+    {
+      "uuid": "cube-leg",
+      "type": "BoxGeometry",
+      "width": 0.1,
+      "height": 0.9,
+      "depth": 0.1
+    },
+    {
+      "uuid": "grid-geometry",
+      "type": "PlaneGeometry",
+      "width": 0.9,
+      "height": 0.9
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood-dark",
+      "type": "MeshStandardMaterial",
+      "color": 8083456,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-dark"
+    },
+    {
+      "uuid": "wood-light",
+      "type": "MeshStandardMaterial",
+      "color": 10841373,
+      "roughness": 0.6,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-light"
+    },
+    {
+      "uuid": "wood-medium",
+      "type": "MeshStandardMaterial",
+      "color": 9656096,
+      "roughness": 0.65,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-medium"
+    },
+    {
+      "uuid": "grid-material",
+      "type": "MeshBasicMaterial",
+      "color": 5592405,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "opacity": 0.9,
+      "transparent": true,
+      "side": 2,
+      "name": "grid-material"
+    }
+  ],
+  "object": {
+    "uuid": "crafting-table",
+    "type": "Group",
+    "name": "CraftingTable",
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "table-base",
+        "type": "Mesh",
+        "name": "TableBase",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.45, 0, 1],
+        "geometry": "cube-base",
+        "material": "wood-medium",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "table-top",
+        "type": "Mesh",
+        "name": "TableTop",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1],
+        "geometry": "cube-top",
+        "material": "wood-light",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "leg-1",
+        "type": "Mesh",
+        "name": "Leg1",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.4, 0, 0.4, 1],
+        "geometry": "cube-leg",
+        "material": "wood-dark",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "leg-2",
+        "type": "Mesh",
+        "name": "Leg2",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4, 0, 0.4, 1],
+        "geometry": "cube-leg",
+        "material": "wood-dark",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "leg-3",
+        "type": "Mesh",
+        "name": "Leg3",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.4, 0, -0.4, 1],
+        "geometry": "cube-leg",
+        "material": "wood-dark",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "leg-4",
+        "type": "Mesh",
+        "name": "Leg4",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.4, 0, -0.4, 1],
+        "geometry": "cube-leg",
+        "material": "wood-dark",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "grid",
+        "type": "Mesh",
+        "name": "CraftingGrid",
+        "matrix": [1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 1.06, 0, 1],
+        "geometry": "grid-geometry",
+        "material": "grid-material",
+        "castShadow": false,
+        "receiveShadow": true
+      }
+    ]
+  }
+}
