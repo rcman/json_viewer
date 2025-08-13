@@ -2,7 +2,7 @@
 
 <BR>
 <BR>
-All models must be placed in a folder called models2
+All models must be placed in a folder called models
 <BR>
 When the model_viewer.html opens, select the drop down and select Add more models
 <BR>
