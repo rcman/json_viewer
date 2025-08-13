@@ -1,0 +1,73 @@
+[
+  {
+    "type": "cylinder",
+    "radius": 1.0,
+    "height": 2.5,
+    "color": "blue",
+    "position": [0, 0, 0],
+    "segments": 32
+  },
+  {
+    "type": "cylinder",
+    "radius": 1.02,
+    "height": 0.1,
+    "color": "blue",
+    "position": [0, 1.25, 0],
+    "segments": 32,
+    "comment": "Top lid/rim"
+  },
+  {
+    "type": "cylinder",
+    "radius": 1.02,
+    "height": 0.1,
+    "color": "blue",
+    "position": [0, -1.25, 0],
+    "segments": 32,
+    "comment": "Bottom rim"
+  },
+  {
+    "type": "torus",
+    "radius": 1.01,
+    "tube": 0.05,
+    "color": "blue",
+    "position": [0, 0.6, 0],
+    "segments": 32,
+    "comment": "Upper reinforcing hoop"
+  },
+  {
+    "type": "torus",
+    "radius": 1.01,
+    "tube": 0.05,
+    "color": "blue",
+    "position": [0, -0.6, 0],
+    "segments": 32,
+    "comment": "Lower reinforcing hoop"
+  },
+  {
+    "type": "cylinder",
+    "radius": 0.15,
+    "height": 0.12,
+    "color": "red",
+    "position": [0.4, 1.31, -0.1],
+    "segments": 16,
+    "comment": "Large red bung/cap on top lid. Y = LidTop (1.30) + BungHalfHeight (0.06)"
+  },
+  {
+    "type": "cylinder",
+    "radius": 0.08,
+    "height": 0.08,
+    "color": "darkblue",
+    "position": [-0.35, 1.29, 0.2],
+    "segments": 16,
+    "comment": "Small blue/metallic bung on top lid. Y = LidTop (1.30) + BungHalfHeight (0.04), slightly embedded"
+  },
+  {
+    "type": "box",
+    "width": 0.7,
+    "height": 0.02,
+    "depth": 0.5,
+    "color": "lightgrey",
+    "position": [0, 1.31, 0],
+    "comment": "Label on top. Y = LidTop (1.30) + LabelHalfHeight (0.01)"
+  }
+]

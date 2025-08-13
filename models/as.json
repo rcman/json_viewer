@@ -1,0 +1,294 @@
+{
+    "metadata": {
+        "version": 4.5,
+        "type": "Object",
+        "generator": "ManualJSONGenerator"
+    },
+    "geometries": [
+        {
+            "uuid": "geom-body",
+            "type": "BoxGeometry",
+            "width": 1,
+            "height": 0.8,
+            "depth": 0.7,
+            "name": "BodyGeometry"
+        },
+        {
+            "uuid": "geom-head",
+            "type": "SphereGeometry",
+            "radius": 0.3,
+            "widthSegments": 16,
+            "heightSegments": 16,
+            "name": "HeadGeometry"
+        },
+        {
+            "uuid": "geom-beak",
+            "type": "ConeGeometry",
+            "radius": 0.1,
+            "height": 0.3,
+            "radialSegments": 8,
+            "name": "BeakGeometry"
+        },
+        {
+            "uuid": "geom-comb",
+            "type": "BoxGeometry",
+            "width": 0.1,
+            "height": 0.2,
+            "depth": 0.05,
+            "name": "CombGeometry"
+        },
+        {
+            "uuid": "geom-wattle",
+            "type": "BoxGeometry",
+            "width": 0.08,
+            "height": 0.15,
+            "depth": 0.04,
+            "name": "WattleGeometry"
+        },
+        {
+            "uuid": "geom-wing",
+            "type": "BoxGeometry",
+            "width": 0.2,
+            "height": 0.5,
+            "depth": 0.6,
+            "name": "WingGeometry"
+        },
+        {
+            "uuid": "geom-leg",
+            "type": "CylinderGeometry",
+            "radiusTop": 0.08,
+            "radiusBottom": 0.08,
+            "height": 0.5,
+            "radialSegments": 8,
+            "name": "LegGeometry"
+        },
+        {
+            "uuid": "geom-foot",
+            "type": "BoxGeometry",
+            "width": 0.25,
+            "height": 0.05,
+            "depth": 0.2,
+            "name": "FootGeometry"
+        },
+        {
+            "uuid": "geom-tail-feather",
+            "type": "BoxGeometry",
+            "width": 0.1,
+            "height": 0.4,
+            "depth": 0.05,
+            "name": "TailFeatherGeometry"
+        }
+    ],
+    "materials": [
+        {
+            "uuid": "mat-body",
+            "type": "MeshStandardMaterial",
+            "color": "0xffdbac",
+            "name": "BodyMaterial",
+            "roughness": 0.8,
+            "metalness": 0.1
+        },
+        {
+            "uuid": "mat-head",
+            "type": "MeshStandardMaterial",
+            "color": "0xffe0b8",
+            "name": "HeadMaterial",
+            "roughness": 0.8,
+            "metalness": 0.1
+        },
+        {
+            "uuid": "mat-beak",
+            "type": "MeshStandardMaterial",
+            "color": "0xffff00",
+            "name": "BeakMaterial",
+            "roughness": 0.5
+        },
+        {
+            "uuid": "mat-comb-wattle",
+            "type": "MeshStandardMaterial",
+            "color": "0xff0000",
+            "name": "CombWattleMaterial",
+            "roughness": 0.7
+        },
+        {
+            "uuid": "mat-leg-foot",
+            "type": "MeshStandardMaterial",
+            "color": "0xffa500",
+            "name": "LegFootMaterial",
+            "roughness": 0.6
+        },
+        {
+            "uuid": "mat-tail",
+            "type": "MeshStandardMaterial",
+            "color": "0x8B4513",
+            "name": "TailMaterial",
+            "roughness": 0.8
+        }
+    ],
+    "animations": [
+        {
+            "name": "peck",
+            "duration": 1.5,
+            "tracks": [
+                {
+                    "name": "HeadGroup.quaternion",
+                    "type": "quaternion",
+                    "times": [0, 0.5, 1, 1.5],
+                    "values": [
+                        0, 0, 0, 1,                  
+                        0.3826834, 0, 0, 0.9238795, 
+                        0, 0, 0, 1,                  
+                        0, 0, 0, 1                   
+                    ]
+                }
+            ]
+        }
+    ],
+    "object": {
+        "uuid": "scene-root",
+        "type": "Group",
+        "name": "Chicken",
+        "children": [
+            {
+                "uuid": "obj-body",
+                "name": "Body",
+                "type": "Mesh",
+                "geometry": "geom-body",
+                "material": "mat-body",
+                "position": [0, 0.4, 0],
+                "children": [
+                    {
+                        "uuid": "obj-headgroup",
+                        "name": "HeadGroup",
+                        "type": "Group",
+                        "position": [0.45, 0.25, 0], 
+                        "children": [
+                            {
+                                "uuid": "obj-head",
+                                "name": "Head",
+                                "type": "Mesh",
+                                "geometry": "geom-head",
+                                "material": "mat-head",
+                                "position": [0, 0, 0]
+                            },
+                            {
+                                "uuid": "obj-beak",
+                                "name": "Beak",
+                                "type": "Mesh",
+                                "geometry": "geom-beak",
+                                "material": "mat-beak",
+                                "position": [0.25, -0.05, 0],
+                                "rotation": [0, 0, -1.5708] 
+                            },
+                            {
+                                "uuid": "obj-comb",
+                                "name": "Comb",
+                                "type": "Mesh",
+                                "geometry": "geom-comb",
+                                "material": "mat-comb-wattle",
+                                "position": [0, 0.3, 0]
+                            },
+                            {
+                                "uuid": "obj-wattle",
+                                "name": "Wattle",
+                                "type": "Mesh",
+                                "geometry": "geom-wattle",
+                                "material": "mat-comb-wattle",
+                                "position": [0.1, -0.3, 0]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "obj-leftwing",
+                        "name": "LeftWing",
+                        "type": "Mesh",
+                        "geometry": "geom-wing",
+                        "material": "mat-body",
+                        "position": [0, 0, 0.45],
+                        "rotation": [0.2, 0, 0]
+                    },
+                    {
+                        "uuid": "obj-rightwing",
+                        "name": "RightWing",
+                        "type": "Mesh",
+                        "geometry": "geom-wing",
+                        "material": "mat-body",
+                        "position": [0, 0, -0.45],
+                        "rotation": [-0.2, 0, 0]
+                    },
+                    {
+                        "uuid": "obj-tail",
+                        "name": "Tail",
+                        "type": "Group",
+                        "position": [-0.6, 0.1, 0],
+                        "children": [
+                           {
+                                "uuid": "obj-tailfeather1",
+                                "name": "TailFeather1",
+                                "type": "Mesh",
+                                "geometry": "geom-tail-feather",
+                                "material": "mat-tail",
+                                "position": [0,0,0],
+                                "rotation": [0, 0, -0.5]
+                           },
+                           {
+                                "uuid": "obj-tailfeather2",
+                                "name": "TailFeather2",
+                                "type": "Mesh",
+                                "geometry": "geom-tail-feather",
+                                "material": "mat-tail",
+                                "position": [0.05,0,0.05],
+                                "rotation": [0, 0.3, -0.4]
+                           },
+                           {
+                                "uuid": "obj-tailfeather3",
+                                "name": "TailFeather3",
+                                "type": "Mesh",
+                                "geometry": "geom-tail-feather",
+                                "material": "mat-tail",
+                                "position": [0.05,0,-0.05],
+                                "rotation": [0, -0.3, -0.4]
+                           }
+                        ]
+                    }
+                ]
+            },
+            {
+                "uuid": "obj-leftleg",
+                "name": "LeftLeg",
+                "type": "Mesh",
+                "geometry": "geom-leg",
+                "material": "mat-leg-foot",
+                "position": [0.2, -0.2, 0.25],
+                "children": [
+                    {
+                        "uuid": "obj-leftfoot",
+                        "name": "LeftFoot",
+                        "type": "Mesh",
+                        "geometry": "geom-foot",
+                        "material": "mat-leg-foot",
+                        "position": [0, -0.275, 0]
+                    }
+                ]
+            },
+            {
+                "uuid": "obj-rightleg",
+                "name": "RightLeg",
+                "type": "Mesh",
+                "geometry": "geom-leg",
+                "material": "mat-leg-foot",
+                "position": [0.2, -0.2, -0.25],
+                "children": [
+                    {
+                        "uuid": "obj-rightfoot",
+                        "name": "RightFoot",
+                        "type": "Mesh",
+                        "geometry": "geom-foot",
+                        "material": "mat-leg-foot",
+                        "position": [0, -0.275, 0]
+                    }
+                ]
+            }
+        ]
+    }
+}

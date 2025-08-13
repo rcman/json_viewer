@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Claude"
+  },
+  "geometries": [
+    {
+      "uuid": "B7E12AF0-5F99-4E36-B6A9-E27F52C86A52",
+      "type": "BoxGeometry",
+      "width": 3,
+      "height": 2,
+      "depth": 2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "D9B320B1-C306-437D-889E-4B8E866F3952",
+      "type": "SphereGeometry",
+      "radius": 1.2,
+      "widthSegments": 16,
+      "heightSegments": 16
+    },
+    {
+      "uuid": "F4512850-26BF-46A9-A46E-DD1976F9AC62",
+      "type": "SphereGeometry",
+      "radius": 0.4,
+      "widthSegments": 16,
+      "heightSegments": 16
+    },
+    {
+      "uuid": "E321A28C-C7FF-4D17-A78C-EA18D807FF21",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.4,
+      "radiusBottom": 0.4,
+      "height": 1.2,
+      "radialSegments": 16,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "A7F42E7D-B8A3-4BFF-9F5E-0F5C36D71210",
+      "type": "SphereGeometry",
+      "radius": 0.3,
+      "widthSegments": 8,
+      "heightSegments": 8
+    },
+    {
+      "uuid": "B1F42E7D-B8A3-4BFF-9F5E-0F5C36D71211",
+      "type": "SphereGeometry",
+      "radius": 0.15,
+      "widthSegments": 8,
+      "heightSegments": 8
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "73A47961-F156-442F-A02E-F68C7526ABB3",
+      "type": "MeshStandardMaterial",
+      "color": 8538144,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2
+    },
+    {
+      "uuid": "D7F42E7D-B8A3-4BFF-9F5E-0F5C36D71212",
+      "type": "MeshStandardMaterial",
+      "color": 5789784,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2
+    },
+    {
+      "uuid": "0C35D5E2-A8F7-4087-BA17-A8EBD9B1A31C",
+      "type": "MeshStandardMaterial",
+      "color": 0,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2
+    }
+  ],
+  "object": {
+    "uuid": "3A75BD3F-AC2D-4E8C-A39C-34C12F879176",
+    "type": "Group",
+    "name": "Bear",
+    "layers": 1,
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "ED947B4F-DDD0-4D01-A8E5-D158A71BD371",
+        "type": "Mesh",
+        "name": "Body",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.6, 0, 1],
+        "geometry": "B7E12AF0-5F99-4E36-B6A9-E27F52C86A52",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "BC9BCDA8-7C58-479D-9F45-6F01C02342A5",
+        "type": "Mesh",
+        "name": "Head",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.5, 0.8, 1],
+        "geometry": "D9B320B1-C306-437D-889E-4B8E866F3952",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "17D9426C-7DFD-459F-9DE3-2A4C58531ADB",
+        "type": "Mesh",
+        "name": "LeftEar",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.8, 3.4, 0.8, 1],
+        "geometry": "F4512850-26BF-46A9-A46E-DD1976F9AC62",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "A3C7EFF1-B365-4AA3-8D8C-CF3A254D05B9",
+        "type": "Mesh",
+        "name": "RightEar",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.8, 3.4, 0.8, 1],
+        "geometry": "F4512850-26BF-46A9-A46E-DD1976F9AC62",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "B591EF71-63CB-4D0C-9462-C1FC0F98B52D",
+        "type": "Mesh",
+        "name": "Snout",
+        "layers": 1,
+        "matrix": [0.85, 0, 0, 0, 0, 0.7, 0, 0, 0, 0, 0.85, 0, 0, 2.2, 1.8, 1],
+        "geometry": "F4512850-26BF-46A9-A46E-DD1976F9AC62",
+        "material": "D7F42E7D-B8A3-4BFF-9F5E-0F5C36D71212"
+      },
+      {
+        "uuid": "C16C21CF-F764-4D3B-8FF2-9ABEAFCD2ACD",
+        "type": "Mesh",
+        "name": "FrontLeftLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, -0.5, 0.7, 1],
+        "geometry": "E321A28C-C7FF-4D17-A78C-EA18D807FF21",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "D3BACCE0-2E14-4548-88C8-FD82E36729D7",
+        "type": "Mesh",
+        "name": "FrontRightLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1, -0.5, 0.7, 1],
+        "geometry": "E321A28C-C7FF-4D17-A78C-EA18D807FF21",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "ECA45D93-EF0D-4EC2-A3B3-06D2B7EC6D97",
+        "type": "Mesh",
+        "name": "BackLeftLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, -0.5, -0.7, 1],
+        "geometry": "E321A28C-C7FF-4D17-A78C-EA18D807FF21",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "F3AE40C3-77DC-49F4-95B1-01E2B9A7D7A6",
+        "type": "Mesh",
+        "name": "BackRightLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1, -0.5, -0.7, 1],
+        "geometry": "E321A28C-C7FF-4D17-A78C-EA18D807FF21",
+        "material": "73A47961-F156-442F-A02E-F68C7526ABB3"
+      },
+      {
+        "uuid": "G16C21CF-F764-4D3B-8FF2-9ABEAFCD2ACE",
+        "type": "Mesh",
+        "name": "LeftEye",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.5, 2.7, 1.9, 1],
+        "geometry": "A7F42E7D-B8A3-4BFF-9F5E-0F5C36D71210",
+        "material": "0C35D5E2-A8F7-4087-BA17-A8EBD9B1A31C"
+      },
+      {
+        "uuid": "H16C21CF-F764-4D3B-8FF2-9ABEAFCD2ACF",
+        "type": "Mesh",
+        "name": "RightEye",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.5, 2.7, 1.9, 1],
+        "geometry": "A7F42E7D-B8A3-4BFF-9F5E-0F5C36D71210",
+        "material": "0C35D5E2-A8F7-4087-BA17-A8EBD9B1A31C"
+      },
+      {
+        "uuid": "I3AE40C3-77DC-49F4-95B1-01E2B9A7D7A7",
+        "type": "Mesh",
+        "name": "Nose",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.2, 2.2, 1],
+        "geometry": "B1F42E7D-B8A3-4BFF-9F5E-0F5C36D71211",
+        "material": "0C35D5E2-A8F7-4087-BA17-A8EBD9B1A31C"
+      }
+    ]
+  }
+}

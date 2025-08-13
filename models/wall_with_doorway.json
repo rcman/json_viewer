@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "lintel_door_geom",
+      "type": "BoxGeometry",
+      "width": 2.0,
+      "height": 0.2,
+      "depth": 0.2,
+      "name": "LintelDoorGeometry"
+    },
+    {
+      "uuid": "jamb_door_geom",
+      "type": "BoxGeometry",
+      "width": 0.55,
+      "height": 1.8,
+      "depth": 0.2,
+      "name": "JambDoorGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood_material_wall_doorway",
+      "type": "MeshStandardMaterial",
+      "color": 10053120,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "name": "WoodMaterialWallDoorway"
+    }
+  ],
+  "object": {
+    "uuid": "wall_with_doorway_group",
+    "type": "Group",
+    "name": "WallWithDoorway",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.0,0,1],
+    "children": [
+      {
+        "uuid": "lintel_door_section",
+        "type": "Mesh",
+        "name": "LintelDoor",
+        "geometry": "lintel_door_geom",
+        "material": "wood_material_wall_doorway",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0.9,0,1]
+      },
+      {
+        "uuid": "left_jamb_door_section",
+        "type": "Mesh",
+        "name": "LeftJambDoor",
+        "geometry": "jamb_door_geom",
+        "material": "wood_material_wall_doorway",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, -0.725,-0.1,0,1]
+      },
+      {
+        "uuid": "right_jamb_door_section",
+        "type": "Mesh",
+        "name": "RightJambDoor",
+        "geometry": "jamb_door_geom",
+        "material": "wood_material_wall_doorway",
+        "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0.725,-0.1,0,1]
+      }
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+      "type": "BoxGeometry",
+      "width": 0.9,
+      "height": 0.05,
+      "depth": 0.15,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "AD58320B-214C-4D45-B6B4-4D54978A3516",
+      "type": "MeshStandardMaterial",
+      "color": 6308356,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "emissive": 0,
+      "envMapIntensity": 1,
+      "side": 2,
+      "name": "woodMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "4FCE77D5-DB0A-404B-A6E1-D92A2D199EF1",
+    "type": "Group",
+    "name": "SquareWoodenFoundation",
+    "layers": 1,
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "A7FB2B3C-60B0-4AF3-8E48-CB3B1A33A134",
+        "type": "Mesh",
+        "name": "Plank1",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.95, 0, -0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "B22FD1D3-C0E9-4D3B-89AB-88F21C626E0A",
+        "type": "Mesh",
+        "name": "Plank2",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "C85F9E03-C5A8-4AFB-9D36-D7C20D386E22",
+        "type": "Mesh",
+        "name": "Plank3",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.95, 0, -0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "D32CA4E8-E3F6-4A88-841A-1A4D5C0D7A4E",
+        "type": "Mesh",
+        "name": "Plank4",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -0.95, 0, -0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "E40D5B95-D8F7-4C7C-AE31-E63B42D9E84F",
+        "type": "Mesh",
+        "name": "Plank5",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.95, 0, 0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "F85AA2CE-F8E4-4E5E-BA23-7FC8D9D37A9A",
+        "type": "Mesh",
+        "name": "Plank6",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "G16A2C8B-53E9-4F79-A451-B22AE3D0C97D",
+        "type": "Mesh",
+        "name": "Plank7",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.95, 0, 0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "H3BDB24F-EA70-4A1B-88F2-4C5A08C6317E",
+        "type": "Mesh",
+        "name": "Plank8",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0.95, 0, -0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "I78D1E80-BC41-4D2C-9CA3-D76A54E297FF",
+        "type": "Mesh",
+        "name": "Plank9",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.95, 0, 0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "J94C0F3A-264B-4A3D-A514-E87B65A6A800",
+        "type": "Mesh",
+        "name": "Plank10",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "K05B9D75-7C2E-4AE4-B625-F918A7B49711",
+        "type": "Mesh",
+        "name": "Plank11",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.95, 0, 0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "L11A8B20-6D1F-4B15-B736-0A9B88C5A622",
+        "type": "Mesh",
+        "name": "Plank12",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, -0.32, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "M22E9F31-5A80-4B26-9C47-0B9C99D8D533",
+        "type": "Mesh",
+        "name": "Plank13",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -0.32, 0, -0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "N33F0A42-6B91-4C37-AD58-1C0DAA0E9644",
+        "type": "Mesh",
+        "name": "Plank14",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0.32, 0, -0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "O44G1B53-7C02-4D48-BE69-2D1EBB1F0755",
+        "type": "Mesh",
+        "name": "Plank15",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -0.32, 0, 0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      },
+      {
+        "uuid": "P55H2C64-8D13-4E59-CF70-3E2FCC2G1866",
+        "type": "Mesh",
+        "name": "Plank16",
+        "layers": 1,
+        "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0.32, 0, 0.95, 1],
+        "geometry": "8F56E4C8-A236-4A3F-8E57-D5C59E2E842C",
+        "material": "AD58320B-214C-4D45-B6B4-4D54978A3516"
+      }
+    ]
+  }
+}

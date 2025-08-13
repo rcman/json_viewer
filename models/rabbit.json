@@ -1,0 +1,147 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "15A12B23-9C01-4523-A1FB-C4E9DEF56789",
+			"type": "BoxGeometry",
+			"width": 1,
+			"height": 0.5,
+			"depth": 1.5,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		},
+		{
+			"uuid": "27B34C45-0D12-5634-B2FC-D5F0EGA67890",
+			"type": "SphereGeometry",
+			"radius": 0.4,
+			"widthSegments": 8,
+			"heightSegments": 6,
+			"phiStart": 0,
+			"phiLength": 6.283185,
+			"thetaStart": 0,
+			"thetaLength": 3.1415
+		},
+		{
+			"uuid": "38C45D56-1E23-6745-C3GD-E6G1FHB78901",
+			"type": "CylinderGeometry",
+			"radiusTop": 0.1,
+			"radiusBottom": 0.1,
+			"height": 0.4,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "49D56E67-2F34-7856-D4HE-F7H2GIC89012",
+			"type": "SphereGeometry",
+			"radius": 0.1,
+			"widthSegments": 8,
+			"heightSegments": 6,
+			"phiStart": 0,
+			"phiLength": 6.283185,
+			"thetaStart": 0,
+			"thetaLength": 3.1415
+		}
+	],
+	"materials": [
+		{
+			"uuid": "50E67F78-3G45-8967-E5IF-G8I3HJD90123",
+			"type": "MeshStandardMaterial",
+			"color": 16777215,
+			"roughness": 0.5,
+			"metalness": 0.0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		},
+		{
+			"uuid": "61F78G89-4H56-9078-F6JG-H9J4IKE01234",
+			"type": "MeshStandardMaterial",
+			"color": 16752639,
+			"roughness": 0.7,
+			"metalness": 0.0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}
+	],
+	"object": {
+		"uuid": "72G89H90-5I67-0189-G7KH-I0K5JLF12345",
+		"type": "Group",
+		"name": "Rabbit",
+		"layers": 1,
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "83H90I01-6J78-1290-H8LI-J1L6KMG23456",
+				"type": "Mesh",
+				"name": "Body",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.25,0,1],
+				"geometry": "15A12B23-9C01-4523-A1FB-C4E9DEF56789",
+				"material": "50E67F78-3G45-8967-E5IF-G8I3HJD90123"
+			},
+			{
+				"uuid": "94I01J12-7K89-2301-I9MJ-K2M7LNH34567",
+				"type": "Mesh",
+				"name": "Head",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.5,0.8,1],
+				"geometry": "27B34C45-0D12-5634-B2FC-D5F0EGA67890",
+				"material": "50E67F78-3G45-8967-E5IF-G8I3HJD90123"
+			},
+			{
+				"uuid": "05J12K23-8L90-3412-J0NK-L3N8MOI45678",
+				"type": "Mesh",
+				"name": "EarLeft",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.2,0.8,0.8,1],
+				"geometry": "38C45D56-1E23-6745-C3GD-E6G1FHB78901",
+				"material": "50E67F78-3G45-8967-E5IF-G8I3HJD90123"
+			},
+			{
+				"uuid": "16K23L34-9M01-4523-K1OL-M4O9NPJ56789",
+				"type": "Mesh",
+				"name": "EarRight",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.2,0.8,0.8,1],
+				"geometry": "38C45D56-1E23-6745-C3GD-E6G1FHB78901",
+				"material": "50E67F78-3G45-8967-E5IF-G8I3HJD90123"
+			},
+			{
+				"uuid": "27L34M45-0N12-5634-L2PM-N5P0OQK67890",
+				"type": "Mesh",
+				"name": "Tail",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.3,-0.8,1],
+				"geometry": "49D56E67-2F34-7856-D4HE-F7H2GIC89012",
+				"material": "61F78G89-4H56-9078-F6JG-H9J4IKE01234"
+			}
+		]
+	}
+}

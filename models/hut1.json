@@ -1,0 +1,354 @@
+{
+  "scene": {
+    "description": "Simplified 3D model of a rustic wooden cabin.",
+    "units": "meters",
+    "materials": {
+      "log_wall": { 
+        "color": "#8B4513",
+        "roughness": 0.8,
+        "metalness": 0.1
+      },
+      "wood_plank": { 
+        "color": "#A0522D",
+        "roughness": 0.7,
+        "metalness": 0.1
+      },
+      "roof_metal": { 
+        "color": "#A9A9A9",
+        "roughness": 0.4,
+        "metalness": 0.7
+      },
+      "roof_support": { 
+        "color": "#8B7355",
+        "roughness": 0.7,
+        "metalness": 0.1
+      },
+      "window_frame": { 
+        "color": "#654321",
+        "roughness": 0.6,
+        "metalness": 0.1
+      },
+      "window_pane": { 
+        "color": "#ADD8E6",
+        "roughness": 0.1,
+        "metalness": 0.2,
+        "transmission": 0.9,
+        "opacity": 0.5,
+        "transparent": true
+      },
+      "door": { 
+        "color": "#654321",
+        "roughness": 0.7,
+        "metalness": 0.1
+      },
+      "stone": { 
+        "color": "#808080",
+        "roughness": 0.9,
+        "metalness": 0.1
+      },
+      "chimney_wood": {
+        "color": "#B8860B",
+        "roughness": 0.8,
+        "metalness": 0.1
+      }
+    },
+    "objects": [
+      {
+        "name": "cabin_base_stone_foundation",
+        "type": "cuboid",
+        "size": [8.2, 0.5, 5.2],
+        "position": [0, 0.25, 0],
+        "rotation": [0, 0, 0],
+        "material": "stone"
+      },
+      {
+        "name": "cabin_floor",
+        "type": "cuboid",
+        "size": [8, 0.2, 5],
+        "position": [0, 0.6, 0],
+        "rotation": [0, 0, 0],
+        "material": "wood_plank"
+      },
+      {
+        "name": "back_wall",
+        "type": "cuboid",
+        "size": [8, 3, 0.3],
+        "position": [0, 2.2, -2.35],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "left_side_wall",
+        "type": "cuboid",
+        "size": [0.3, 3, 5],
+        "position": [-3.85, 2.2, 0],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "right_side_wall",
+        "type": "cuboid",
+        "size": [0.3, 3, 5],
+        "position": [3.85, 2.2, 0],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "front_wall_left_section",
+        "type": "cuboid",
+        "size": [2, 3, 0.3],
+        "position": [-2.85, 2.2, 2.35],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "front_wall_right_section",
+        "type": "cuboid",
+        "size": [2, 3, 0.3],
+        "position": [2.85, 2.2, 2.35],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "front_wall_above_door_section",
+        "type": "cuboid",
+        "size": [1.5, 0.8, 0.3],
+        "position": [0, 3.3, 2.35],
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      {
+        "name": "roof_left_slope",
+        "type": "cuboid",
+        "size": [9, 0.2, 3.5],
+        "position": [0, 4.5, -1.25],
+        "rotation": [-0.785, 0, 0],
+        "material": "roof_metal"
+      },
+      {
+        "name": "roof_right_slope",
+        "type": "cuboid",
+        "size": [9, 0.2, 3.5],
+        "position": [0, 4.5, 1.25],
+        "rotation": [0.785, 0, 0],
+        "material": "roof_metal"
+      },
+      { 
+        "name": "rafter_1", 
+        "type": "cuboid", 
+        "size": [0.2, 0.2, 7], 
+        "position": [-4, 5.0, 0], 
+        "rotation": [0, 0, 0], 
+        "material": "roof_support"
+      },
+      { 
+        "name": "rafter_2", 
+        "type": "cuboid", 
+        "size": [0.2, 0.2, 7], 
+        "position": [-2, 5.1, 0], 
+        "rotation": [0, 0, 0], 
+        "material": "roof_support"
+      },
+      { 
+        "name": "rafter_3", 
+        "type": "cuboid", 
+        "size": [0.2, 0.2, 7], 
+        "position": [0, 5.2, 0], 
+        "rotation": [0, 0, 0], 
+        "material": "roof_support"
+      },
+      { 
+        "name": "rafter_4", 
+        "type": "cuboid", 
+        "size": [0.2, 0.2, 7], 
+        "position": [2, 5.1, 0], 
+        "rotation": [0, 0, 0], 
+        "material": "roof_support"
+      },
+      { 
+        "name": "rafter_5", 
+        "type": "cuboid", 
+        "size": [0.2, 0.2, 7], 
+        "position": [4, 5.0, 0], 
+        "rotation": [0, 0, 0], 
+        "material": "roof_support"
+      },
+      {
+        "name": "roof_ridge_log",
+        "type": "cuboid",
+        "size": [9, 0.3, 0.3],
+        "position": [0, 5.25, 0],
+        "rotation": [0, 0, 0],
+        "material": "roof_support"
+      },
+      {
+        "name": "porch_floor_stone_foundation",
+        "type": "cuboid",
+        "size": [8.2, 0.4, 2.2],
+        "position": [0, 0.2, 3.6],
+        "rotation": [0, 0, 0],
+        "material": "stone"
+      },
+      {
+        "name": "porch_floor",
+        "type": "cuboid",
+        "size": [8, 0.2, 2],
+        "position": [0, 0.5, 3.5],
+        "rotation": [0, 0, 0],
+        "material": "wood_plank"
+      },
+      { 
+        "name": "porch_post_fl", 
+        "type": "cuboid", 
+        "size": [0.3, 2.8, 0.3], 
+        "position": [-3.7, 1.9, 2.6], 
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      { 
+        "name": "porch_post_fr", 
+        "type": "cuboid", 
+        "size": [0.3, 2.8, 0.3], 
+        "position": [3.7, 1.9, 2.6], 
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      { 
+        "name": "porch_post_bl", 
+        "type": "cuboid", 
+        "size": [0.3, 2.8, 0.3], 
+        "position": [-3.7, 1.9, 4.4], 
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      { 
+        "name": "porch_post_br", 
+        "type": "cuboid", 
+        "size": [0.3, 2.8, 0.3], 
+        "position": [3.7, 1.9, 4.4], 
+        "rotation": [0, 0, 0],
+        "material": "log_wall"
+      },
+      { 
+        "name": "porch_railing_front", 
+        "type": "cuboid", 
+        "size": [7.4, 0.2, 0.2], 
+        "position": [0, 1.5, 4.4], 
+        "rotation": [0, 0, 0],
+        "material": "wood_plank"
+      },
+      {
+        "name": "door_main",
+        "type": "cuboid",
+        "size": [1.2, 2.2, 0.15],
+        "position": [0, 1.8, 2.425],
+        "rotation": [0, 0, 0],
+        "material": "door"
+      },
+      {
+        "name": "window_1_frame_left", 
+        "type": "cuboid", 
+        "size": [0.1, 1.2, 0.1], 
+        "position": [-3.35, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_1_frame_right", 
+        "type": "cuboid", 
+        "size": [0.1, 1.2, 0.1], 
+        "position": [-2.35, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_1_frame_top", 
+        "type": "cuboid", 
+        "size": [1.1, 0.1, 0.1], 
+        "position": [-2.85, 2.95, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_1_frame_bottom", 
+        "type": "cuboid", 
+        "size": [1.1, 0.1, 0.1], 
+        "position": [-2.85, 1.65, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_1_pane", 
+        "type": "cuboid", 
+        "size": [0.9, 1.0, 0.05], 
+        "position": [-2.85, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_pane"
+      },
+      {
+        "name": "window_2_frame_left", 
+        "type": "cuboid", 
+        "size": [0.1, 1.2, 0.1], 
+        "position": [2.35, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_2_frame_right", 
+        "type": "cuboid", 
+        "size": [0.1, 1.2, 0.1], 
+        "position": [3.35, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_2_frame_top", 
+        "type": "cuboid", 
+        "size": [1.1, 0.1, 0.1], 
+        "position": [2.85, 2.95, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_2_frame_bottom", 
+        "type": "cuboid", 
+        "size": [1.1, 0.1, 0.1], 
+        "position": [2.85, 1.65, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_frame"
+      },
+      {
+        "name": "window_2_pane", 
+        "type": "cuboid", 
+        "size": [0.9, 1.0, 0.05], 
+        "position": [2.85, 2.3, 2.4], 
+        "rotation": [0, 0, 0],
+        "material": "window_pane"
+      },
+      {
+        "name": "chimney_stack",
+        "type": "cuboid",
+        "size": [1, 5, 1],
+        "position": [-4.5, 3.0, -1.5],
+        "rotation": [0, 0, 0],
+        "material": "chimney_wood"
+      },
+      {
+        "name": "step_1", 
+        "type": "cuboid", 
+        "size": [1.5, 0.2, 0.4], 
+        "position": [0, 0.1, 2.8], 
+        "rotation": [0, 0, 0],
+        "material": "wood_plank"
+      },
+      {
+        "name": "step_2", 
+        "type": "cuboid", 
+        "size": [1.5, 0.2, 0.4], 
+        "position": [0, 0.3, 3.2], 
+        "rotation": [0, 0, 0],
+        "material": "wood_plank"
+      }
+    ]
+  }
+}

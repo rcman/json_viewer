@@ -1,0 +1,472 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "tabletop",
+      "type": "BoxGeometry",
+      "width": 2.2,
+      "height": 0.1,
+      "depth": 1.0
+    },
+    {
+      "uuid": "plank",
+      "type": "BoxGeometry",
+      "width": 2.2,
+      "height": 0.05,
+      "depth": 0.14
+    },
+    {
+      "uuid": "side-board",
+      "type": "BoxGeometry",
+      "width": 0.05,
+      "height": 0.8,
+      "depth": 1.0
+    },
+    {
+      "uuid": "leg",
+      "type": "BoxGeometry",
+      "width": 0.08,
+      "height": 0.75,
+      "depth": 0.08
+    },
+    {
+      "uuid": "shelf",
+      "type": "BoxGeometry",
+      "width": 2.1,
+      "height": 0.03,
+      "depth": 0.9
+    },
+    {
+      "uuid": "drawer-front",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 0.12,
+      "depth": 0.03
+    },
+    {
+      "uuid": "drawer-body",
+      "type": "BoxGeometry",
+      "width": 0.58,
+      "height": 0.1,
+      "depth": 0.6
+    },
+    {
+      "uuid": "handle",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.015,
+      "radiusBottom": 0.015,
+      "height": 0.1,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "vise-base",
+      "type": "BoxGeometry",
+      "width": 0.25,
+      "height": 0.15,
+      "depth": 0.2
+    },
+    {
+      "uuid": "vise-jaw",
+      "type": "BoxGeometry",
+      "width": 0.03,
+      "height": 0.12,
+      "depth": 0.2
+    },
+    {
+      "uuid": "vise-screw",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.02,
+      "radiusBottom": 0.02,
+      "height": 0.3,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "vise-handle",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.015,
+      "radiusBottom": 0.015,
+      "height": 0.25,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "tool",
+      "type": "BoxGeometry",
+      "width": 0.05,
+      "height": 0.05,
+      "depth": 0.2
+    },
+    {
+      "uuid": "nail",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.006,
+      "radiusBottom": 0.004,
+      "height": 0.03,
+      "radialSegments": 8
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "wood-light",
+      "type": "MeshStandardMaterial",
+      "color": 11506129,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-light"
+    },
+    {
+      "uuid": "wood-medium",
+      "type": "MeshStandardMaterial",
+      "color": 9266952,
+      "roughness": 0.85,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-medium"
+    },
+    {
+      "uuid": "wood-dark",
+      "type": "MeshStandardMaterial",
+      "color": 6838000,
+      "roughness": 0.9,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood-dark"
+    },
+    {
+      "uuid": "metal",
+      "type": "MeshStandardMaterial",
+      "color": 6710886,
+      "roughness": 0.4,
+      "metalness": 0.8,
+      "emissive": 0,
+      "side": 2,
+      "name": "metal"
+    },
+    {
+      "uuid": "metal-dark",
+      "type": "MeshStandardMaterial",
+      "color": 3355443,
+      "roughness": 0.5,
+      "metalness": 0.7,
+      "emissive": 0,
+      "side": 2,
+      "name": "metal-dark"
+    },
+    {
+      "uuid": "tool-material",
+      "type": "MeshStandardMaterial",
+      "color": 2565927,
+      "roughness": 0.6,
+      "metalness": 0.8,
+      "emissive": 0,
+      "side": 2,
+      "name": "tool-material"
+    }
+  ],
+  "object": {
+    "uuid": "wooden-workbench",
+    "type": "Group",
+    "name": "WoodenWorkbench",
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "tabletop-group",
+        "type": "Group",
+        "name": "TableTop",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.85, 0, 1],
+        "children": []
+      },
+      {
+        "uuid": "frame",
+        "type": "Group",
+        "name": "Frame",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.45, 0, 1],
+        "children": [
+          {
+            "uuid": "left-side",
+            "type": "Mesh",
+            "name": "LeftSide",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.075, 0, 0, 1],
+            "geometry": "side-board",
+            "material": "wood-medium",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "right-side",
+            "type": "Mesh",
+            "name": "RightSide",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.075, 0, 0, 1],
+            "geometry": "side-board",
+            "material": "wood-medium",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "back-board",
+            "type": "Mesh",
+            "name": "BackBoard",
+            "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, -0.475, 1],
+            "geometry": "side-board",
+            "material": "wood-medium",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "legs",
+        "type": "Group",
+        "name": "Legs",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.375, 0, 1],
+        "children": [
+          {
+            "uuid": "leg-front-left",
+            "type": "Mesh",
+            "name": "LegFrontLeft",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.05, -0.375, 0.45, 1],
+            "geometry": "leg",
+            "material": "wood-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "leg-front-right",
+            "type": "Mesh",
+            "name": "LegFrontRight",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.05, -0.375, 0.45, 1],
+            "geometry": "leg",
+            "material": "wood-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "leg-back-left",
+            "type": "Mesh",
+            "name": "LegBackLeft",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -1.05, -0.375, -0.45, 1],
+            "geometry": "leg",
+            "material": "wood-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "leg-back-right",
+            "type": "Mesh",
+            "name": "LegBackRight",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1.05, -0.375, -0.45, 1],
+            "geometry": "leg",
+            "material": "wood-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "bottom-shelf",
+        "type": "Mesh",
+        "name": "BottomShelf",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.15, 0, 1],
+        "geometry": "shelf",
+        "material": "wood-medium",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "drawers",
+        "type": "Group",
+        "name": "Drawers",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.65, 0.48, 1],
+        "children": [
+          {
+            "uuid": "drawer-left",
+            "type": "Group",
+            "name": "DrawerLeft",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.7, 0, 0, 1],
+            "children": [
+              {
+                "uuid": "drawer-front-left",
+                "type": "Mesh",
+                "name": "DrawerFrontLeft",
+                "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+                "geometry": "drawer-front",
+                "material": "wood-light",
+                "castShadow": true,
+                "receiveShadow": true
+              },
+              {
+                "uuid": "drawer-body-left",
+                "type": "Mesh",
+                "name": "DrawerBodyLeft",
+                "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -0.3, 1],
+                "geometry": "drawer-body",
+                "material": "wood-medium",
+                "castShadow": true,
+                "receiveShadow": true
+              },
+              {
+                "uuid": "handle-left",
+                "type": "Mesh",
+                "name": "HandleLeft",
+                "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.015, 1],
+                "geometry": "handle",
+                "material": "metal",
+                "castShadow": true,
+                "receiveShadow": true
+              }
+            ]
+          },
+          {
+            "uuid": "drawer-right",
+            "type": "Group",
+            "name": "DrawerRight",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.7, 0, 0, 1],
+            "children": [
+              {
+                "uuid": "drawer-front-right",
+                "type": "Mesh",
+                "name": "DrawerFrontRight",
+                "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+                "geometry": "drawer-front",
+                "material": "wood-light",
+                "castShadow": true,
+                "receiveShadow": true
+              },
+              {
+                "uuid": "drawer-body-right",
+                "type": "Mesh",
+                "name": "DrawerBodyRight",
+                "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, -0.3, 1],
+                "geometry": "drawer-body",
+                "material": "wood-medium",
+                "castShadow": true,
+                "receiveShadow": true
+              },
+              {
+                "uuid": "handle-right",
+                "type": "Mesh",
+                "name": "HandleRight",
+                "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0.015, 1],
+                "geometry": "handle",
+                "material": "metal",
+                "castShadow": true,
+                "receiveShadow": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "vise",
+        "type": "Group",
+        "name": "Vise",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.9, 0.8, 0.6, 1],
+        "children": [
+          {
+            "uuid": "vise-base-obj",
+            "type": "Mesh",
+            "name": "ViseBase",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            "geometry": "vise-base",
+            "material": "metal-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "vise-fixed-jaw",
+            "type": "Mesh",
+            "name": "ViseFixedJaw",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.14, 0.015, 0, 1],
+            "geometry": "vise-jaw",
+            "material": "metal-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "vise-moving-jaw",
+            "type": "Mesh",
+            "name": "ViseMovingJaw",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.14, 0.015, 0, 1],
+            "geometry": "vise-jaw",
+            "material": "metal-dark",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "vise-screw-obj",
+            "type": "Mesh",
+            "name": "ViseScrew",
+            "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 0, 1],
+            "geometry": "vise-screw",
+            "material": "metal",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "vise-handle-obj",
+            "type": "Mesh",
+            "name": "ViseHandle",
+            "matrix": [0, 1, 0, 0, -1, 0, 0, 0, 0, 0, 1, 0, 0.18, 0, 0, 1],
+            "geometry": "vise-handle",
+            "material": "metal",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "tools",
+        "type": "Group",
+        "name": "Tools",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.9, -0.35, 1],
+        "children": [
+          {
+            "uuid": "tool-1",
+            "type": "Mesh",
+            "name": "Tool1",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.3, 0, 0, 1],
+            "geometry": "tool",
+            "material": "tool-material",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "tool-2",
+            "type": "Mesh",
+            "name": "Tool2",
+            "matrix": [0.866, 0, 0.5, 0, 0, 1, 0, 0, -0.5, 0, 0.866, 0, 0.5, 0, 0, 1],
+            "geometry": "tool",
+            "material": "tool-material",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "tool-3",
+            "type": "Mesh",
+            "name": "Tool3",
+            "matrix": [0.707, 0, 0.707, 0, 0, 1, 0, 0, -0.707, 0, 0.707, 0, 0.7, 0, 0, 1],
+            "geometry": "tool",
+            "material": "tool-material",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "nails-group",
+        "type": "Group",
+        "name": "Nails",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        "children": []
+      }
+    ]
+  },
+  "animations": []
+}

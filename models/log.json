@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "log_cylinder_geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.25,
+      "radiusBottom": 0.25,
+      "height": 2.0,
+      "radialSegments": 12,
+      "heightSegments": 1,
+      "openEnded": false,
+      "name": "LogCylinder"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "log_bark_material",
+      "type": "MeshStandardMaterial",
+      "color": 7032386,
+      "roughness": 0.85,
+      "metalness": 0.05,
+      "name": "LogBarkMaterial"
+    },
+    {
+      "uuid": "log_end_material",
+      "type": "MeshStandardMaterial",
+      "color": 9070677,
+      "roughness": 0.7,
+      "metalness": 0.02,
+      "name": "LogEndMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "wooden_log_object",
+    "type": "Mesh",
+    "name": "WoodenLog",
+    "geometry": "log_cylinder_geometry",
+    "material": [
+      "log_bark_material",
+      "log_end_material",
+      "log_end_material"
+    ],
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1.0,0,1]
+  }
+}

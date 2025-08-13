@@ -1,0 +1,360 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "log-geo-1",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.08,
+      "radiusBottom": 0.08,
+      "height": 1.2,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "log-geo-2",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.08,
+      "radiusBottom": 0.08,
+      "height": 1.2,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "log-geo-3",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.08,
+      "radiusBottom": 0.08,
+      "height": 1.2,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "log-geo-4",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.08,
+      "radiusBottom": 0.08,
+      "height": 1.2,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "stone-geo-1",
+      "type": "SphereGeometry",
+      "radius": 0.15,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-2",
+      "type": "SphereGeometry", 
+      "radius": 0.13,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-3",
+      "type": "SphereGeometry",
+      "radius": 0.14,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-4",
+      "type": "SphereGeometry",
+      "radius": 0.12,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-5",
+      "type": "SphereGeometry",
+      "radius": 0.13,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-6",
+      "type": "SphereGeometry",
+      "radius": 0.14,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-7",
+      "type": "SphereGeometry",
+      "radius": 0.15,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "stone-geo-8",
+      "type": "SphereGeometry",
+      "radius": 0.12,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "flame-geo-1",
+      "type": "ConeGeometry",
+      "radius": 0.25,
+      "height": 0.7,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "flame-geo-2",
+      "type": "ConeGeometry",
+      "radius": 0.15,
+      "height": 0.5,
+      "radialSegments": 8,
+      "heightSegments": 1
+    },
+    {
+      "uuid": "ember-geo",
+      "type": "SphereGeometry",
+      "radius": 0.2,
+      "widthSegments": 8,
+      "heightSegments": 6
+    },
+    {
+      "uuid": "ground-geo",
+      "type": "CircleGeometry",
+      "radius": 1.5,
+      "segments": 16
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "log-mat",
+      "type": "MeshStandardMaterial",
+      "color": 5842619,
+      "roughness": 0.9,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "stone-mat",
+      "type": "MeshStandardMaterial",
+      "color": 8421504,
+      "roughness": 0.8,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "flame-mat-1",
+      "type": "MeshStandardMaterial",
+      "color": 16746752,
+      "emissive": 16746752,
+      "emissiveIntensity": 1.0,
+      "transparent": true,
+      "opacity": 0.9
+    },
+    {
+      "uuid": "flame-mat-2",
+      "type": "MeshStandardMaterial",
+      "color": 16777046,
+      "emissive": 16777046,
+      "emissiveIntensity": 1.0,
+      "transparent": true,
+      "opacity": 0.9
+    },
+    {
+      "uuid": "ember-mat",
+      "type": "MeshStandardMaterial",
+      "color": 10038010,
+      "emissive": 10038010,
+      "emissiveIntensity": 0.8,
+      "roughness": 0.5,
+      "metalness": 0.0
+    },
+    {
+      "uuid": "ground-mat",
+      "type": "MeshStandardMaterial",
+      "color": 5263440,
+      "roughness": 1.0,
+      "metalness": 0.0
+    }
+  ],
+  "object": {
+    "uuid": "campfire-scene",
+    "type": "Group",
+    "name": "Campfire",
+    "layers": 1,
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "logs-group",
+        "type": "Group",
+        "name": "Logs",
+        "layers": 1,
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "log-1",
+            "type": "Mesh",
+            "name": "Log1",
+            "layers": 1,
+            "matrix": [0.7071,0,0.7071,0,0,1,0,0,-0.7071,0,0.7071,0,0.2,0.1,0.2,1],
+            "geometry": "log-geo-1",
+            "material": "log-mat"
+          },
+          {
+            "uuid": "log-2",
+            "type": "Mesh",
+            "name": "Log2",
+            "layers": 1,
+            "matrix": [0.7071,0,-0.7071,0,0,1,0,0,0.7071,0,0.7071,0,-0.2,0.1,0.2,1],
+            "geometry": "log-geo-2",
+            "material": "log-mat"
+          },
+          {
+            "uuid": "log-3",
+            "type": "Mesh",
+            "name": "Log3",
+            "layers": 1,
+            "matrix": [-0.7071,0,-0.7071,0,0,1,0,0,0.7071,0,-0.7071,0,-0.2,0.1,-0.2,1],
+            "geometry": "log-geo-3",
+            "material": "log-mat"
+          },
+          {
+            "uuid": "log-4",
+            "type": "Mesh",
+            "name": "Log4",
+            "layers": 1,
+            "matrix": [-0.7071,0,0.7071,0,0,1,0,0,-0.7071,0,-0.7071,0,0.2,0.1,-0.2,1],
+            "geometry": "log-geo-4",
+            "material": "log-mat"
+          }
+        ]
+      },
+      {
+        "uuid": "stones-group",
+        "type": "Group",
+        "name": "Stones",
+        "layers": 1,
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "stone-1",
+            "type": "Mesh",
+            "name": "Stone1",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,0.85,0,0.45,1],
+            "geometry": "stone-geo-1",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-2",
+            "type": "Mesh",
+            "name": "Stone2",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,0.9,0,-0.25,1],
+            "geometry": "stone-geo-2",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-3",
+            "type": "Mesh",
+            "name": "Stone3",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,0.6,0,-0.7,1],
+            "geometry": "stone-geo-3",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-4",
+            "type": "Mesh",
+            "name": "Stone4",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,0.1,0,-0.95,1],
+            "geometry": "stone-geo-4",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-5",
+            "type": "Mesh",
+            "name": "Stone5",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,-0.5,0,-0.85,1],
+            "geometry": "stone-geo-5",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-6",
+            "type": "Mesh",
+            "name": "Stone6",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,-0.85,0,-0.4,1],
+            "geometry": "stone-geo-6",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-7",
+            "type": "Mesh",
+            "name": "Stone7",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,-0.9,0,0.3,1],
+            "geometry": "stone-geo-7",
+            "material": "stone-mat"
+          },
+          {
+            "uuid": "stone-8",
+            "type": "Mesh",
+            "name": "Stone8",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.8,0,0,0,0,1,0,-0.5,0,0.8,1],
+            "geometry": "stone-geo-8",
+            "material": "stone-mat"
+          }
+        ]
+      },
+      {
+        "uuid": "fire-group",
+        "type": "Group",
+        "name": "Fire",
+        "layers": 1,
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "flame-1",
+            "type": "Mesh",
+            "name": "Flame1",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.35,0,1],
+            "geometry": "flame-geo-1",
+            "material": "flame-mat-1"
+          },
+          {
+            "uuid": "flame-2",
+            "type": "Mesh",
+            "name": "Flame2",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.1,0.5,0.1,1],
+            "geometry": "flame-geo-2",
+            "material": "flame-mat-2"
+          },
+          {
+            "uuid": "embers",
+            "type": "Mesh",
+            "name": "Embers",
+            "layers": 1,
+            "matrix": [1,0,0,0,0,0.5,0,0,0,0,1,0,0,0.1,0,1],
+            "geometry": "ember-geo",
+            "material": "ember-mat"
+          }
+        ]
+      },
+      {
+        "uuid": "ground",
+        "type": "Mesh",
+        "name": "Ground",
+        "layers": 1,
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "geometry": "ground-geo",
+        "material": "ground-mat"
+      }
+    ]
+  }
+}

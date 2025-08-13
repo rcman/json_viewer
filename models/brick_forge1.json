@@ -1,0 +1,288 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "forge-base",
+      "type": "BoxGeometry",
+      "width": 2.0,
+      "height": 0.8,
+      "depth": 1.4
+    },
+    {
+      "uuid": "brick",
+      "type": "BoxGeometry",
+      "width": 0.2,
+      "height": 0.1,
+      "depth": 0.1
+    },
+    {
+      "uuid": "forge-pit",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.4,
+      "radiusBottom": 0.5,
+      "height": 0.3,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "forge-chimney",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.25,
+      "radiusBottom": 0.3,
+      "height": 1.2,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "forge-hood",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.1,
+      "radiusBottom": 0.5,
+      "height": 0.8,
+      "radialSegments": 16
+    },
+    {
+      "uuid": "anvil-base",
+      "type": "BoxGeometry",
+      "width": 0.3,
+      "height": 0.2,
+      "depth": 0.4
+    },
+    {
+      "uuid": "anvil-top",
+      "type": "BoxGeometry",
+      "width": 0.5,
+      "height": 0.15,
+      "depth": 0.15
+    },
+    {
+      "uuid": "anvil-horn",
+      "type": "ConeGeometry",
+      "radius": 0.06,
+      "height": 0.25,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "flames",
+      "type": "ConeGeometry",
+      "radius": 0.3,
+      "height": 0.3,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "bellows",
+      "type": "BoxGeometry",
+      "width": 0.25,
+      "height": 0.15,
+      "depth": 0.6
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "brick-material",
+      "type": "MeshStandardMaterial",
+      "color": 11741958,
+      "roughness": 0.9,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "brick-material"
+    },
+    {
+      "uuid": "brick-dark",
+      "type": "MeshStandardMaterial",
+      "color": 9454070,
+      "roughness": 0.9,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "brick-dark"
+    },
+    {
+      "uuid": "coals",
+      "type": "MeshStandardMaterial",
+      "color": 2236962,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 3407871,
+      "emissiveIntensity": 0.6,
+      "side": 2,
+      "name": "coals"
+    },
+    {
+      "uuid": "metal",
+      "type": "MeshStandardMaterial",
+      "color": 5592405,
+      "roughness": 0.4,
+      "metalness": 0.7,
+      "emissive": 0,
+      "side": 2,
+      "name": "metal"
+    },
+    {
+      "uuid": "flames-material",
+      "type": "MeshStandardMaterial",
+      "color": 16751103,
+      "roughness": 0.3,
+      "metalness": 0.0,
+      "emissive": 16740352,
+      "emissiveIntensity": 0.8,
+      "opacity": 0.7,
+      "transparent": true,
+      "side": 2,
+      "name": "flames-material"
+    },
+    {
+      "uuid": "wood",
+      "type": "MeshStandardMaterial",
+      "color": 6305620,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "name": "wood"
+    }
+  ],
+  "object": {
+    "uuid": "brick-forge",
+    "type": "Group",
+    "name": "BrickForge",
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "forge-base-obj",
+        "type": "Group",
+        "name": "ForgeBase",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.4, 0, 1],
+        "children": [
+          {
+            "uuid": "base-structure",
+            "type": "Mesh",
+            "name": "BaseStructure",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            "geometry": "forge-base",
+            "material": "brick-material",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "brick-layer",
+        "type": "Group",
+        "name": "BrickLayer",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        "children": []
+      },
+      {
+        "uuid": "forge-pit-obj",
+        "type": "Mesh",
+        "name": "ForgePit",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.85, 0, 1],
+        "geometry": "forge-pit",
+        "material": "brick-dark",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "forge-chimney-obj",
+        "type": "Mesh",
+        "name": "ForgeChimney",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.6, 1.2, -0.3, 1],
+        "geometry": "forge-chimney",
+        "material": "brick-material",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "forge-hood-obj",
+        "type": "Mesh",
+        "name": "ForgeHood",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.3, 1.2, -0.2, 1],
+        "geometry": "forge-hood",
+        "material": "metal",
+        "castShadow": true,
+        "receiveShadow": true
+      },
+      {
+        "uuid": "anvil-group",
+        "type": "Group",
+        "name": "Anvil",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.7, 0.9, 0.3, 1],
+        "children": [
+          {
+            "uuid": "anvil-base-obj",
+            "type": "Mesh",
+            "name": "AnvilBase",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            "geometry": "anvil-base",
+            "material": "metal",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "anvil-top-obj",
+            "type": "Mesh",
+            "name": "AnvilTop",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.17, 0, 1],
+            "geometry": "anvil-top",
+            "material": "metal",
+            "castShadow": true,
+            "receiveShadow": true
+          },
+          {
+            "uuid": "anvil-horn-obj",
+            "type": "Mesh",
+            "name": "AnvilHorn",
+            "matrix": [0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 0, -0.2, 0.17, 0, 1],
+            "geometry": "anvil-horn",
+            "material": "metal",
+            "castShadow": true,
+            "receiveShadow": true
+          }
+        ]
+      },
+      {
+        "uuid": "fire-group",
+        "type": "Group",
+        "name": "Fire",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.93, 0, 1],
+        "children": [
+          {
+            "uuid": "coals-obj",
+            "type": "Mesh",
+            "name": "Coals",
+            "matrix": [1, 0, 0, 0, 0, 0.6, 0, 0, 0, 0, 1, 0, 0, -0.1, 0, 1],
+            "geometry": "forge-pit",
+            "material": "coals",
+            "castShadow": false,
+            "receiveShadow": false
+          },
+          {
+            "uuid": "flames-obj",
+            "type": "Mesh",
+            "name": "Flames",
+            "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.05, 0, 1],
+            "geometry": "flames",
+            "material": "flames-material",
+            "castShadow": false,
+            "receiveShadow": false
+          }
+        ]
+      },
+      {
+        "uuid": "bellows-obj",
+        "type": "Mesh",
+        "name": "Bellows",
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.5, 0.7, -0.5, 1],
+        "geometry": "bellows",
+        "material": "wood",
+        "castShadow": true,
+        "receiveShadow": true
+      }
+    ]
+  },
+  "animations": []
+}

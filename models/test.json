@@ -1,0 +1,29 @@
+{
+  "metadata": { "version": 4.5, "type": "Object" },
+  "geometries": [
+    {
+      "uuid": "geom1",
+      "type": "BoxGeometry",
+      "width": 1,
+      "height": 1,
+      "depth": 1
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "mat1",
+      "type": "MeshStandardMaterial",
+      "color": 0xff0000,
+      "roughness": 0.5,
+      "metalness": 0
+    }
+  ],
+  "object": {
+    "uuid": "obj1",
+    "type": "Mesh",
+    "name": "TestCube",
+    "geometry": "geom1",
+    "material": "mat1",
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+  }
+}

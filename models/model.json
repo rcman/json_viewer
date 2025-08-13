@@ -1,0 +1,16 @@
+[
+  {"type": "cylinder", "radius": 1.0, "height": 2.5, "color": "red", "position": [0, 0, 0]},
+  {"type": "cylinder", "radius": 1.02, "height": 0.1, "color": "red", "position": [0, 1.25, 0]},
+  {"type": "cylinder", "radius": 0.1, "height": 0.12, "color": "black", "position": [-0.4, 1.26, 0.1]},
+  {"type": "cylinder", "radius": 0.1, "height": 0.12, "color": "black", "position": [0.4, 1.26, -0.1]},
+  {"type": "torus", "radius": 1.01, "tube": 0.05, "color": "red", "position": [0, 1.0, 0]},
+  {"type": "torus", "radius": 1.01, "tube": 0.05, "color": "red", "position": [0, 0.3, 0]},
+  {"type": "torus", "radius": 1.01, "tube": 0.05, "color": "red", "position": [0, -0.4, 0]},
+  {"type": "torus", "radius": 1.01, "tube": 0.05, "color": "red", "position": [0, -1.1, 0]},
+  {"type": "sphere", "radius": 0.15, "color": "black", "position": [0, 0.2, 1.01], "segments": 16},
+  {"type": "sphere", "radius": 0.25, "color": "black", "position": [-0.22, -0.1, 1.01], "segments": 16, "rotation": [0,0,0]},
+  {"type": "sphere", "radius": 0.25, "color": "black", "position": [0.22, -0.1, 1.01], "segments": 16, "rotation": [0,0,0]},
+  {"type": "cylinder", "radius": 0.08, "height": 0.4, "color": "black", "position": [0, -0.1, 1.01], "rotation": [0,0,0], "segments": 16},
+  {"type": "cylinder", "radius": 0.08, "height": 0.4, "color": "black", "position": [-0.1, 0.08, 1.01], "rotation": [0,0,-60], "segments": 16},
+  {"type": "cylinder", "radius": 0.08, "height": 0.4, "color": "black", "position": [0.1, 0.08, 1.01], "rotation": [0,0,60], "segments": 16}
+]

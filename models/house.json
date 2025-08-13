@@ -1,0 +1,783 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "floor-geometry",
+      "type": "BoxGeometry",
+      "width": 10,
+      "height": 0.2,
+      "depth": 8,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "wall-geometry",
+      "type": "BoxGeometry",
+      "width": 0.2,
+      "height": 3,
+      "depth": 8,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "front-wall-left-geometry",
+      "type": "BoxGeometry",
+      "width": 4,
+      "height": 3,
+      "depth": 0.2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "front-wall-right-geometry",
+      "type": "BoxGeometry", 
+      "width": 4,
+      "height": 3,
+      "depth": 0.2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "front-wall-top-geometry",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 1,
+      "depth": 0.2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "back-wall-geometry",
+      "type": "BoxGeometry",
+      "width": 10,
+      "height": 3,
+      "depth": 0.2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "roof-geometry",
+      "type": "BoxGeometry",
+      "width": 11,
+      "height": 0.2,
+      "depth": 9,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "door-geometry",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 2.8,
+      "depth": 0.1,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "window-geometry",
+      "type": "BoxGeometry",
+      "width": 1.5,
+      "height": 1.5,
+      "depth": 0.05,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "table-top-geometry",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 0.1,
+      "depth": 1.2,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "table-leg-geometry",
+      "type": "BoxGeometry",
+      "width": 0.1,
+      "height": 0.8,
+      "depth": 0.1,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "chair-seat-geometry",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 0.1,
+      "depth": 0.6,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "chair-back-geometry",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 0.8,
+      "depth": 0.1,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "chair-leg-geometry",
+      "type": "BoxGeometry",
+      "width": 0.08,
+      "height": 0.5,
+      "depth": 0.08,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "bed-frame-geometry",
+      "type": "BoxGeometry",
+      "width": 2.5,
+      "height": 0.3,
+      "depth": 1.8,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "bed-headboard-geometry",
+      "type": "BoxGeometry",
+      "width": 2.5,
+      "height": 1.2,
+      "depth": 0.1,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "mattress-geometry",
+      "type": "BoxGeometry",
+      "width": 2.4,
+      "height": 0.2,
+      "depth": 1.7,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "pillow-geometry",
+      "type": "BoxGeometry",
+      "width": 0.8,
+      "height": 0.1,
+      "depth": 0.6,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "roof-triangle-geometry",
+      "type": "BufferGeometry",
+      "data": {
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "type": "Float32Array",
+            "array": [
+              -5, 0, 4.5,
+              5, 0, 4.5,
+              0, 2, 4.5,
+              -5, 0, -4.5,
+              5, 0, -4.5,
+              0, 2, -4.5
+            ]
+          },
+          "normal": {
+            "itemSize": 3,
+            "type": "Float32Array",
+            "array": [
+              0, 0, 1,
+              0, 0, 1,
+              0, 0, 1,
+              0, 0, -1,
+              0, 0, -1,
+              0, 0, -1
+            ]
+          },
+          "index": {
+            "type": "Uint16Array",
+            "array": [
+              0, 1, 2,
+              3, 5, 4
+            ]
+          }
+        }
+      }
+    },
+    {
+      "uuid": "roof-slant-geometry",
+      "type": "BufferGeometry",
+      "data": {
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "type": "Float32Array",
+            "array": [
+              -5, 0, 4.5,
+              0, 2, 4.5,
+              -5, 0, -4.5,
+              0, 2, -4.5,
+              5, 0, 4.5,
+              0, 2, 4.5,
+              5, 0, -4.5,
+              0, 2, -4.5
+            ]
+          },
+          "normal": {
+            "itemSize": 3,
+            "type": "Float32Array",
+            "array": [
+              -0.5, 0.866, 0,
+              -0.5, 0.866, 0,
+              -0.5, 0.866, 0,
+              -0.5, 0.866, 0,
+              0.5, 0.866, 0,
+              0.5, 0.866, 0,
+              0.5, 0.866, 0,
+              0.5, 0.866, 0
+            ]
+          },
+          "index": {
+            "type": "Uint16Array",
+            "array": [
+              0, 1, 3,
+              0, 3, 2,
+              4, 7, 5,
+              4, 6, 7
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "floor-material",
+      "type": "MeshStandardMaterial",
+      "color": 9203985,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "map": "floor-texture"
+    },
+    {
+      "uuid": "wall-material",
+      "type": "MeshStandardMaterial",
+      "color": 16777190,
+      "roughness": 0.9,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "map": "wall-texture"
+    },
+    {
+      "uuid": "roof-material",
+      "type": "MeshStandardMaterial",
+      "color": 6710886,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "map": "roof-texture"
+    },
+    {
+      "uuid": "door-material",
+      "type": "MeshStandardMaterial",
+      "color": 6635063,
+      "roughness": 0.7,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "map": "door-texture"
+    },
+    {
+      "uuid": "window-material",
+      "type": "MeshStandardMaterial",
+      "color": 13421772,
+      "roughness": 0.2,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "transparent": true,
+      "opacity": 0.6
+    },
+    {
+      "uuid": "furniture-material",
+      "type": "MeshStandardMaterial",
+      "color": 6635063,
+      "roughness": 0.8,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "map": "wood-texture"
+    },
+    {
+      "uuid": "fabric-material",
+      "type": "MeshStandardMaterial",
+      "color": 9868950,
+      "roughness": 0.9,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2
+    }
+  ],
+  "textures": [
+    {
+      "uuid": "floor-texture",
+      "image": "floor-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [4, 3],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "wall-texture",
+      "image": "wall-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [3, 2],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "roof-texture",
+      "image": "roof-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [4, 3],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "door-texture",
+      "image": "door-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "wood-texture",
+      "image": "wood-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    }
+  ],
+  "images": [
+    {
+      "uuid": "floor-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFF0lEQVR4nO2bS2xUVRjHf61tJdBCwPIQiKQtbZFASCRB3ZQEWRisC9yYsDHExIUuTFyZuHXpwo0JujFx48LXCNBUU0qhpYJpECGBShNSHn0ALW3Hxfed3tubO3PnPmaG4fySk2nPOd/5vv85r++79w5MYjxRBrQBM4Ei/+wqcA44CfoVQdGfwCLgoHMhNOgHjgMiHQgqbAcuAivjUmr8h79c7/m9wCLgMvA2MDeG7W3AGX+NZB+3/T3t/h5JPgPWqOJYAcAjwC5gDvAE8DOw1/0A6oE/gGW6bj/wFOm9H4Z3fbvbgS3ABm/ra/+MNhYCR4Aq78tHwLuRVmFCNfC8/05YmQnLm6GxDqoq4fQFaGuHa7fg6vVC39UX00UfAvf67/3+GX43UhTG0y3AN/6XEVYCcMc+1ESwZR3s2gCbH4fO+bC4GSrKCn0bOHQGvtkH+46n9qMQNAIPBb+UVvp6H5eRXBMCLx7E/DLY9BR89BR0zHOXXL4OPTeib8Dd2rB1Hdy3FKrKoXESfH8AfujJXF81UOOv3QMc8wqDvd8ILEN6HhvnA7gajRVw5ArUV8HcerciWEqmuNwL+w/DzImw9R5Y6hevuhxWt0JdVdaAUO/f+VPZ+p5/Zl9Y0cgrgMZsO7iFtxv3cS8c6oGFn8DpK5mqqeQPn4HNX0LnJ7DnMMxvgDonxKryrMJAeP4UttxjszE2ysDbJbBuPly7Db0D6SvMsmMXoe9O+uJBuhU8ZVAm9PtQGzQHVpOxOg+7AkJPVgNQUgzzGmDzSph6d+r5iR6Y8j7U749fAAY/NrLhuHiHCgAsV8PL18OLq7lbAZN3w2b/uXAZBtJ7W7BQmAgq8wuQfApJHbNLfVhTLpRaNBJYVpXFOAy7CpCSumPFNbD1UNbDiEUIBXCXz5UjKQCLUlsOl29AbdQEOsyhMMIEoC/DogQgSdFEn2+VjbwwUJDWBULAHuFjrchWJvQF8ELcUVQYxCUAeV6Xowqgxxs+qw76AkPpuLAZQAhJlEYSMQogWBCNKoQa7J+HEUb/QLaM2FGM9zIIoCJbTyYqRlYAVgCL8hTAHDwnGFoBBAgqQKnFKIDgNJLo67EYM8GyoY4BrAESrQPEMQoMDw/HN2xOIZeq8HAPnL+W3nNBATQOwDKCrgjmI4C13u6NCsB62rYtJmXBCEkzHQi3GKAOOOTtXgYs0SQojJkV0OMHpFYRKgyGIAC1BboJMq8efrG5kxN2X9w0tgLYKjutgpPFrAXgu3I7bnbQ+/GHpxbB4nbYcT/sOQIdU6FFu0SZMCihwkDBZoN1wNHYF0ZSCdRUwOTJcPA0vPEnrPgUXlgJP22G9Y0wIUshXFR0VOBJNJ1GxjA7G7PV1YRaONwDK/fA5Ttw7Ca0T4OWKVBmleGoQWJl9L7AgL/3GfQTWw3Kdwqsx9P/PTDZ9xXIlUAl8Jr/XqEI+r8MGIE1INKUyMFnMM0Onjn+uU6R75QgaxCF3vt3gGXTKK7Dkc3eZqXzbL4RXz6EbUYEhyML/fXgYoTlweLJfH9Orvk95I9GV0TZkuhKLDIUtDlhCiZR5xaLOaEkJcJkOXIGRh0RJQOPOpCKjAGjbQQiZeXTqByhiZZFzrNONYcjpzoCmwyT35aSPYV2j4Ank3h4ZDCHRyvRBxJLxCmAUWMSk/h/4C9yJV5/wJp6EAAAAABJRU5ErkJggg=="
+    },
+    {
+      "uuid": "wall-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEcElEQVR4nO2bTWxUVRTHf9MZWloLFpACIZRKqRADYmJcaFw0xpgYSYx7EzfGlRtXJi5duXHDQhOiC40LjcbEGIMGTQjQQikUkEqBtkBLaae0ne9xcc/rzNzpzPTeN++9GecXTqYz5557/vf+zz1f9w04xHJHBVgPrAZWAcM+1oD77IwRYB+wD7j/lZXaWGkKbkX25xxh8t3rOFCWnWXA88DH6lUnbMZVLPc1nq3AK8BbwMa0hOO4JhQ14R4EvvLnqeRTCOC9fgr4FsgNwLUhZ4fAaOBVlAKmgdPA1yL3CPAu8CJQTuvFBBivwnDFadEKXAUOnYEpLU0C3wBvArejeHnUMgAOGYX4K3fN+6khnwOfAR9oiUwChd6q01LomSIAhW4XN8fdZ6Qx4AP9XKq4UKcDgZYqMAEkjgIZqVVkiQbqTF1R8wXS/E4Ys+53yLX58CmN3lJF+QITAM/1w75n4NmN0NwMx3th9ym4cTv+/IwIQANtvlXrQOA1YJXpb1pge35I7Qo6HnDO2TFoOgW7OrRzSPb6BZtTnZpz9gDIp9g0PzCgHNvQBmeGVT0NXL0Jw5MQyplKs7VTGADKPqaKQM/0KceGJ3STG1NwcggmZiA3B22t0JKDYtEYEOj4FGjLweXrcODv2d4vBmgHbWMWEDEKVGVOEYMg6K5vb9Zs23mCQgCt82YCKvgLYV86V+6tRU7PaB05Ogmv9bj8IOEYcHZe4zcCEgCrGjc06bNVq0FruV/R+AiJHQTPkQqUo/L9zheE1ZrVi8bYv1EuJ+z9JHGpE3S9JaHRLF/UVJRSyBiQOTJXyjJXyjJXyjJXyjJXyjJXyjJXyjJXyjJXyjIyCTTYcO4pF31fwXDg/38NrvZDcTr12o2mCjxhq8YzIvitAc0wVXH9xeEe5wQVS8/LJ2FggltWlW0GHg2LqKFOhTn455rrMVwc1I2vwEMr4LnH4NXNUCpj/QUXsrwYEvLsAQGcEQPG7SVWAXc4OgjnB6B/HP6w8rANNj+oNf/FR+DRdrh6B/acxt4/X3DxRHgmxpQGFlMhACyDn3oNnlwPV27CkYtOAAUx4D9X5E1PO3+w40nY/ri7piUHZx+1V/xmXxJigJjwhzHgqNmwNuDFTfDSZnhiLXTnHe2aZ88vwbFe2LgSNqyq3JdoaYKu1bDnMKbIgtLjLTtMrXLFJODLpYDrWs/KIcMT8NN5+OEsPKKCp51b2yAEdqxz1NuxDi6MKo0tNWqHg8C7JFYJkjJh08AxS2f7puHqmHZ7D3fC8CQ0B1AuOXNK8GCH+4s1aGmG/Rc0M3TXGBOQZGXIEqGqzZCwEKgq0LsngI422NgJLa1uaUiIFCpw7z38vCyLLEPWrqTYPQn27tnfC1+dggNn3cxHJ2HAVoWUe8IWsZ8BHxaXMBkaTrRiVwM7ge+B7RmRUDtbgI+AffYF2TL4PMbK5TrzT2GFYyXwJ3BRTJjvQchK4LfANRdywx/ADlKWZBz+B25fepz3T9z1AAAAAElFTkSuQmCC"
+    },
+    {
+      "uuid": "roof-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE9UlEQVR4nO2bS2xUVRjHf9MZWloLFpACIZRKoRA0JCYGY1wYjTEmRhLj3sSNceXGlYlLV27csNDEqAvjQqMxMcZgghoh0EIpFFAqUFrAljKd6XS+x8W5rzP3Tqfv+z0/cpJOz3fO+f7n+853z733DDjESkcd0AQsAjb6b9V/PkpTwAhw3n8fAveqpPCCw4Z/W9CX1mVMAgJG/kJkBxLAJuBr/9tC1h2F2UbvVkJ+DXAIeA3YkZXRPJCfTwLmgD6bvp8Cu4C3gW1pTcZFHCKD7wQQBT4EPvUBPQ+8DOwFGtJajIG4BMSVaZoAPgEOAOO+3NfAm8C1KLXCBJQs5F3wU8AcUJhzzDPAMPA58AnwLnAxih8TMPN+5BXsnHe+5XxvuXBZGPkYeBsYlIMohR8lEOgUcMIPRK3iQ+AnPxLcmNK+U0DM+AwBD1y+ZMcx4C3/+wkwGyUQ6FQAlMswXlKPECbELgFTvtdTXO9HOhWwuQA2BsY8KdLJv4qdKb/dVHUChGLZjdcEYk56PWIiJUBxuMxrAFrE7bZGH44CK0F+XBMQSF8vGZYAP5JWgidhLYXaXwt6w0lf0vvnVgGrJIq09LKTEwLmJc8gXVgJAtSLDHptIgKZWEf1IsOcbDkiApnaLYoMW8U5gf9mUl71Eyjk1NvmmQ+FiAyZSNnLO9kLBLOZxZBJr82YELW/FvSPMJ1clQkQKUt5OVW1SpMhTUDw+6rHJCLQknXU6bKT9RIBQa9NBHq9njExzzzQiQmwfQJZSwIiZS+vQmRYDglofwzM25kHOpGycGeVJkOaAKHTzmJIdNrrDROxQP8I00lFJEDk7eUVZ9ZpMqQJCH5f9ZgQtb8W9P/LZPJ/SYCfDmunr9VLYV4nUmRCiJRdnQqRYXlmgU6mjnIi5SivC5FhOSRAJzOLIUmnvcUwsQDtj4F5u4sh0cnUUU6k7OVVZdZpMqQJCH5f9RhHzO4EXWRqnMCFSFk6MJ1IWdQrEBmWQwJ0MnMxJJwuxixMzNuf3BAdJxBk2l8MkU6EhMWQkO3k7SdAJzMXQ8LpZMzCxGZF75YAgfYXQ6STmYshbmcxOwTEzMztBIo0GTKRspdXlVmnCQh+X/WYSFnaWX4nUBBpM9kJLAiUvbxCSNhfDAnZTt5+AnQyczEknE7GLEyIxCTPCBCyIBBkMiZmZm4nUKTJkImUvbxcZp0mIPh91WNClPnGxEzQPgEC7Q8YiU5mLoZIJ0KCx06xE+hk5mJIOJ2MWZiQyG0CBJI5MiZmZm4nUKTJkImUvbxcZp0mIPh91WOCSJ4AjWwnK7BzkLKVGM5+AnQ6txgS7S+GhIuZYDgG4uZnAnOZ+YvRSLBDgFZKnEYK3jjKrFSN3CZAy9xsZE2Jt+UiJnhIQFTCNQFSZLRfMQEydR4ERsnuPOACcAb418YEUEuCrQhJTXNs9p/B8N3dxVN4YE1ASlLaIu4AtU/cC3QahPxJ4HcfYxxIJyZ4QEDUaGmGvkdoA3YCO4D1PtZ1wGbgCeCJFM2lwhzwF3AK6AUu/78T0A58CewG1gCtwDqgCVgL5FJu4x7wn49RYAw4D5z0D6HEiUiREIXAfnTvlXMr4C7wa9qG7wSiYAJYD7wIbAa2AlvKkFyNmAZOAX8A/cAZoGJkSJETwT8zzS/0fvG3igAAAABJRU5ErkJggg=="
+    },
+    {
+      "uuid": "door-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFBUlEQVR4nO2bXYhVVRTHf3Pu3HE0NUdN/JhS+zBTQTCxgiLsoaLMhxB6LSoIeugh6NGHXnoMeughJcgewpDQMIrIQIpIoz4oNT9qKs1JHT/Gj5nx3tP6LVnn7nPm3Dvn7nvOGYb7h81h9tl7r/9Za++11l5nHTjCEUYYtegCssBa4JIwNu5K4HlgArASuAFMBGqBxcAngGaA44DvgPUu2ZVABfAusAKoBDrktAXYAfwCVAHvAPOBrxKurw84HcF+F/B1zHKSwCbvejXwA9Dhyie8C0x2xdeROGYDG4DnXOCrknj/m4HKMcrpA87m2PYk8JpnV7rjJeBTF/w6YG+Iipt4FVBcpvv/EuP6V4HrMe7/LfCiO78lf0aCqoKtDcByYLF3/BPwC/C9fGvQ9vgjYDfwBbBWvpcjAdTLgGEDbgYwGwSe9o6rgXdyvHMj8Lx3vDmH/1uJIK/iFeAtT14PfAocBC4LdRU2QYJtMGu1ZGTUCQvjJnIJYDC0JTYU+LDxHJl+L7BJZBgd4Tp3U9gJfCuytXr2qkREqJEMXQnorROJdFpIgBwowmFVRLbNArwY/AMD1hSw2bQZD3wYxkFCAtjEqJA1Wk8BG9vT09J+GzJ+f8Nvi4TIglFFZEMbYpUzP2hjHNAnKHdewNan8wvRi2jjCCACvgDmiSZF8RFgKXAoYpk3RLaofspNgFoxcJ2O7cBPEcrYTgzxpf2qBHLWiSxGhN1RCojTAwbVQ11C5awPvmZoK7c9htxGiDpgxAAPQRmYcQRIHSOOAGnDcdsBj3pHEsUMYJNsRcm7hCjP3gDWAN+5axo9BPGt6I2oTY66hDiVDpIgK7KWijzNLqJ8RKhw6W0DUHXM5/JihCZDTjdaadgB5SiAlsCCwsiO2ObyUMB4f1f3fUu+ZoDd5qXu3DgeBZAHoQgJRwcEgb+KTTHvKDfUAnWx74oxCS4DtQlRYAjO2h/S02/IOo9LgFy9ICkB7N1rwvi0xxCgVOjOaE+wllb5+/M9KI14OBZkhLqnwj5bBOXL5xPXAaWEj8MFkHY3OBzK4gjzICjPIcuLZJDVSWp5TpcAcQmQlpB3ONwkr5OsBgeTYt6SZv4+dDZoFmBaJsL+IavGGRCdL3UL8FGSVzwE9KmIcCu0aawWY9OCt8UJhqG6QJrSXQ5ZlQ62YnsfDm35NgBpC3rWmAPJaR5LgBdEhKQ0wnEY8FVx40HAVsXOdMTok2TJagp8H+c+TY4A5YbDtgNKsQvUGLGMscC/ESIw0sR5OlitjFcHlKoHLHSbHUYCtUo7JY0nJQPUu2cXSwCbCKVggF0XrjCVR9htMCZsKbzw0QVHgLTjSJMdTXIKx0lKZWJvlMmwOVYQTdmVDRXYHmRUmAL8Rpb/Y4E/XJpnqHKMW1GZ0aWJ1cLuXG1TxXLVwxTgY3KX/6cQYcbIp8bWEXASeNXfzRWGh73jZnyVxO9FHhK4HaaNxaiYJ4AmchThTAXeI6pQG4M4Tpb4/y1aItThvWD9Rvuoy0YgSq5vbDAwz+d+2hDwYXXM9xsjIkzNtY8gFwOywFExspR/rr5cxkF398hcG+hzMUAhcY+H79q0JUJuiFJa/7m29uXj5VClywWGWuKrEMukCVFVYH2+TiQvzCVB/LxE+5cj4h8JtkWpMbIx+rWcnX59/gFO6G8O+IfRVgAAAABJRU5ErkJggg=="
+    },
+    {
+      "uuid": "wood-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFJElEQVR4nO2bS2xUVRjHf6XttBQotIUilEd5FtGgCXFhiCYSE40rTYwuXLlwYeLKnQt3Lpz4WGhiXBk3xhhjYlyoMcYHGFBAKQ9F5P0qSKEUaPsNi++7zL13zsyde2em05jzJyednnPO9/2/c+75vvO4Ay3QQT+DnCXh2MgLQBMwzaM1QI+j3AF0AdeBW0Cnx7sM3ACuAf3lfsdcMRM4A0wH0qkXCwFMB5pN4CeBFx1LLhpVAKKKlAF5eVCG3IyYLddrgPmOcxctXaQDnTEKAJuB18gyXhbCsoXyHDgwyZ0x4lLAZMf5q8CVAlwvO4YFI48CFt1XlDKzYgZwDGgGRiSw34EMRa+CVz26zRIexUNIrTvuOHfRQmCiRy8DPUAHsjw24NfvMjBa5JhsGvKdZQXUAGPF8TSFy8hWVmfJf8+Ro3j0HmWO24WFjvNWnPboNCJ7jxnN54GlwPJUjlKGTK8NnnwceO7l+GJgfcw8VwKrU+Vv5yHgE/PwXuAQsAY4C/wK/AF0I7NCDu/oAEYJUUzA0yh7t6/NfETmw3SLKV9EQscDUbkeOEp2OToCbE3lbuNsYHLK3/bLKK4rTjBQgVSuo0GDTgY2FPDlbQl6D3gS5ygzXHRzgTxfDhy3L/8P8KHZhXSkkHQYsTq2Wt5v5bZL3kPDPHKPP5kJ5Xs5VrBNrWTytRdGLDgaYdTfhLzeWVNxJkSOQ9aRaLrFvKqaLCJOIFuzTQ/7gT+BJ8j0t9ljXANa/XJb5DEDrEbvIYFgR4zsZlSxE5gK/GTydMGdkRgv5FkzGqkZ+YT5p8lfFwP/mq9w2Xx5W4MWIxOkaeWZhkiYoXQTBqUFCvxe5vl11iDnYY5OjO3I/JeWPTdHgV8t3VCg3Ckmf0zI0jvtSCQKTOGvA8jfSnYWtEDWQEBvGJHncYLu2uTfAuQjI7DfNHzPTFRBnHtc7r0nxOD5IvD8B4En/3nA+SRrRkiTdVi2OmxPYZ+nOGzrnfTz2NdJUlmqCZLF9qFECpiERH4fI5HjbASPlx3zUjf6TqCvmQBxqK+JYe9UQA7IFkASrY4UJ/qrEw5RXTHcB3yfBX63ZHp7nKpKoQP+C6HbkRIFR/XkKsZwYHuE7G6V+kzTnaCXhxzZV6ZqXXEeXZ/CljxeTQHbhB9VDAHel7ggBTxBhpGCw6BRh6G+hv0R3vQgsD3swa97/AtgbsRCm4CHkdw7Aq4f4Wk9kbhYRtzbqHdSKP6t8N8D2hxGtv1sA/AY2Sq3L5b5huxrDvJ2zxQJBNvsyCCCvClrJYvQS9kWZCcIRRyfkKQy1eoAfnrb8JHaS1lEoEk2q2r8rUCnIqe3dyb8iRYJPzusANKQDqA9m+ZDlP9+CvhOjimLM74sDxjZc5Hjc8tl06H0qz81/UYcEuX9CsLODAPJpjYVAOVqAUNJlgUcQ2wusP3XkM/79SJ9fwV5fzZElcYMN0Z5P7KfaQ97IEzZpCNgG9n2MKoI3YiUCwehA+2vLPp8Qm80tZFta1MQHNJ3eJ8/OXx70V3FeJoAJiIttSQYcgVw3Uh9IpVABT6G9EwuIG3vEnoFtlXw50iPfoSRbSLncVG5eobdwC8o8MpKdyCDvSR9Q1QH6aKWxyXG/5Fs22NX5DvyqCAFSF+2R56cKNVDFJvSj/zM1f0K/hZ5XvYJvvGmOkD9zOUdFCW6P3OpoEacMGcAAAAASUVORK5CYII="
+    }
+  ],
+  "object": {
+    "uuid": "house",
+    "type": "Group",
+    "name": "House",
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "house-floor",
+        "type": "Mesh",
+        "name": "Floor",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.1,0,1],
+        "geometry": "floor-geometry",
+        "material": "floor-material"
+      },
+      {
+        "uuid": "house-left-wall",
+        "type": "Mesh",
+        "name": "LeftWall",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-4.9,1.5,0,1],
+        "geometry": "wall-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-right-wall",
+        "type": "Mesh",
+        "name": "RightWall",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,4.9,1.5,0,1],
+        "geometry": "wall-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-back-wall",
+        "type": "Mesh",
+        "name": "BackWall",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,1.5,-3.9,1],
+        "geometry": "back-wall-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-front-wall-left",
+        "type": "Mesh",
+        "name": "FrontWallLeft",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-3,1.5,3.9,1],
+        "geometry": "front-wall-left-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-front-wall-right",
+        "type": "Mesh",
+        "name": "FrontWallRight",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,3,1.5,3.9,1],
+        "geometry": "front-wall-right-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-front-wall-top",
+        "type": "Mesh",
+        "name": "FrontWallTop",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,2.5,3.9,1],
+        "geometry": "front-wall-top-geometry",
+        "material": "wall-material"
+      },
+      {
+        "uuid": "house-roof",
+        "type": "Group",
+        "name": "Roof",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,3.1,0,1],
+        "children": [
+          {
+            "uuid": "house-roof-left",
+            "type": "Mesh",
+            "name": "RoofLeft",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+            "geometry": "roof-slant-geometry",
+            "material": "roof-material"
+          },
+          {
+            "uuid": "house-roof-front",
+            "type": "Mesh",
+            "name": "RoofFront",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+            "geometry": "roof-triangle-geometry",
+            "material": "roof-material"
+          },
+          {
+            "uuid": "house-roof-back",
+            "type": "Mesh",
+            "name": "RoofBack",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+            "geometry": "roof-triangle-geometry",
+            "material": "roof-material"
+          }
+        ]
+      },
+      {
+        "uuid": "house-door",
+        "type": "Mesh",
+        "name": "Door",
+        "matrix": [0.866,0,0.5,0,0,1,0,0,-0.5,0,0.866,0,-0.5,1.4,3.85,1],
+        "geometry": "door-geometry",
+        "material": "door-material"
+      },
+      {
+        "uuid": "house-window-1",
+        "type": "Mesh",
+        "name": "WindowLeft",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-3,1.5,-3.85,1],
+        "geometry": "window-geometry",
+        "material": "window-material"
+      },
+      {
+        "uuid": "house-window-2",
+        "type": "Mesh",
+        "name": "WindowRight",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,3,1.5,-3.85,1],
+        "geometry": "window-geometry",
+        "material": "window-material"
+      },
+      {
+        "uuid": "house-window-3",
+        "type": "Mesh",
+        "name": "WindowSideLeft",
+        "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,-4.85,1.5,-2,1],
+        "geometry": "window-geometry",
+        "material": "window-material"
+      },
+      {
+        "uuid": "house-window-4",
+        "type": "Mesh",
+        "name": "WindowSideRight",
+        "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,4.85,1.5,-2,1],
+        "geometry": "window-geometry",
+        "material": "window-material"
+      },
+      {
+        "uuid": "house-furniture",
+        "type": "Group",
+        "name": "Furniture",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+          {
+            "uuid": "table",
+            "type": "Group",
+            "name
+			
+			"name": "Table",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.4,-2,1],
+            "children": [
+              {
+                "uuid": "table-top",
+                "type": "Mesh",
+                "name": "TableTop",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.45,0,1],
+                "geometry": "table-top-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "table-leg-1",
+                "type": "Mesh",
+                "name": "TableLeg1",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.9,0.0,0.5,1],
+                "geometry": "table-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "table-leg-2",
+                "type": "Mesh",
+                "name": "TableLeg2",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.9,0.0,0.5,1],
+                "geometry": "table-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "table-leg-3",
+                "type": "Mesh",
+                "name": "TableLeg3",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.9,0.0,-0.5,1],
+                "geometry": "table-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "table-leg-4",
+                "type": "Mesh",
+                "name": "TableLeg4",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.9,0.0,-0.5,1],
+                "geometry": "table-leg-geometry",
+                "material": "furniture-material"
+              }
+            ]
+          },
+          {
+            "uuid": "chair-1",
+            "type": "Group",
+            "name": "Chair1",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-1,0.25,-1.2,1],
+            "children": [
+              {
+                "uuid": "chair-1-seat",
+                "type": "Mesh",
+                "name": "Chair1Seat",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+                "geometry": "chair-seat-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-1-back",
+                "type": "Mesh",
+                "name": "Chair1Back",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.45,-0.25,1],
+                "geometry": "chair-back-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-1-leg-1",
+                "type": "Mesh",
+                "name": "Chair1Leg1",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.25,-0.25,0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-1-leg-2",
+                "type": "Mesh",
+                "name": "Chair1Leg2",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.25,-0.25,0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-1-leg-3",
+                "type": "Mesh",
+                "name": "Chair1Leg3",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.25,-0.25,-0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-1-leg-4",
+                "type": "Mesh",
+                "name": "Chair1Leg4",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.25,-0.25,-0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              }
+            ]
+          },
+          {
+            "uuid": "chair-2",
+            "type": "Group",
+            "name": "Chair2",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,1,0.25,-1.2,1],
+            "children": [
+              {
+                "uuid": "chair-2-seat",
+                "type": "Mesh",
+                "name": "Chair2Seat",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+                "geometry": "chair-seat-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-2-back",
+                "type": "Mesh",
+                "name": "Chair2Back",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.45,-0.25,1],
+                "geometry": "chair-back-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-2-leg-1",
+                "type": "Mesh",
+                "name": "Chair2Leg1",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.25,-0.25,0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-2-leg-2",
+                "type": "Mesh",
+                "name": "Chair2Leg2",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.25,-0.25,0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-2-leg-3",
+                "type": "Mesh",
+                "name": "Chair2Leg3",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.25,-0.25,-0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "chair-2-leg-4",
+                "type": "Mesh",
+                "name": "Chair2Leg4",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.25,-0.25,-0.25,1],
+                "geometry": "chair-leg-geometry",
+                "material": "furniture-material"
+              }
+            ]
+          },
+          {
+            "uuid": "bed",
+            "type": "Group",
+            "name": "Bed",
+            "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,3,0.15,-2,1],
+            "children": [
+              {
+                "uuid": "bed-frame",
+                "type": "Mesh",
+                "name": "BedFrame",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+                "geometry": "bed-frame-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "bed-headboard",
+                "type": "Mesh",
+                "name": "BedHeadboard",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.75,-0.85,1],
+                "geometry": "bed-headboard-geometry",
+                "material": "furniture-material"
+              },
+              {
+                "uuid": "bed-mattress",
+                "type": "Mesh",
+                "name": "Mattress",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.25,0,1],
+                "geometry": "mattress-geometry",
+                "material": "fabric-material"
+              },
+              {
+                "uuid": "bed-pillow-1",
+                "type": "Mesh",
+                "name": "Pillow1",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.6,0.4,-0.5,1],
+                "geometry": "pillow-geometry",
+                "material": "fabric-material"
+              },
+              {
+                "uuid": "bed-pillow-2",
+                "type": "Mesh",
+                "name": "Pillow2",
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.6,0.4,-0.5,1],
+                "geometry": "pillow-geometry",
+                "material": "fabric-material"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

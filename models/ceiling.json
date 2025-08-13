@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "ManualThreeJSJSONExporter"
+  },
+  "geometries": [
+    {
+      "uuid": "ceiling_slab_geometry",
+      "type": "BoxGeometry",
+      "width": 2.0,
+      "height": 0.1,
+      "depth": 2.0,
+      "name": "CeilingSlabGeometry"
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "ceiling_material",
+      "type": "MeshStandardMaterial",
+      "color": 11184810,
+      "roughness": 0.9,
+      "metalness": 0.05,
+      "name": "CeilingMaterial"
+    }
+  ],
+  "object": {
+    "uuid": "flat_ceiling_object",
+    "type": "Mesh",
+    "name": "FlatCeiling",
+    "geometry": "ceiling_slab_geometry",
+    "material": "ceiling_material",
+    "matrix": [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,2.05,0,1]
+  }
+}

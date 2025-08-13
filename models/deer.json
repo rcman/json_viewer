@@ -1,0 +1,284 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "deer-body",
+      "type": "BoxGeometry",
+      "width": 2,
+      "height": 1,
+      "depth": 3
+    },
+    {
+      "uuid": "deer-neck",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.4,
+      "radiusBottom": 0.6,
+      "height": 1.2,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "deer-head",
+      "type": "BoxGeometry",
+      "width": 0.8,
+      "height": 1,
+      "depth": 1.4
+    },
+    {
+      "uuid": "deer-leg",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.15,
+      "radiusBottom": 0.1,
+      "height": 2,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "deer-antler",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.02,
+      "radiusBottom": 0.1,
+      "height": 1.2,
+      "radialSegments": 5
+    },
+    {
+      "uuid": "deer-antler-branch",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.01,
+      "radiusBottom": 0.05,
+      "height": 0.7,
+      "radialSegments": 5
+    },
+    {
+      "uuid": "deer-tail",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.05,
+      "radiusBottom": 0.15,
+      "height": 0.4,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "deer-snout",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.25,
+      "radiusBottom": 0.35,
+      "height": 0.7,
+      "radialSegments": 8
+    },
+    {
+      "uuid": "deer-ear",
+      "type": "ConeGeometry",
+      "radius": 0.2,
+      "height": 0.5,
+      "radialSegments": 8
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "deer-brown",
+      "type": "MeshPhongMaterial",
+      "color": 10841617,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 30,
+      "flatShading": false
+    },
+    {
+      "uuid": "deer-dark-brown",
+      "type": "MeshPhongMaterial",
+      "color": 6964858,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 30,
+      "flatShading": false
+    },
+    {
+      "uuid": "deer-light-brown",
+      "type": "MeshPhongMaterial",
+      "color": 13871898,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 30,
+      "flatShading": false
+    },
+    {
+      "uuid": "deer-black",
+      "type": "MeshPhongMaterial",
+      "color": 1118481,
+      "emissive": 0,
+      "specular": 1118481,
+      "shininess": 30,
+      "flatShading": false
+    }
+  ],
+  "object": {
+    "uuid": "deer-model",
+    "type": "Group",
+    "name": "Deer",
+    "layers": 1,
+    "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "children": [
+      {
+        "uuid": "deer-body-mesh",
+        "type": "Mesh",
+        "name": "Body",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1.5, 0, 1],
+        "geometry": "deer-body",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-neck-mesh",
+        "type": "Mesh",
+        "name": "Neck",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 0.7071, 0.7071, 0, 0, -0.7071, 0.7071, 0, 0, 2.2, 1, 1],
+        "geometry": "deer-neck",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-head-mesh",
+        "type": "Mesh",
+        "name": "Head",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 2.8, 1.8, 1],
+        "geometry": "deer-head",
+        "material": "deer-brown",
+        "children": [
+          {
+            "uuid": "deer-snout-mesh",
+            "type": "Mesh",
+            "name": "Snout",
+            "layers": 1,
+            "matrix": [1, 0, 0, 0, 0, 0, 1, 0, 0, -1, 0, 0, 0, 0, 0.7, 1],
+            "geometry": "deer-snout",
+            "material": "deer-light-brown"
+          },
+          {
+            "uuid": "deer-left-ear-mesh",
+            "type": "Mesh",
+            "name": "LeftEar",
+            "layers": 1,
+            "matrix": [1, 0, 0, 0, 0, 0.8, 0.6, 0, 0, -0.6, 0.8, 0, 0.4, 0.5, -0.4, 1],
+            "geometry": "deer-ear",
+            "material": "deer-brown"
+          },
+          {
+            "uuid": "deer-right-ear-mesh",
+            "type": "Mesh",
+            "name": "RightEar",
+            "layers": 1,
+            "matrix": [1, 0, 0, 0, 0, 0.8, 0.6, 0, 0, -0.6, 0.8, 0, -0.4, 0.5, -0.4, 1],
+            "geometry": "deer-ear",
+            "material": "deer-brown"
+          },
+          {
+            "uuid": "deer-left-antler-base-mesh",
+            "type": "Mesh",
+            "name": "LeftAntlerBase",
+            "layers": 1,
+            "matrix": [0.1736, 0, 0.9848, 0, 0.9848, 0, -0.1736, 0, 0, 1, 0, 0, 0.3, 0.6, -0.4, 1],
+            "geometry": "deer-antler",
+            "material": "deer-dark-brown",
+            "children": [
+              {
+                "uuid": "deer-left-antler-branch1-mesh",
+                "type": "Mesh",
+                "name": "LeftAntlerBranch1",
+                "layers": 1,
+                "matrix": [0.5, 0, 0.866, 0, -0.866, 0, 0.5, 0, 0, -1, 0, 0, 0.4, 0.7, 0, 1],
+                "geometry": "deer-antler-branch",
+                "material": "deer-dark-brown"
+              },
+              {
+                "uuid": "deer-left-antler-branch2-mesh",
+                "type": "Mesh",
+                "name": "LeftAntlerBranch2",
+                "layers": 1,
+                "matrix": [-0.5, 0, 0.866, 0, -0.866, 0, -0.5, 0, 0, -1, 0, 0, 0.6, 0.4, 0, 1],
+                "geometry": "deer-antler-branch",
+                "material": "deer-dark-brown"
+              }
+            ]
+          },
+          {
+            "uuid": "deer-right-antler-base-mesh",
+            "type": "Mesh",
+            "name": "RightAntlerBase",
+            "layers": 1,
+            "matrix": [-0.1736, 0, 0.9848, 0, 0.9848, 0, 0.1736, 0, 0, 1, 0, 0, -0.3, 0.6, -0.4, 1],
+            "geometry": "deer-antler",
+            "material": "deer-dark-brown",
+            "children": [
+              {
+                "uuid": "deer-right-antler-branch1-mesh",
+                "type": "Mesh",
+                "name": "RightAntlerBranch1",
+                "layers": 1,
+                "matrix": [-0.5, 0, 0.866, 0, -0.866, 0, -0.5, 0, 0, -1, 0, 0, -0.4, 0.7, 0, 1],
+                "geometry": "deer-antler-branch",
+                "material": "deer-dark-brown"
+              },
+              {
+                "uuid": "deer-right-antler-branch2-mesh",
+                "type": "Mesh",
+                "name": "RightAntlerBranch2",
+                "layers": 1,
+                "matrix": [0.5, 0, 0.866, 0, -0.866, 0, 0.5, 0, 0, -1, 0, 0, -0.6, 0.4, 0, 1],
+                "geometry": "deer-antler-branch",
+                "material": "deer-dark-brown"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uuid": "deer-front-left-leg-mesh",
+        "type": "Mesh",
+        "name": "FrontLeftLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.8, 0.5, 1, 1],
+        "geometry": "deer-leg",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-front-right-leg-mesh",
+        "type": "Mesh",
+        "name": "FrontRightLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.8, 0.5, 1, 1],
+        "geometry": "deer-leg",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-back-left-leg-mesh",
+        "type": "Mesh",
+        "name": "BackLeftLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.8, 0.5, -1, 1],
+        "geometry": "deer-leg",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-back-right-leg-mesh",
+        "type": "Mesh",
+        "name": "BackRightLeg",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.8, 0.5, -1, 1],
+        "geometry": "deer-leg",
+        "material": "deer-brown"
+      },
+      {
+        "uuid": "deer-tail-mesh",
+        "type": "Mesh",
+        "name": "Tail",
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 0.8, -0.6, 0, 0, 0.6, 0.8, 0, 0, 1.4, -1.6, 1],
+        "geometry": "deer-tail",
+        "material": "deer-light-brown"
+      }
+    ]
+  }
+}

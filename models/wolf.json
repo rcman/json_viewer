@@ -1,0 +1,165 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "a1b2c3d4-e5f6-47g8-h9i0-j1k2l3m4n5o6",
+			"type": "BoxGeometry",
+			"width": 2,
+			"height": 1,
+			"depth": 3,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		},
+		{
+			"uuid": "b2c3d4e5-f6g7-58h9-i0j1-k2l3m4n5o6p7",
+			"type": "ConeGeometry",
+			"radius": 0.6,
+			"height": 1.2,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false,
+			"thetaStart": 0,
+			"thetaLength": 6.283185
+		},
+		{
+			"uuid": "c3d4e5f6-g7h8-69i0-j1k2-l3m4n5o6p7q8",
+			"type": "CylinderGeometry",
+			"radiusTop": 0.15,
+			"radiusBottom": 0.15,
+			"height": 0.8,
+			"radialSegments": 8,
+			"heightSegments": 1,
+			"openEnded": false
+		},
+		{
+			"uuid": "d4e5f6g7-h8i9-70j1-k2l3-m4n5o6p7q8r9",
+			"type": "SphereGeometry",
+			"radius": 0.1,
+			"widthSegments": 8,
+			"heightSegments": 6,
+			"phiStart": 0,
+			"phiLength": 6.283185,
+			"thetaStart": 0,
+			"thetaLength": 3.1415
+		}
+	],
+	"materials": [
+		{
+			"uuid": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0",
+			"type": "MeshStandardMaterial",
+			"color": 8421504,
+			"roughness": 0.6,
+			"metalness": 0.0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		},
+		{
+			"uuid": "f6g7h8i9-j0k1-92l3-m4n5-o6p7q8r9s0t1",
+			"type": "MeshStandardMaterial",
+			"color": 0,
+			"roughness": 0.2,
+			"metalness": 0.0,
+			"emissive": 0,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"colorWrite": true,
+			"stencilWrite": false,
+			"stencilWriteMask": 255,
+			"stencilFunc": 519,
+			"stencilRef": 0,
+			"stencilFuncMask": 255,
+			"stencilFail": 7680,
+			"stencilZFail": 7680,
+			"stencilZPass": 7680
+		}
+	],
+	"object": {
+		"uuid": "g7h8i9j0-k1l2-03m4-n5o6-p7q8r9s0t1u2",
+		"type": "Group",
+		"name": "Wolf",
+		"layers": 1,
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "h8i9j0k1-l2m3-14n5-o6p7-q8r9s0t1u2v3",
+				"type": "Mesh",
+				"name": "Body",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.5,0,1],
+				"geometry": "a1b2c3d4-e5f6-47g8-h9i0-j1k2l3m4n5o6",
+				"material": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0"
+			},
+			{
+				"uuid": "i9j0k1l2-m3n4-25o6-p7q8-r9s0t1u2v3w4",
+				"type": "Mesh",
+				"name": "Head",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.6,1.6,1],
+				"geometry": "b2c3d4e5-f6g7-58h9-i0j1-k2l3m4n5o6p7",
+				"material": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0"
+			},
+			{
+				"uuid": "j0k1l2m3-n4o5-36p7-q8r9-s0t1u2v3w4x5",
+				"type": "Mesh",
+				"name": "EarLeft",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.3,1.0,1.4,1],
+				"geometry": "c3d4e5f6-g7h8-69i0-j1k2-l3m4n5o6p7q8",
+				"material": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0"
+			},
+			{
+				"uuid": "k1l2m3n4-o5p6-47q8-r9s0-t1u2v3w4x5y6",
+				"type": "Mesh",
+				"name": "EarRight",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.3,1.0,1.4,1],
+				"geometry": "c3d4e5f6-g7h8-69i0-j1k2-l3m4n5o6p7q8",
+				"material": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0"
+			},
+			{
+				"uuid": "l2m3n4o5-p6q7-58r9-s0t1-u2v3w4x5y6z7",
+				"type": "Mesh",
+				"name": "Tail",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.6,-1.6,1],
+				"geometry": "c3d4e5f6-g7h8-69i0-j1k2-l3m4n5o6p7q8",
+				"material": "e5f6g7h8-i9j0-81k2-l3m4-n5o6p7q8r9s0"
+			},
+			{
+				"uuid": "m3n4o5p6-q7r8-69s0-t1u2-v3w4x5y6z7a8",
+				"type": "Mesh",
+				"name": "EyeLeft",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.25,0.8,2.0,1],
+				"geometry": "d4e5f6g7-h8i9-70j1-k2l3-m4n5o6p7q8r9",
+				"material": "f6g7h8i9-j0k1-92l3-m4n5-o6p7q8r9s0t1"
+			},
+			{
+				"uuid": "n4o5p6q7-r8s9-70t1-u2v3-w4x5y6z7a8b9",
+				"type": "Mesh",
+				"name": "EyeRight",
+				"layers": 1,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.25,0.8,2.0,1],
+				"geometry": "d4e5f6g7-h8i9-70j1-k2l3-m4n5o6p7q8r9",
+				"material": "f6g7h8i9-j0k1-92l3-m4n5-o6p7q8r9s0t1"
+			}
+		]
+	}
+}

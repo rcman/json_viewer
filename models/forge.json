@@ -1,0 +1,300 @@
+{
+  "metadata": {
+    "version": 4.5,
+    "type": "Object",
+    "generator": "Object3D.toJSON"
+  },
+  "geometries": [
+    {
+      "uuid": "base-geometry",
+      "type": "BoxGeometry",
+      "width": 1.4,
+      "height": 0.8,
+      "depth": 1.4,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "anvil-base-geometry",
+      "type": "BoxGeometry",
+      "width": 0.6,
+      "height": 0.3,
+      "depth": 0.4,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "anvil-top-geometry",
+      "type": "BoxGeometry",
+      "width": 0.8,
+      "height": 0.15,
+      "depth": 0.3,
+      "widthSegments": 1,
+      "heightSegments": 1,
+      "depthSegments": 1
+    },
+    {
+      "uuid": "fire-pit-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.4,
+      "radiusBottom": 0.4,
+      "height": 0.15,
+      "radialSegments": 16,
+      "heightSegments": 1,
+      "openEnded": false
+    },
+    {
+      "uuid": "fire-geometry",
+      "type": "ConeGeometry",
+      "radius": 0.35,
+      "height": 0.5,
+      "radialSegments": 16,
+      "heightSegments": 1,
+      "openEnded": false,
+      "thetaStart": 0,
+      "thetaLength": 6.283185307179586
+    },
+    {
+      "uuid": "chimney-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.15,
+      "radiusBottom": 0.25,
+      "height": 1.2,
+      "radialSegments": 8,
+      "heightSegments": 1,
+      "openEnded": false
+    },
+    {
+      "uuid": "tool-handle-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.03,
+      "radiusBottom": 0.03,
+      "height": 0.7,
+      "radialSegments": 8,
+      "heightSegments": 1,
+      "openEnded": false
+    },
+    {
+      "uuid": "tongs-geometry",
+      "type": "CylinderGeometry",
+      "radiusTop": 0.04,
+      "radiusBottom": 0.01,
+      "height": 0.3,
+      "radialSegments": 8,
+      "heightSegments": 1,
+      "openEnded": false
+    }
+  ],
+  "materials": [
+    {
+      "uuid": "stone-material",
+      "type": "MeshStandardMaterial",
+      "color": 5592405,
+      "roughness": 0.9,
+      "metalness": 0.1,
+      "emissive": 0,
+      "side": 2,
+      "map": "stone-texture"
+    },
+    {
+      "uuid": "metal-material",
+      "type": "MeshStandardMaterial",
+      "color": 6710886,
+      "roughness": 0.4,
+      "metalness": 0.8,
+      "emissive": 0,
+      "side": 2
+    },
+    {
+      "uuid": "fire-material",
+      "type": "MeshStandardMaterial",
+      "color": 16746496,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 16711680,
+      "emissiveIntensity": 0.8,
+      "side": 2,
+      "transparent": true,
+      "opacity": 0.9
+    },
+    {
+      "uuid": "ember-material",
+      "type": "MeshStandardMaterial",
+      "color": 16730418,
+      "roughness": 0.7,
+      "metalness": 0.0,
+      "emissive": 16730418,
+      "emissiveIntensity": 1.0,
+      "side": 2
+    },
+    {
+      "uuid": "chimney-material",
+      "type": "MeshStandardMaterial",
+      "color": 2236962,
+      "roughness": 0.8,
+      "metalness": 0.2,
+      "emissive": 0,
+      "side": 2
+    },
+    {
+      "uuid": "wood-material",
+      "type": "MeshStandardMaterial",
+      "color": 6304293,
+      "roughness": 0.8,
+      "metalness": 0.0,
+      "emissive": 0,
+      "side": 2,
+      "map": "wood-texture"
+    }
+  ],
+  "textures": [
+    {
+      "uuid": "stone-texture",
+      "image": "stone-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    },
+    {
+      "uuid": "wood-texture",
+      "image": "wood-image",
+      "mapping": 300,
+      "wrap": [1001, 1001],
+      "repeat": [1, 1],
+      "format": 1023,
+      "type": 1009,
+      "encoding": 3000,
+      "minFilter": 1008,
+      "magFilter": 1006
+    }
+  ],
+  "images": [
+    {
+      "uuid": "stone-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjQ0NzMzRDI1OTU1MTFFQTkzRjhFMzIyNjFEMDFDNTkiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MjQ0NzMzRDM1OTU1MTFFQTkzRjhFMzIyNjFEMDFDNTkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyNDQ3MzNEMDU5NTUxMUVBOTNGOEUzMjI2MUQwMUM1OSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoyNDQ3MzNEMTU5NTUxMUVBOTNGOEUzMjI2MUQwMUM1OSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjEw8pkAAADzSURBVHjaYvz//z8DJYAFmVNZWcnwLzrF4WF9jBJQYDL///+/MQMDw6L///8HwMXkN0bfm7xmwG5DVFTU/8rKysKSkpJvQO4bxv////dGVcHIwMnJmQbEJ4G4G+jVA0A8H4gfA/EHIP4LxHOBOBCI1YC4AYjPAvEOIL4NxBuA+AUQP4HbADT9BhDLALE0EL8D4nSgQZlAfB2I7wGxGhDfAOI5QJwOxBJAvBqID8JdgAQYkfg/gVgKiE8B8Xwg/gnEz4G4E4hToWoGxgUjI2MEEKsD8VGGgQHHgNiEQRQwnIHbAHRXwCT+DIwXgJ0oN3J8AAgwAGy0HTpf2HOoAAAAAElFTkSuQmCC"
+    },
+    {
+      "uuid": "wood-image",
+      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDZGNDJDNzI1OTU3MTFFQTkxQUVGNUUwMDBCRjYzQzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDZGNDJDNzM1OTU3MTFFQTkxQUVGNUUwMDBCRjYzQzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENkY0MkM3MDU5NTcxMUVBOTFBRUY1RTAwMEJGNjNDNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpENkY0MkM3MTU5NTcxMUVBOTFBRUY1RTAwMEJGNjNDNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpJ/6E8AAADNSURBVHjaYvz//z8DJYCJgUKAYQAZjIyMx4FUG5K4PhAvxaYPxQVxcXGMjY2NEgwMDKVA7gMg3grEcUCcAMQ/gbgQiEWAWBeIVwDxYiDeC8QLgfgxEB8G4mtA/A/moXIgrgXiA0C8HYjzgFgZiKcCcSYQzwJiAyBuA+I+IP4OxBeBeD8QPwPir0D8FYiPA/EuIH4NdzLQCaxAnALEGkB8Goj/APEWIP4OxFeAWAooZwXEV4H4DT4votSDzECF/w9IAz4XoBigDk8BAgwA5f4aPNp62TIAAAAASUVORK5CYII="
+    }
+  ],
+  "object": {
+    "uuid": "forge",
+    "type": "Group",
+    "name": "Forge",
+    "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+    "children": [
+      {
+        "uuid": "forge-base",
+        "type": "Mesh",
+        "name": "ForgeBase",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "geometry": "base-geometry",
+        "material": "stone-material"
+      },
+      {
+        "uuid": "forge-fire-pit",
+        "type": "Mesh",
+        "name": "FirePit",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.4,0,1],
+        "geometry": "fire-pit-geometry",
+        "material": "ember-material"
+      },
+      {
+        "uuid": "forge-fire",
+        "type": "Mesh",
+        "name": "Fire",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.65,0,1],
+        "geometry": "fire-geometry",
+        "material": "fire-material"
+      },
+      {
+        "uuid": "forge-chimney",
+        "type": "Mesh",
+        "name": "Chimney",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.5,0.6,-0.4,1],
+        "geometry": "chimney-geometry",
+        "material": "chimney-material"
+      },
+      {
+        "uuid": "forge-anvil-base",
+        "type": "Mesh",
+        "name": "AnvilBase",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.4,0.5,0.4,1],
+        "geometry": "anvil-base-geometry",
+        "material": "metal-material"
+      },
+      {
+        "uuid": "forge-anvil-top",
+        "type": "Mesh",
+        "name": "AnvilTop",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-0.4,0.725,0.4,1],
+        "geometry": "anvil-top-geometry",
+        "material": "metal-material"
+      },
+      {
+        "uuid": "forge-tongs",
+        "type": "Group",
+        "name": "Tongs",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0.4,0.4,0.5,1],
+        "children": [
+          {
+            "uuid": "tongs-handle",
+            "type": "Mesh",
+            "name": "TongsHandle",
+            "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,0,0,0,1],
+            "geometry": "tool-handle-geometry",
+            "material": "wood-material"
+          },
+          {
+            "uuid": "tongs-head1",
+            "type": "Mesh",
+            "name": "TongsHead1",
+            "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,0,0.35,0.3,1],
+            "geometry": "tongs-geometry",
+            "material": "metal-material"
+          },
+          {
+            "uuid": "tongs-head2",
+            "type": "Mesh",
+            "name": "TongsHead2",
+            "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,0,0.35,-0.3,1],
+            "geometry": "tongs-geometry",
+            "material": "metal-material"
+          }
+        ]
+      },
+      {
+        "uuid": "forge-hammer",
+        "type": "Group",
+        "name": "Hammer",
+        "matrix": [1,0,0,0,0,0.7071,0.7071,0,0,-0.7071,0.7071,0,-0.4,0.85,0.6,1],
+        "children": [
+          {
+            "uuid": "hammer-handle",
+            "type": "Mesh",
+            "name": "HammerHandle",
+            "matrix": [0,0,1,0,0,1,0,0,-1,0,0,0,0,0,0,1],
+            "geometry": "tool-handle-geometry",
+            "material": "wood-material"
+          },
+          {
+            "uuid": "hammer-head",
+            "type": "Mesh",
+            "name": "HammerHead",
+            "matrix": [0,0,0.2,0,0,0.15,0,0,-0.4,0,0,0,0,0,0.35,1],
+            "geometry": "anvil-base-geometry",
+            "material": "metal-material"
+          }
+        ]
+      }
+    ]
+  }
+}
